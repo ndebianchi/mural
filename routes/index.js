@@ -1,6 +1,19 @@
 var express = require('express');
 var router = express.Router();
-const IndexController = require('../controllers/IndexController')
+
+const LoginController = require('../controllers/LoginController')
+const InicioController = require('../controllers/InicioController')
+const AvisosController = require('../controllers/AvisosController')
+const OcorrenciasController = require('../controllers/OcorrenciasController')
+const ReservasController = require('../controllers/ReservasController')
+const AgendaController = require('../controllers/AgendaController')
+const EnquetesController = require('../controllers/EnquetesController')
+const BoletoController = require('../controllers/BoletoController')
+const ContasController = require('../controllers/ContasController')
+const perdidosController = require('../controllers/perdidosController')
+const GerenciarPerfisController = require('../controllers/GerenciarPerfisController')
+const ConfigController = require('../controllers/ConfigController')
+const PerfilController = require('../controllers/PerfilController')
 
 
 router.get('/login', LoginController.index);
@@ -28,5 +41,6 @@ router.get('/gerenciarPerfis', GerenciarPerfisController.index);
 router.get('/config', ConfigController.index);
 
 router.get('/perfil', PerfilController.index);
+
 
 module.exports = router;

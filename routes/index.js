@@ -14,6 +14,7 @@ const perdidosController = require('../controllers/perdidosController')
 const GerenciarPerfisController = require('../controllers/GerenciarPerfisController')
 const ConfigController = require('../controllers/ConfigController')
 const PerfilController = require('../controllers/PerfilController')
+const CadastroController = require('../controllers/CadastroController')
 
 
 router.get('/login', LoginController.index);
@@ -43,6 +44,8 @@ router.get('/gerenciarPerfis', GerenciarPerfisController.index);
 router.get('/config', ConfigController.index);
 
 router.get('/perfil', PerfilController.index);
+
+router.get('/cadastro', CadastroController.index);
 
 
 module.exports = router;

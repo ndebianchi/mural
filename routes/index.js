@@ -25,6 +25,7 @@ router.get('/avisos', AvisosController.index);
 router.get('/ocorrencias', OcorrenciasController.index);
 
 router.get('/reservas', ReservasController.index);
+router.get('/reservas-agenda', ReservasController.reservasAgenda);
 
 router.get('/agenda', AgendaController.index);
 
@@ -33,6 +34,7 @@ router.get('/enquetes', EnquetesController.index);
 router.get('/boleto', BoletoController.index);
 
 router.get('/contas', ContasController.index);
+router.get('/editar-gastos', ContasController.editarGastos);
 
 router.get('/perdidos', perdidosController.index);
 

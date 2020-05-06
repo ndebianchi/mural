@@ -1,0 +1,127 @@
+/* Container dos cards */
+
+main .feed {
+    margin: 0 auto;
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Header do Card */
+
+.card {
+    padding: 24px;
+    background-color: #FBF1F5;
+    margin: 15px 10px;
+    border-radius: 8px;
+}
+
+.card header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card header .user-group {
+    align-items: center;
+    display: flex;
+}
+
+.card header .user-group img {
+    border-radius: 50%;
+    width: 54px;
+}
+
+.card header .user-group .user-info {
+    margin-left: 15px;
+}
+
+.card header .user-group .user-info p {
+    color: #F70065;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.card header .user-group .user-info span {
+    color: #999999;
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+.card header .post-type {
+    color: #999999;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Conteúdo do card */
+
+.card main {
+    padding: 18px 0;
+}
+
+.card main .post-text {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.card main img.post-img {
+    border-radius: 8px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+/* Footer do card */
+
+.card footer {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card footer .post-info span {
+    color: #999999;
+    display: block;
+    font-size: 14px;
+}
+
+.card footer .post-info span:first-child {
+    padding-bottom: 3px;
+}
+
+.card footer .btn-group {
+    display: flex;
+}
+
+.card footer .btn-group button {
+    align-items: center;
+    border: none;
+    background-color: #F70065;
+    border-radius: 8px;
+    color: #FFF;
+    cursor: pointer;
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 10px;
+}
+
+.card footer .btn-group button img {
+    padding-right: 4px;
+}
+
+.card footer .btn-group .btn-comment {
+    margin-right: 8px;
+}
+
+/* *********** */
+/* MEDIA QUERY */
+/* *********** */
+
+@media (min-width: 768px) {
+
+    /* FOOTER DO CARD */
+
+    .card header .post-type {
+        font-size: 15px;
+    }
+}

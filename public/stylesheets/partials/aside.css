@@ -1,0 +1,156 @@
+/* ************** */
+/* SIDEBAR MOBILE */
+/* ************** */
+
+.sidebarMobile {
+    font-family: 'Roboto Condensed', sans-serif;
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    /* camada do topo */
+    top: 0;
+    left: 0;
+    background-color: #F70065;
+    overflow-x: hidden;
+    /* tira scroll H - mas permite scroll V */
+    padding-top: 30px;
+    transition: 0.5s;
+    transform: translateX(-100%);
+}
+
+#logo-nav {
+    width: 80%;
+    margin: 20px;
+    padding-bottom: 25px;
+    border-bottom: white solid 2px;
+    margin-bottom: 40px;
+}
+
+#logo-nav a img {
+    width: 100%;
+}
+
+#logo-nav a:hover {
+    background-color: white;
+
+}
+
+.sidebarMobile a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.sidebarMobile a img {
+    width: 1.3em;
+    padding-right: 0.5em;
+}
+
+/* Botão Fechar - Pos e Estilo (top right corner) */
+.sidebarMobile .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* *************** */
+/* SIDEBAR DESKTOP */
+/* *************** */
+
+.sidebarDesktop {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 600;
+    display: none;
+    min-width: 250px;
+    max-width: 300px;
+    width: 25vw;
+    height: 100vh;
+    background: #fff;
+    border-right: 3px solid #f70065;
+}
+
+.sidebarDesktop div {
+    padding: 0;
+}
+
+.sidebarDesktop div a {
+    display: none;
+    padding: 10px;
+    margin-left: 30px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    align-items: center;
+}
+
+.sidebarDesktop a img {
+    width: 1.3em;
+    padding-right: 0.5em;
+}
+
+.sidebarDesktop a:hover {
+    background-color: #FC81B966;
+    color: #F70065;
+    border-radius: 29px;
+    opacity: 1;
+}
+
+
+/* *********** */
+/* MEDIA QUERY */
+/* *********** */
+
+@media (min-width: 992px) {
+
+    /* esconde nav-mobile e sanduiche */
+    .sidebarMobile {
+        display: none;
+    }
+
+    .openbtn {
+        display: none;
+    }
+
+    /* mostra nav-desktop */
+    .sidebarDesktop {
+        display: block;
+    }    
+
+    .sidebarDesktop a img {
+        width: 30px;
+    }
+
+    .sidebarDesktop div {
+        display: block;
+    }
+
+    .sidebarDesktop div a {
+        display: flex;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .container {
+        display: flex;
+    }
+
+    .feed-container {
+        height: 100vh;
+        overflow-y: scroll;
+        width: 100%;
+    }
+
+    /* muda cor da linha do logo na nav */
+    #logo-nav {
+        border-bottom: #F70065 solid 2px;
+    }
+}

@@ -1,0 +1,114 @@
+#mural {
+    display: flex;
+    height: 100vh;  
+    justify-content: flex-start;
+  }
+
+#main-login {
+    display: block;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+#main-login div {
+    margin: 10px;
+}
+
+#main-login div a{
+    text-decoration: none;
+    color: #F70065;
+}
+
+
+.logo-login {
+    width: 70%;
+    max-width: 300px;
+    padding: 30px;    
+    margin: 0 auto 50px!important;
+    border-bottom: solid #F70065 2px;    
+}
+
+
+.login-form {
+    display: block;
+    width: 100%;
+    margin-bottom: 10%;
+}
+
+.login-form div label {
+    font-weight: 600;
+    color: #707070;    
+}
+
+.login-form div input {
+    padding: 6px;
+    width: 60%;
+    max-width: 250px;
+    border-radius: 25px;
+    border: solid 1px #707070;    
+}
+
+.login-form div button {
+    margin-top: 30px;    
+    background-color: white;
+    color: #707070;
+    text-decoration: none;
+    border: none;
+    font-size: 30px;
+    font-weight: 600;
+    padding: 10px 30px;
+}
+
+/* DESKTOP */
+
+.topo-login {
+    display: none;
+    border-bottom: #F70065 2px solid;
+    margin: 80px auto 30px!important;
+    width: 30%;
+    max-width: 250px;
+}
+
+.topo-login h2 {
+    font-family: 'Roboto' sans-serif;
+    color: #707070;
+    font-weight: 700;
+    font-size: 26px;
+    margin: 20px auto;
+}
+
+.aside-login {
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 33%;
+    max-width: 500px;
+    background-color: #F70065;
+    justify-content: center;    
+    align-items: center;
+}
+
+.aside-login div {
+    width: 80%;
+    padding: 30px;    
+}
+
+@media screen and (min-width: 992px){
+    .logo-login { display: none; }
+
+    .topo-login { display: block }
+
+    #main-login { margin-left: 300px; }
+
+    .aside-login { display: flex; }
+
+    .login-form div button:hover {
+        cursor: pointer;
+        color: #F70065;
+        border: #F70065 solid 1px;
+        border-radius: 25px;
+    }
+}
+

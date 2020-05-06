@@ -1,0 +1,258 @@
+/* **************
+Começo do selecionar período
+***************** */
+
+.feed-container .escolha-periodo{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.feed-container .escolha-periodo .periodo-text{
+   font-size: 17px;
+   /* margin: 0px 10px; */
+}
+
+.cabecalho-periodo{
+    margin: 0px 10% 20px;
+}
+
+.cabecalho-periodo button{
+    align-items: center;
+    border: none;
+    background-color: #F70065;
+    border-radius: 8px;
+    color: #FFF;
+    cursor: pointer;
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 3px;
+    height: 40px;
+    margin-left: 10px;
+}
+
+.cabecalho-periodo button a {
+    color: #FFF;
+}
+
+.title-pages-btn{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #F70065;
+    margin: 10px 10% 20px;
+}
+
+#select-tempo{
+    margin: 15px 10px;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* **************
+Aqui começa o select-box (texto importado)
+***************** */
+
+/* The container must be positioned relative: */
+
+.custom-select {
+   position: relative;
+   font-family: Roboto Condensed;
+   font-size: 17px;
+   max-width: 180px;
+   margin: 0px 10px;
+ }
+ 
+ .custom-select select {
+   display: none; /*hide original SELECT element: */
+ }
+ 
+ .select-selected {
+   background-color: #FFFFFF;
+   border-radius: 11px;
+   border: 1px solid #ABABAB;
+ }
+ 
+ /* Style the arrow inside the select element: */
+ .select-selected:after {
+   position: absolute;
+   content: "";
+   top: 14px;
+   right: 10px;
+   width: 0;
+   height: 0;
+   border: 6px solid transparent;
+   border-color: #ABABAB transparent transparent transparent;
+ }
+ 
+ /* Point the arrow upwards when the select box is open (active): */
+ 
+ /* style the items (options), including the selected item: */
+ .select-items div,.select-selected {
+   color: black;
+   padding: 8px 16px;
+   /* border: 1px solid #ABABAB; */
+   border-radius: 11px;
+   /* border-color: transparent transparent  transparent; */
+   cursor: pointer;
+ }
+ 
+ /* Style items (options): */
+ .select-items {
+   position: absolute;
+   background-color: #FFFFFF;
+   top: 100%;
+   left: 0;
+   right: 0;
+   z-index: 99;
+ }
+ 
+ /* Hide the items when the select box is closed: */
+ .select-hide {
+   display: none;
+ }
+ 
+ .select-items div:hover, .same-as-selected {
+   background-color: #57BC90;
+   color: white;
+ }
+
+/* *********
+Container geral das enquetes
+************ */
+
+.lista-enquetes{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* **********
+Card de enquetes
+************* */
+.enquete{
+    margin: 8px 10px;
+}
+.enquete, .ocorr{
+    max-width: 476px;
+}
+.enquete header .user-info{
+    display: flex;
+    align-items: flex-start;
+}
+
+.lista-enquetes header li{
+    text-align: right;
+}
+
+.lista-enquetes header .enquete-date{
+    font-size: 12px;
+    color: #707070;
+    font: Roboto;
+    margin-top: 5px;
+}
+
+.enquete header .vigor{
+    color: #F70065;
+}
+.enquete main .post-text{
+    margin-bottom: 16px;
+    font-size: 15px;
+}
+
+.enquete main .dados-enquete{
+     background-color: #fbf1f5;
+     border-radius: 11px;
+     margin-top: 10px;
+ }
+.enquete main .dados-enquete input[type=radio] {
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    float: left;
+    margin-right:10px;
+}
+.enquete main .dados-enquete label{
+    font-size: 14px;
+    text-align: left;
+    color: black;
+    line-height: normal;
+}
+ .enquete main .dados-enquete .valor-enquete{
+    max-width: 500px;
+    background: #F70065;
+     border-radius: 11px; 
+     color: white;
+     text-align: right;
+     font-size: 15px;
+     padding: 1px 10px 1px 0px
+ }
+ .enquete main .barra-container{
+     margin-left: 35px;
+     margin-top: 8px;
+     margin-bottom: 8px;
+ }
+ .enquete footer{
+     display: flex;
+    justify-content: flex-end;
+ }
+ 
+
+
+/* *************
+Media 
+************** */
+@media (max-width: 1241px){
+    .enquete, .ocorr{
+        max-width: 650px;
+    }
+}
+@media (max-width: 1187px){
+    .custom-select{
+        max-width: 140px;
+    }
+}
+@media (max-width: 992px){
+    .title-pages img{
+        width: 65px;
+        height: 40px;
+    }
+    .title-pages span{
+        font-size: 32px;
+    }
+    .custom-select{
+        font-size: 14px;
+    }
+    .feed-container .escolha-periodo .periodo-text{
+        font-size: 14px;
+        margin: 0px 7px;
+    }
+}
+@media(max-width: 770px){
+    .custom-select{
+        max-width: 90px;
+    }
+    #select-box-modal{
+        max-width: 115px;
+    }
+}
+@media (max-width: 640px){
+    .cabecalho-periodo{
+        padding-bottom: 10px;
+        border-bottom: 2px solid #F70065;
+    }
+    .feed-container .escolha-periodo{
+        justify-content: center;
+    }
+    
+}
+@media (max-width: 511px){
+    /* .cabecalho-periodo{
+        margin: 20px 10% 10px;
+    } */
+}

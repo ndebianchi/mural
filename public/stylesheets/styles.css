@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+@import "reset.css";
+@import "./partials/header.css";
+@import "./partials/carousel.css";
+@import "./partials/post.css";
+@import "./partials/aside.css";
+@import "./partials/modal.css";
+@import "./partials/enquetes.css";
+@import "./partials/modal-enquete.css";
+@import "./partials/settings.css";
+@import "./partials/toggle-switch.css";
+@import "./partials/page-title.css";
+@import "./partials/ocorrencias.css";
+@import "./partials/cardReservas.css";
+@import "./partials/boleto.css";
+@import "./partials/cadastro.css";
+@import "./partials/login.css";
+@import "./partials/gerenciar-perfis.css";
+@import "./partials/calendario.css";
+@import "./partials/contas.css";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.btn {
+    align-items: center;
+    border: none;
+    background-color: #F70065;
+    border-radius: 8px;
+    color: #FFF;
+    cursor: pointer;
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+.modalInterno {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    body {
+        overflow: hidden;
+    }
+
+    .container {
+        display: flex;
+    }
+
+    .feed-container {
+        height: 100vh;
+        overflow-y: scroll;
+        width: 100%;
+    }
+}

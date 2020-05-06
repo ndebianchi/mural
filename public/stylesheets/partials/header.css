@@ -1,0 +1,86 @@
+header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+header .menu-btn {
+    border: none;
+    background: rgba(0, 0, 0, 0);
+    margin-left: 10px;
+}
+
+header .menu-btn img {
+    width: 40px;
+}
+
+header .options {
+    display: flex;
+}
+
+header .options a {
+    align-items: center;
+    border: none;
+    background-color: #F70065;
+    border-radius: 50%;
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    height: 40px;
+}
+
+header .options a img {
+    width: 20px;
+}
+
+header .options a span {
+    display: none;
+}
+
+header button.profile-icon {
+    background: rgba(0, 0, 0, 0);
+    border: 0;
+}
+
+header button.profile-icon img {
+    border-radius: 50%;
+    cursor: pointer;
+    width: 50px;
+}
+
+@media (min-width: 768px) {
+
+    header .menu-btn {
+        margin-left: 20px;
+        cursor: pointer;
+    }
+
+    header .options a {
+        align-items: center;
+        display: flex;
+        text-decoration: none;
+    }
+
+    header button.profile-icon img {
+        margin: 10px 20px;
+        width: 60px;
+    }
+}
+
+@media (min-width: 992px) {
+    header .menu-btn {
+        cursor: default;
+        opacity: 0;
+    }
+
+    header .options a {
+        border-radius: 8px;
+    }
+
+    header .options a span {
+        color: #fff;
+        display: block;
+        font-weight: bold;
+        padding-left: 10px;
+    }
+}

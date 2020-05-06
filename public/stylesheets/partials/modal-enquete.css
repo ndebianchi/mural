@@ -1,0 +1,186 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.enquete__header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.enquete__heading {
+  color: #707070;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.enquete__heading--radio {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.enquete__body {
+  max-width: 400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.enquete__periodo {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.enquete__periodo--reserva {
+  flex-direction: column;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.enquete__option {
+  color: #707070;
+  margin-right: 10px;
+}
+
+.enquete__option--bold {
+  font-weight: bold;
+}
+
+.enquete__option--reserva {
+  margin: 0;
+}
+
+.enquete__select {
+  margin: 5px 0 5px 10px;
+  width: 100%;
+}
+
+.enquete__select--reserva {
+  margin: 10px 0 0;
+}
+
+.enquete__button {
+  background-color: #F70065;
+  border: 0;
+  border-radius: 8px;
+  color: #FFF;
+  cursor: pointer;
+  display: block;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 17px;
+  font-weight: bold;
+  margin: 10px 0;
+  padding: 5px 10%;
+}
+
+.enquete__button--back {
+  background-color: #FFF;
+  color: #707070;
+}
+
+.enquete__list {
+  padding: 20px 0;
+}
+
+.enquete__item {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.enquete__inputs {
+  position: relative;
+  width: 60%;
+}
+
+.enquete__inputs--radio {
+  display: flex;
+  padding: 5px 0;
+}
+
+.enquete__input {
+  border: solid 1px #707070;
+  border-radius: 8px;
+  padding: 5px 20px;
+  width: 100%;
+}
+
+.enquete__input--radio {
+  width: auto;
+}
+
+.enquete__icon--float {
+  color: #707070;
+  height: 15px;
+  top: 25%;
+  right: 0;
+  position: absolute;
+}
+
+.enquete__actions {
+  border-top: solid .2px #F70065;
+  display: flex;
+  justify-content: flex-end;
+}
+/* mudei a classe aqui para nao interferir no padding dos outros modais */
+.modal-nova-enquete {
+  padding: 10px !important;
+}
+
+@media only screen and (min-width: 370px) {
+  .enquete__periodo--reserva {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .enquete__select--reserva {
+    margin: 0 0 0 10px;
+    max-width: 100px;
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  .modal--reserva {
+    max-width: 320px;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .modal .enquete {
+    max-width: 100%;
+  }
+
+  .escolha-periodo {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+  }
+
+  .enquete__periodo {
+    justify-content: center;
+    width: 45%;
+  }
+
+  .enquete__periodo--reserva {
+    width: 100%;
+  }
+
+  #open-modal.modal-nova-enquete {
+    max-width: 600px;
+    width: 50vw !important;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .enquete__list--radio {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .enquete__item--radio {
+    width: 50%;
+  }
+}

@@ -1,0 +1,61 @@
+.carousel-wrapper {
+    display: flex;
+    margin: 0 auto;
+    max-width: 800px;
+    width: 100%;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: scroll;
+    position: relative;
+}
+
+.carousel-wrapper .next-wrapper,
+.carousel-wrapper .previous-wrapper {
+    display: none;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel .card {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    justify-content: space-between;
+    width: 85%;
+}
+
+.carousel main .post-text {
+    line-height: 20px;
+}
+
+.carousel footer .post-info {
+    margin: 10px 0;
+}
+
+.carousel footer .post-info span {
+    display: inline-block;
+}
+
+@media (min-width: 992px) {
+    .carousel-wrapper .next-wrapper,
+    .carousel-wrapper .previous-wrapper {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        margin: 15px 0;
+        width: 100%;
+    }
+
+    .carousel-wrapper .next-wrapper img,
+    .carousel-wrapper .previous-wrapper img {
+        width: 35px;
+    }
+
+    .carousel .card {
+        width: 95%;
+    }
+}

@@ -1,0 +1,54 @@
+/* Page Title vai no HEADER */
+.page-title-box{
+    display: flex;
+    justify-content: space-between;            
+}
+
+.page-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;    
+}
+
+.page-title img{
+    width: 1.5em;
+}
+
+.page-title span{
+    margin-left: 10px;
+    font-size: 23px;
+    color: #707070;
+    font-family: Roboto Condensed;
+    font-weight: bold;
+}
+
+/* Linha vai na MAIN (depois do header) */
+.page-title-linha {
+    display: flex;    
+    padding: 2px;
+    border-bottom: solid 2px #F70065;
+    margin: 0 auto;     
+    width: 90%;    
+}
+
+/* Classe específica para páginas com select-box */
+.page-title-linha-box{
+    margin: 0px 10%;
+    display: flex;    
+    padding: 2px;
+    border-bottom: solid 2px #F70065;
+}
+
+/* MEDIA QUERY */
+@media (min-width: 768px){
+
+    .page-title span{        
+        font-size: 40px;        
+    }
+
+    .page-title img{
+        width: 2.5em;
+    }
+
+}
+

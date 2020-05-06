@@ -1,0 +1,20 @@
+.ocorr{
+    margin: 8px 10px;
+}
+
+/* Estado de análise das ocorrências */
+.post-info-ocorr li img{
+    width: 24px;
+    margin-right: 5px;
+}
+
+.post-info-ocorr{
+    color: #57BC90;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+
+#ocurr-análise{
+    color: #77C9D4;
+}

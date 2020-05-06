@@ -1,0 +1,62 @@
+.sidebarDesktop-cadastro {
+    font-weight: 600;
+    display: none;
+    min-width: 250px;
+    max-width: 300px;
+    width: 25vw;
+    height: 100vh;
+    background: #fff;
+    border-right: 3px solid #f70065;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebarDesktop-cadastro div {
+    width: 100%;
+    padding: 30px;
+}
+
+.icone-cadastro {
+    margin-left: 8%;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.icone-cadastro img {
+    width: 40px;
+}
+
+.cadastro-pic {
+    display: flex;
+    flex-direction: column;    
+    justify-content: center;
+    align-items: center;    
+    margin: 10px auto;
+}
+
+.cadastro-pic div {
+    width: 25%;
+    max-width: 170px;
+    text-align: center;
+    margin: 5px auto;
+}
+
+.cadastro-pic div a {
+    font-family: 'Roboto' sans-serif;
+    text-decoration: none;
+    color: #707070;
+    font-size: 17px;
+    font-style: italic;
+}
+
+
+@media (min-width: 992px) {
+    
+    .sidebarDesktop-cadastro {
+        display: flex;
+    }
+
+    .icone-cadastro {
+        opacity: 0;
+    }
+}

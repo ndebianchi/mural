@@ -1,0 +1,229 @@
+* {
+  box-sizing: border-box;
+}
+
+main .settings {
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
+}
+
+/* DIV 1 - PROFILE-PIC */
+.profile-pic {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+}
+
+.profile-pic div {
+  width: 35%;
+  margin: 10px;
+}
+
+.profile-pic img {
+  width: 100%;
+  max-width: 180px;
+  border-radius: 50%;
+}
+
+.profile-pic p {
+  color: #F70065;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 5px;
+  margin-top: 30%;
+}
+
+.profile-pic a {
+  text-decoration: none;
+  color: #707070;
+  font-weight: 200;
+  font-style: italic;
+}
+
+/* DIV 2 - PROFILE-INFO */
+
+.profile-info {
+  width: 100%;
+  display: block;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px;
+  border-bottom: solid 2px #F70065;
+  margin: 0 auto 20px;
+  width: 90%;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 600;
+  color: #707070;
+}
+
+.header p {
+  font-size: 1.2rem;
+  margin: 5px;
+}
+
+.profile-info form {
+  width: 90%;
+  margin: auto;
+  padding: 2px;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 3px;
+}
+
+.form-group .esq {
+  text-align: left;
+}
+
+.form-group .dir {
+  margin-left: auto;
+  margin-right: 10%;
+}
+
+.form-group .dir-senha {
+  margin-left: auto;
+  margin-right: 10%;
+  margin-top: 25px;
+  color: #F70065;
+}
+
+.form-group .esq label {
+  color: #707070;
+}
+
+.form-group .esq input {
+  padding: 3px;
+  border-radius: 25px;
+  border: solid 1px #707070;
+  margin: 5px 0;
+}
+
+.form-group-btn {
+  display: flex;
+  justify-content: center;
+  padding: 3px 20px;
+  margin-top: 15px;
+}
+
+.form-group-btn button {
+  border: none;
+  width: 25%;
+  max-width: 120px;
+  min-width: 80px;
+  border-radius: 25px;
+  padding: 10px;
+  font-size: 17px;
+  margin: 0 10px;
+}
+
+.cancelar {
+  background-color: white;
+  color: #F70065;
+}
+
+.salvar {
+  background-color: #F70065;
+  color: white;
+}
+
+.enviar {
+  width: 100%;
+}
+
+.enviar button {
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 2%;
+  width: 55%;
+  min-width: 75px;
+  max-width: 120px;
+  font-size: 17px;
+}
+
+.morador {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: 5%;
+
+}
+
+.morador img {
+  border-radius: 50%;
+  width: 100%;
+  max-width: 90px;
+  margin: 5%;
+}
+
+.morador div {
+  text-align: left;
+  margin: 10px;
+}
+
+.morador h3 {
+  color: #707070;
+  margin: 2px;
+  width: 100%;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.morador a {
+  color: #F70065;
+  font-style: italic;
+  text-decoration: none;
+  width: 100%;
+}
+
+
+@media (min-width: 500px) {
+  .form-group .esq {
+    width: 80%;
+  }
+
+  .form-group .dir {
+    width: 30%;
+    margin: auto;
+  }
+
+  .form-group .dir-senha {
+    margin: auto;
+    width: 30%;
+  }
+
+  .form-group .esq input {
+    padding: 8px;
+    border-radius: 25px;
+    width: 80%;
+    max-width: 350px;
+  }
+
+  .header p {
+    font-size: 1.4rem;
+    margin: 5px;
+    margin-right: 25px;
+  }
+
+  .profile-pic div {
+    width: unset;
+    margin: 10px;
+  }
+
+  .profile-pic p {
+    font-size: 22px;
+    margin-top: 40%;
+  }
+
+}

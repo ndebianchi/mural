@@ -1,11 +1,505 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <script defer src="javascripts/script.js"></script>
+    <script defer src="javascripts/carousel.js"></script>
+    <script defer src="javascripts/select-box.js"></script>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
+    <title>Mural</title>
 </head>
+
 <body>
-    <h1>INICIO</h1>
+    <!-- DIV PAI DE TODAS -->
+    <div class="container">
+        <!-- Fundo escuro do modal -->
+        <div id="background-modal" onclick="toggleBackgroundModal()"></div>
+
+        <!-- Nav Mobile  -->
+        <div id="mobileSidebar" class="sidebarMobile">
+            <a href="javascript:javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div id="logo-nav">
+                <a href="/inicio"><img src="images/logos-mural/logo-h-branco.svg" alt="Mural"></a>
+            </div>
+            <a href="/inicio"><img src="images/icones-mural/Branco/home.svg" alt="Inicio">Início</a>
+            <a href="/avisos"><img src="images/icones-mural/Branco/avisos.svg" alt="Avisos">Avisos</a>            
+            <a href="/ocorrencias"><img src="images/icones-mural/Branco/ocorrencias.svg"
+                    alt="Ocorrencias">Ocorrências</a>
+            <a href="/reservas"><img src="images/icones-mural/Branco/reservas.svg" alt="Reservas">Reservas</a>
+            <a href="/agenda"><img src="images/icones-mural/Branco/agenda.svg" alt="Agenda">Agenda</a>
+            <a href="/enquetes"><img src="images/icones-mural/Branco/enquete.svg" alt="Enquetes">Enquetes</a>
+            <a href="/boleto"><img src="images/icones-mural/Branco/2via.svg" alt="2ª via do Condomínio">2ª via do
+                Condomínio</a>
+            <a href="/contas"><img src="images/icones-mural/Branco/contas2.svg"
+                    alt="Prestação de Contas">Prestação de Contas</a>
+            <a href="/perdidos"><img src="images/icones-mural/Branco/achados3.svg"
+                    alt="Achados e Perdidos">Achados e Perdidos</a>
+            <a href="/gerenciarPerfis"><img src="images/icones-mural/Branco/profile.svg" alt="Gerenciar Perfis">Gerenciar
+                Perfis</a>
+        </div>
+
+        <!-- Nav Desktop -->
+        <div class="sidebarDesktop">
+            <div id="logo-nav">
+                <a href="/inicio"><img src="images/logos-mural/logo-h-rosa.svg" alt="Mural"></a>
+            </div>
+            <div><a href="/inicio"><img src="images/icones-mural/Preto/home.svg" alt="Inicio">Início</a></div>
+            <div><a href="/avisos"><img src="images/icones-mural/Preto/avisos.svg" alt="Avisos">Avisos</a></div>
+            <div><a href="/ocorrencias"><img src="images/icones-mural/Preto/ocorrencias.svg"
+                        alt="Ocorrencias">Ocorrências</a></div>
+            <div><a href="/reservas"><img src="images/icones-mural/Preto/reservas.svg"
+                        alt="Reservas">Reservas</a></div>
+            <div><a href="/agenda"><img src="images/icones-mural/Preto/agenda.svg" alt="Agenda">Agenda</a></div>
+            <div><a href="/enquetes"><img src="images/icones-mural/Preto/enquete.svg"
+                        alt="Enquetes">Enquetes</a></div>
+            <div><a href="/boleto"><img src="images/icones-mural/Preto/2via.svg" alt="2ª via do Condomínio">2ª via do
+                    Condomínio</a>
+            </div>
+            <div><a href="/contas"><img src="images/icones-mural/Preto/contas2.svg"
+                        alt="Prestação de Contas">Prestação de
+                    Contas</a>
+            </div>
+            <div><a href="/perdidos"><img src="images/icones-mural/Preto/achados3.svg"
+                        alt="Achados e Perdidos">Achados e
+                    Perdidos</a>
+            </div>
+            <div><a href="/gerenciarPerfis"><img src="images/icones-mural/Preto/profile.svg" alt="Gerenciar Perfis">Gerenciar
+                    Perfis</a>
+            </div>
+        </div>
+
+        <!-- Header com os botões de chamada dos modais e demais -->
+
+        <div class="feed-container">
+            <header>
+
+                <!-- Botão da Nav Mobile -->
+                <button class="menu-btn" onclick="openNav()">
+                    <img src="images/icones-mural/Cinza/menu.svg" alt="Icone do menu">
+                </button>
+
+                <!-- Botões dos Modais -->
+                <div class="options">
+                    <a href="javascript:void(0)" onclick="openModal('novo-post')">
+                        <img src="images/icones-mural/Branco/post.svg" alt="Novo Post">
+                        <span>Novo Post</span>
+                    </a>
+                    <a href="javascript:void(0)" onclick="openModal('filtros')">
+                        <img src="images/icones-mural/Branco/filtro.svg" alt="Filtros">
+                        <span>Filtros</span>
+                    </a>
+                    <a href="javascript:void(0)" onclick="openModal('nova-ocorrencia')">
+                        <img src="images/icones-mural/Branco/ocorrencias.svg" alt="Nova Ocorrência">
+                        <span>Nova Ocorrência</span>
+                    </a>
+                    <a href="javascript:void(0)" onclick="openModal('novo-aviso')">
+                        <img src="images/icones-mural/Branco/avisos.svg" alt="Novo Aviso">
+                        <span>Novo Aviso</span>
+                    </a>
+                </div>
+
+                <!-- Hendy -->
+                <button class="profile-icon" onclick="profileDropdown()">
+                    <img src="images/posts-mural/hendy-almeida.jpg" alt="Imagem de perfil">
+                </button>
+                <div id="profile-dropdown" class="modal">
+                    <div class="profile-content">
+                        <header class="account-header">
+                            <div class="user-group">
+                                <img src="images/posts-mural/hendy-almeida.jpg" alt="Imagem de perfil">
+                                <div class="user-info">
+                                    <p>Hendy Almeida</p>
+                                    <span>Apartamento 1</span>
+                                </div>
+                            </div>
+                        </header>
+                        <div class="account-main">
+                            <a href="/config"><img src="images/icones-mural/Cinza/settings.svg"
+                                    alt="">Configurações</a>
+                            <a href="/perfil"><img src="images/icones-mural/Cinza/user.svg" alt="">Ver meu perfil</a>
+                        </div>
+                        <div class="account-footer">
+                            <hr>
+                            <a href="/login"><img src="images/icones-mural/Cinza/log-out.svg" alt=""> Sair</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+
+            <!-- Conteudo Principal -->
+            <main>
+
+                <section class="carousel-wrapper">
+                    <a href="#" class="previous-wrapper"><img src="images/icones-mural/Rosa/arrow-left.svg"
+                            alt=""></a>
+
+                    <div class="carousel">
+
+                        <div class="card">
+                            <header>
+                                <div class="user-group">
+                                    <img src="images/posts-mural/hendy-almeida.jpg" alt="Imagem de perfil">
+                                    <div class="user-info">
+                                        <p>Hendy Almeida</p>
+                                        <span>Apartamento 1</span>
+                                    </div>
+                                </div>
+                                <p class="post-type">Aviso</p>
+                            </header>
+                            <main>
+                                <p class="post-text">
+                                    Boa tarde à todos! Recebi algumas reclamações sobre sons de violão do lobby e
+                                    gostaria de
+                                    ressaltar que: Só eu posso tocar violão. Espero que entendam!
+                                </p>
+                            </main>
+                            <footer>
+                                <div class="post-info">
+                                    <span>62 likes</span>
+                                    <span>3 respostas</span>
+                                </div>
+                                <div class="btn-group">
+                                    <button class="btn-check"><img src="images/icones-mural/Branco/check.svg"
+                                            alt="Botão de confirmar entendimento">Entendido</button>
+                                </div>
+                            </footer>
+                        </div>
+                        <div class="card">
+                            <header>
+                                <div class="user-group">
+                                    <img src="images/posts-mural/felipe-veronesi.jpg" alt="Imagem de perfil">
+                                    <div class="user-info">
+                                        <p>Felipe Veronesi</p>
+                                        <span>Apartamento 2</span>
+                                    </div>
+                                </div>
+                                <p class="post-type">Aviso</p>
+                            </header>
+                            <main>
+                                <p class="post-text">
+                                    Gostaria de avisar que grande parte dos condôminos estão desrespeitando as regras de
+                                    convivência, para resolver isso estou marcando um kahoot na próxima segunda as
+                                    19:00. Levem
+                                    suas máscaras e alcool em gel!
+                                </p>
+                            </main>
+                            <footer>
+                                <div class="post-info">
+                                    <span>131 likes</span>
+                                    <span>20 respostas</span>
+                                </div>
+                                <div class="btn-group">
+                                    <button class="btn-check"><img src="images/icones-mural/Branco/check.svg"
+                                            alt="Botão de confirmar entendimento">Entendido</button>
+                                </div>
+                            </footer>
+                        </div>
+                        <div class="card">
+                            <header>
+                                <div class="user-group">
+                                    <img src="images/posts-mural/mulher-idosa-chapeuVermelho.jpg"
+                                        alt="Imagem de perfil">
+                                    <div class="user-info">
+                                        <p>Maria da Silva</p>
+                                        <span>Apartamento 212</span>
+                                    </div>
+                                </div>
+                                <p class="post-type">Post</p>
+                            </header>
+                            <main>
+                                <p class="post-text">
+                                    Bom dia! Como vocês estão? Estou cada dia mais grata por essa quarentena, assim não
+                                    tem que
+                                    olhar pra cara de vocês!
+                                </p>
+                            </main>
+                            <footer>
+                                <div class="post-info">
+                                    <span>62 likes</span>
+                                    <span>3 respostas</span>
+                                </div>
+                                <div class="btn-group">
+                                    <button class="btn-check"><img src="images/icones-mural/Branco/check.svg"
+                                            alt="Botão de confirmar entendimento">Entendido</button>
+                                </div>
+                            </footer>
+                        </div>
+
+                    </div>
+                    <a href="#" class="next-wrapper"><img src="images/icones-mural/Rosa/arrow-right.svg"
+                            alt=""></a>
+                </section>
+
+                <!-- Feed Principal -->
+                <section class="feed">
+                    <div class="card">
+                        <header>
+                            <div class="user-group">
+                                <img src="images/posts-mural/mulher-idosa-chapeuVermelho.jpg"
+                                    alt="Imagem de perfil">
+                                <div class="user-info">
+                                    <p>Maria da Silva</p>
+                                    <span>Apartamento 212</span>
+                                </div>
+                            </div>
+                            <p class="post-type">Post</p>
+                        </header>
+                        <main>
+                            <p class="post-text">
+                                Bom dia! Como vocês estão? Estou cada dia mais grata por essa quarentena, assim não tem
+                                que
+                                olhar pra cara de vocês!
+                            </p>
+                        </main>
+                        <footer>
+                            <div class="post-info">
+                                <span>62 likes</span>
+                                <span>3 respostas</span>
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn-comment"><img
+                                        src="images/icones-mural/Branco/message-square-white.svg"
+                                        alt="Botão de comentar">Responder</button>
+                                <button class="btn-like"><img src="images/icones-mural/Branco/heart-white.svg"
+                                        alt="Botão de like">Curtir</button>
+                            </div>
+                        </footer>
+                    </div>
+                    <div class="card">
+                        <header>
+                            <div class="user-group">
+                                <img src="images/posts-mural/homem-jovem-chapeu.jpg" alt="Imagem de perfil">
+                                <div class="user-info">
+                                    <p>José Dirceu</p>
+                                    <span>Apartamento 15</span>
+                                </div>
+                            </div>
+                            <p class="post-type">Anúncio</p>
+                        </header>
+                        <main>
+                            <p class="post-text">
+                                Boa noite! <br><br>Estou começando a vender bolos por conta dessa crise! haha. Cada um
+                                custa
+                                R$5,00, quem tiver interesse é só me ligar ou bater aqui no meu apartamento!
+                            </p>
+                            <img class="post-img"
+                                src="images/posts-mural/anuncios-bolo-rosquinhas2_200402033951.jpg"
+                                alt="Imagem de rosquinhas">
+                        </main>
+                        <footer>
+                            <div class="post-info">
+                                <span>225 likes</span>
+                                <span>38 respostas</span>
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn-comment"><img
+                                        src="images/icones-mural/Branco/message-square-white.svg"
+                                        alt="Botão de comentar">Responder</button>
+                                <button class="btn-like"><img src="images/icones-mural/Branco/heart-white.svg"
+                                        alt="Botão de like">Curtir</button>
+                            </div>
+                        </footer>
+                    </div>
+                    <div class="card">
+                        <header>
+                            <div class="user-group">
+                                <img src="images/posts-mural/mulher-idosa-floral.jpg" alt="Imagem de perfil">
+                                <div class="user-info">
+                                    <p>Silvana Aparecida</p>
+                                    <span>Apartamento 223</span>
+                                </div>
+                            </div>
+                            <p class="post-type">Classificados</p>
+                        </header>
+                        <main>
+                            <p class="post-text">
+                                Olá, meus queridos! <br><br>Minha cachorra deu cria há algumas semanas e estou vendendo
+                                alguns filhotes. São da raça Golden Retriever e já estão vacinados e vermifugados!
+                            </p>
+                            <img class="post-img" src="images/posts-mural/anuncios-pets-dogfofo_200402034056.jpg"
+                                alt="">
+                        </main>
+                        <footer>
+                            <div class="post-info">
+                                <span>27 likes</span>
+                                <span>10 respostas</span>
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn-comment"><img
+                                        src="images/icones-mural/Branco/message-square-white.svg"
+                                        alt="Botão de comentar">Responder</button>
+                                <button class="btn-like"><img src="images/icones-mural/Branco/heart-white.svg"
+                                        alt="Botão de like">Curtir</button>
+                            </div>
+                        </footer>
+                    </div>
+                    <div class="card">
+                        <header>
+                            <div class="user-group">
+                                <img src="images/posts-mural/mulher-meiaidade-lenço.jpg" alt="Imagem de perfil">
+                                <div class="user-info">
+                                    <p>Zuleika Santana</p>
+                                    <span>Apartamento 97</span>
+                                </div>
+                            </div>
+                            <p class="post-type">Ocorrência</p>
+                        </header>
+                        <main>
+                            <p class="post-text">
+                                Eu gostaria de saber quem é o maldito que está cagando no meu tapete! Já descartei a
+                                possibilidade de ser um pet porque vi milho nas fezes. Vocês que se cuidem porque a
+                                partir
+                                de agora vou andar com chumbinho!
+                            </p>
+                        </main>
+                        <footer>
+                            <div class="post-info">
+                                <span>10 likes</span>
+                                <span>0 respostas</span>
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn-comment"><img
+                                        src="images/icones-mural/Branco/message-square-white.svg"
+                                        alt="Botão de comentar">Responder</button>
+                                <button class="btn-like"><img src="images/icones-mural/Branco/heart-white.svg"
+                                        alt="Botão de like">Curtir</button>
+                            </div>
+                        </footer>
+                    </div>
+
+                </section>
+
+            </main>
+        </div>
+
+        <!-- Modais Main Feed -->
+        <div id="open-modal" class="modal">
+
+            <!-- Modal Novo Post -->
+            <div id="novo-post" class="modalInterno">
+                <h1>Novo Post</h1>
+                <div class="new-foto-mensagem">
+                    <img src="images/posts-mural/homem-meiaidade-boina.jpg">
+                    <textarea name="mensagem" id="mensagem" rows="10"></textarea>
+                </div>
+                <div class="new-foto-categoria">
+                    <button class="btn-group"><img src="images/icones-mural/Branco/plus.svg"
+                        alt="">Foto</button>
+                    <div class="custom-select" id="select-box-modal" style="width:200px;">
+                        <select>
+                        <option value="0">Categoria</option>
+                        <option value="1">Posts</option>
+                        <option value="2">Avisos</option>
+                        <option value="3">Ocorrências</option>
+                        <option value="4">Anúncios</option>
+                        <option value="5">Eventos</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="new-cancel-send">
+                    <button class="cancelar" type="reset">Cancelar</button>
+                    <button class="enviar-modal-novo" type="submit">Enviar</button>
+                </div>
+            </div>
+            <!-- Modal Filtros -->
+            <div id="filtros" class="modalInterno">
+                <form class="filtro-interno">
+                    <h2>Filtrar Posts</h2>
+                    <div class="filtro-group">
+                        <p>Avisos</p>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="filtro-group">
+                        <p>Ocorrências</p>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="filtro-group">
+                        <p>Serviços</p>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="filtro-group">
+                        <p>Eventos</p>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="filtro-group">
+                        <p>Classificados</p>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="filtro-group">
+                        <button class="redefinir" type="reset">Redefinir</button>                        
+                        <button class="aplicar"type="submit">Aplicar</button>                        
+                    </div>                    
+                </form>
+
+            </div>
+
+            <!-- Modal Nova Ocorrência -->
+            <div id="nova-ocorrencia" class="modalInterno">
+                <h1>Nova Ocorrência</h1>
+                <div class="new-foto-mensagem">
+                    <img src="images/posts-mural/homem-meiaidade-boina.jpg">
+                    <textarea name="mensagem" id="mensagem" rows="10"></textarea>
+                </div>
+                <div class="new-foto-categoria">
+                    <button class="btn-group"><img src="images/icones-mural/Branco/plus.svg"
+                        alt="">Foto</button>
+                </div>
+                <div class="new-cancel-send">
+                    <button class="cancelar" type="reset">Cancelar</button>
+                    <button class="enviar-modal-novo" type="submit">Enviar</button>
+                </div>
+            </div>
+
+            <!-- Modal Novo Aviso -->
+            <div id="novo-aviso" class="modalInterno">
+                <h1>Novo Aviso</h1>
+                <div class="new-foto-mensagem">
+                    <img src="images/posts-mural/homem-meiaidade-boina.jpg">
+                    <textarea name="mensagem" id="mensagem" rows="10"></textarea>
+                </div>
+                <div class="new-foto-categoria marcar-agenda-modal">
+                        <div class="dados-enquete">
+                            <input type="radio" name="escolha-enquete1" id="opcao-enquete" value="opcao"><label for="opcao">Marcar na agenda</label>
+                        </div>
+                        <div class="custom-select" id="select-box-modal" style="width:200px;">
+                            <select>
+                            <option value="0">Data:</option>
+                            <option value="1">01/05/20</option>
+                            <option value="2">02/05/20</option>
+                            <option value="3">03/05/20</option>
+                            <option value="4">04/05/20</option>
+                            <option value="5">05/05/20</option>
+                            </select>
+                        </div>
+                    
+                </div>
+                <div class="new-cancel-send">
+                    <button class="cancelar" type="reset">Cancelar</button>
+                    <button class="enviar-modal-novo" type="submit">Enviar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </body>
+
 </html>

@@ -1,11 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <script defer src="javascripts/script.js"></script>    
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
+    <title>Mural | Login</title>  
 </head>
+
 <body>
-    <h1>LOGIN</h1>
+    <!-- div Geral (nav + conteudo principal) -->
+    <div id="mural">
+        <!-- Fundo escuro do modal -->
+        <div id="background-modal" onclick="toggleBackgroundModal()"></div>
+                
+        <div class="aside-login">
+            <div><img src="images/logos-mural/logo-v-branco.svg" alt=""></div>
+        </div>
+
+        <div id="main-login">
+            <!-- Conteudo Principal -->
+            <div class="logo-login">
+                <img src="images/logos-mural/logo-h-rosa.svg" alt="Mural">
+            </div>
+            <div class="topo-login">
+                <h2>Login</h2>
+            </div>
+            <form class="login-form" action="">
+                <div><label for="email">E-mail</label></div>
+                <div><input type="email" name="email" id="email"></div>
+                <div><label for="senha">Senha</label></div>
+                <div><input type="password" name="senha" id="senha"></div>
+                <div><button type="submit"><a href="/inicio">Entrar</a></button></div>
+            </form>
+            <div><a href="javascript:void(0)" onclick="openModal('como-cadastrar')">Como criar uma conta?</a></div>
+            <div><a href="#">Esqueci minha senha</a></div>
+            <div><a href="#">Saiba mais</a></div>
+            
+            
+            
+
+        </div>
+
+        <!-- Modais Login -->
+        <div id="open-modal" class="modal">
+
+            <!-- Modal 'Como se Cadastrar' -->
+            <div id="como-cadastrar" class="modalInterno">
+                <div>
+                    <img src="images/logos-mural/logo-h-rosa.svg" alt="">
+                </div>
+                
+                <h2>Como criar sua conta:</h2>
+                <p>Para criar sua conta no Mural é necessário um convite.</p>
+                <p>Peça um para seu Síndico</p> 
+                                                              
+            </div>
+
+        </div>
+    </div>
+
 </body>
 </html>

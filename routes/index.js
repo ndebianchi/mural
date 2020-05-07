@@ -17,6 +17,7 @@ const PerfilController = require('../controllers/PerfilController')
 const CadastroController = require('../controllers/CadastroController')
 
 
+router.get('/', LoginController.index);
 router.get('/login', LoginController.index);
 
 router.get('/inicio', InicioController.index);

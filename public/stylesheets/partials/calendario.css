@@ -143,6 +143,19 @@ div[data-title]:hover:after {
   max-width: 150px;
 }
 
+/* Controla proporção do calendários em diferentes proporções */
+@media (min-width: 768px) {
+  .agendabox1Mob {
+    width: 640px;
+  }
+  .agendabox1Mob span {
+    width: 88px;
+    height: 88px;
+    font-size: 28px;
+    line-height: 88px;
+  }
+}
+
 @media (min-width: 992px) {
 
   /* esconde calendario-mobile */

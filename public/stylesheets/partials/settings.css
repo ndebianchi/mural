@@ -194,13 +194,13 @@ main .settings {
   }
 
   .form-group .dir {
-    width: 30%;
+    width: 20%;
     margin: auto;
   }
 
   .form-group .dir-senha {
     margin: auto;
-    width: 30%;
+    width: 20%;
   }
 
   .form-group .esq input {

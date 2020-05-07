@@ -48,6 +48,20 @@ header button.profile-icon img {
     width: 50px;
 }
 
+/* Posiciona o header do menu superior (Header) de forma fixa nas páginas */
+div.feed-container > header {
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+    background-color: white;
+    width: 100%;
+}
+
+/* Ajusta margem superior para considerar fixação do menu superior (Header) */
+div.feed-container > main {
+    margin-top: 60px;
+}
+
 @media (min-width: 768px) {
 
     header .menu-btn {
@@ -71,6 +85,7 @@ header button.profile-icon img {
     header .menu-btn {
         cursor: default;
         opacity: 0;
+        display: none;
     }
 
     header .options a {
@@ -82,5 +97,23 @@ header button.profile-icon img {
         display: block;
         font-weight: bold;
         padding-left: 10px;
+    }
+
+    /* Ajusta proporção do cabeçalho na tela */
+    div.feed-container > header {
+        width: 75vw;
+        justify-content: center;
+    }
+
+    /* Reposiciona de forma fixa o profile-icon no canto suerior esquerdo */
+    div.feed-container > header > button.profile-icon {
+        position: fixed;
+        top: 0px;
+        right: 5%;
+    }
+
+    /* Ajusta margem superior para considerar fixação do menu superior (Header) */
+    div.feed-container > main {
+        margin-top: 80px;
     }
 }

@@ -64,6 +64,11 @@ Aqui começa o select-box (texto importado)
    margin: 0px 10px;
  }
  
+/* Ajuste específico nos campos select do modal */
+.enquete__periodo > .custom-select {
+    max-width: 100%;
+}
+ 
  .custom-select select {
    display: none; /*hide original SELECT element: */
  }

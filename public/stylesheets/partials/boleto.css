@@ -23,13 +23,11 @@
 }
 
 .boleto button {
-    font-family: 'Roboto', sans-serif;
-    background-color: #77C9D4;
     border: none;
-    border-radius: 30px;
-    padding: 20px;
+    border-radius: 25px;
+    background-color: #F70065;
+    padding: 10px 20px;
     color: white;
-    font-size: 16px;
-    font-weight: 600;
-        
+    font-family: 'Roboto'sans-serif;
+    font-size: 18px;
 }

@@ -172,7 +172,6 @@ MODAIS NOVO POST / NOVO AVISO / NOVA OCORRÊNCIA / NOVO OBJETO
 }
 
 
-
 @media only screen and (min-width: 750px) {
 
   img.new-foto-mensagem__img {
@@ -204,6 +203,9 @@ MODAIS NOVO POST / NOVO AVISO / NOVA OCORRÊNCIA / NOVO OBJETO
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  
+
   .new-foto-mensagem img {
     width: 70px;
     height: 70px;
@@ -222,10 +224,6 @@ MODAIS NOVO POST / NOVO AVISO / NOVA OCORRÊNCIA / NOVO OBJETO
     width: 90vw !important;
   }
 
-  .modal-idmodal-agendaMob, .modal-idmodal-agenda{
-    width: 80vw !important;
-  }
-
   .new-foto-categoria {
     margin-top: 15px;
   }
@@ -234,12 +232,6 @@ MODAIS NOVO POST / NOVO AVISO / NOVA OCORRÊNCIA / NOVO OBJETO
     width: 95vh;
     height: 55vw;
   }
-
-  .nome-evento textarea{
-    width: 95vh;
-    height: 15vw;
-  }
-
   .new-cancel-send {
     margin-top: 15px;
   }
@@ -251,7 +243,7 @@ MODAIS NOVO POST / NOVO AVISO / NOVA OCORRÊNCIA / NOVO OBJETO
 /* ******************* */
 
 .modal-filtros {
-  width: 25vw !important;
+  width: 70vw !important;
   padding: 30px !important;
   /* Centralização By Aguiaia (top demais, slc) */
   position: absolute;
@@ -311,17 +303,11 @@ MODAIS NOVO POST / NOVO AVISO / NOVA OCORRÊNCIA / NOVO OBJETO
   margin-right: 15px;
 }
 
-@media (max-width: 1000px) {
+@media (min-width: 500px) {
   .modal-filtros {
-    width: 50vw !important;
+    width: 25vw !important;
   }
 }
-@media (max-width: 500px) {
-  .modal-filtros {
-    width: 70vw !important;
-  }
-}
-
 
 
 /*8888888888888888888
@@ -530,7 +516,7 @@ MODAIS NOVO POST / NOVO AVISO / NOVA OCORRÊNCIA / NOVO OBJETO
 
   /* Ajusta posicionamento do dropdown */
   #profile-dropdown {
-    top: 55px;
-    right: 4%;
+    top: 90px;
+    right: 5%;
   }
 }

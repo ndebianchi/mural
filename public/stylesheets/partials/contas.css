@@ -1,114 +1,37 @@
-.container {
-    overflow: hidden;
-}
-
-.form-group {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    margin-top: 10px;
-}
-
-.form-group > .custom-select {
-    width: 100%;
-    max-width: 100%;
-    min-width: 90px;
-}
-
-.form-group > button {
-    width:40%;
-    justify-content: center;
-}
-
-.form-group > .custom-select > select {
-    width: 100%;
-    max-width: 100%;
-}
-
-.mobileBlock {
-    width: auto;
-    justify-self: auto;
-    margin-top: 20px;
-}
-
-.mobileBlock > button {
-    width: auto;
-    min-width: 120px;
-}
-
 .curve_contas {
-    width: 100%; 
-    height: auto;
-    min-height: 400px;
-    margin-left: 0px auto;
+    width: 900px; 
+    height: 400px;
+    margin-left: 120px;
 }
 
 .curve_contasMobile {
-    width: 110%; 
-    height: auto;
-    min-height: 380px;
-    margin: 0 1%;
+    width: 480px; 
+    height: 380px;
+    margin-left: 10px;
 }
 
 @media (min-width: 992px) {
-
-    .form-group {
-        width: auto;
-    }
-    
-    .form-group > .custom-select {
-        width: 100%;
-        max-width: 100%;
-        min-width: 90px;
-    }
-    
-    .form-group > .custom-select > select {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .mobileBlock {
-        width: auto;
-        justify-self: auto;
-        margin-top: 12px;
-    }
-    
-    .mobileBlock > button {
-        width: auto;
-        min-width: 120px;
-    }
-        
-    /* mostra curve_contas */
-    .curve_contas {
-        display: block;
-    }
 
     /* esconde curve_contasMobile */
     .curve_contasMobile {
         display: none;
     }
-    
-    .mobileBlock {
-        margin-top: 12px;
-        /*
-        width:auto;
-        justify-content: center;
-        */
+
+    /* mostra curve_contas */
+    .curve_contas {
+        display: block;
     }
-}
+    }
 
  @media (max-width: 992px) {
 
    /* mostra curve_contasMobile */
-    .curve_contasMobile {
-        display: block;
-    }
+        .curve_contasMobile {
+            display: block;
+        }
     
    /* esconde curve_contas */
-    .curve_contas {
-        display: none;
-    }
-}
+        .curve_contas {
+            display: none;
+        }
+        }

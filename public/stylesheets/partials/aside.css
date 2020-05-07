@@ -7,7 +7,7 @@
     height: 100%;
     width: 250px;
     position: fixed;
-    z-index: 2;
+    z-index: 1;
     /* camada do topo */
     top: 0;
     left: 0;

@@ -1,15 +1,13 @@
 /* Page Title vai no HEADER */
 .page-title-box{
     display: flex;
-    justify-content: space-between;
-    width: 75vw;
+    justify-content: space-between;            
 }
 
 .page-title{
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    margin: 0px auto;
+    justify-content: flex-start;    
 }
 
 .page-title img{
@@ -43,10 +41,6 @@
 
 /* MEDIA QUERY */
 @media (min-width: 768px){
-
-    .page-title{
-        margin: 22px auto;
-    }
 
     .page-title span{        
         font-size: 40px;        

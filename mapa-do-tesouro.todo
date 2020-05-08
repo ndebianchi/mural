@@ -1,19 +1,58 @@
-A: Partials EJS
-    ☐ Definir as partials
-    ☐ <insira lista de partials aqui>
+A: Partials EJS (Aguiaia + Elon) 
+    ✔ Definir as partials @done(20-05-08 16:11)
+    ☐ Navbar
+    ☐ Hendy
+    ☐ Titulo da Pagina (com icone)
+    ☐ CardReserva
+    ☐ Calendario
 
-B: Preencher Banco de Dados
+B: Preencher Banco de Dados (Nicolas)
+    ☐ Atualizar Banco (ver txt)
     ☐ Preencher com informações
-    ☐ Atualizar o arquivo (slack? aqui?)
+    ☐ Atualizar o arquivo (Slack)
 
-C: Criar Models
-    ☐ <insira lista de models aqui>
+C: Criar Models (Murilo + Galera)
+    ☐ apartamento
+    ☐ apartamento_usuario (opcional?)
+    ☐ usuario
+    ☐ tipo_usuario
+    ☐ reserva
+    ☐ local
+    ☐ post
+    ☐ post_categoria
+    ☐ post_usuario_aviso
+    ☐ post_feed
+    ☐ post_usuario_like
+    ☐ post_ocorrencia
+    ☐ post_perdidos
 
-D: Relacionar Models
-    ☐ <copiar lista de models aqui>
+===========================
+☐ ENTREGA A B C: 11/05
+===========================
+
+===========================
+☐ PREVISAO INICIO D E: 12/05
+===========================
+
+D: Relacionar Models 
+    ☐ apartamento
+    ☐ apartamento_usuario (opcional?)
+    ☐ usuario
+    ☐ tipo_usuario
+    ☐ reserva
+    ☐ local
+    ☐ post
+    ☐ post_categoria
+    ☐ post_usuario_aviso
+    ☐ post_feed
+    ☐ post_usuario_like
+    ☐ post_ocorrencia
+    ☐ post_perdidos
 
 E: Módulos Essenciais
     ☐ <listar modulos aqui>
 
-F: Módulos DLC
-    ☐ <listar modulos aqui>
+F: Módulos Perfumaria
+    ☐ Responder Post
+    ☐ Enquetes
+    ☐ Prestação Contas

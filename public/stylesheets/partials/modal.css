@@ -171,6 +171,10 @@ MODAIS NOVO POST / NOVO AVISO / NOVA OCORRÊNCIA / NOVO OBJETO
   font-size: 18px;
 }
 
+.modal-idmodal-agendaMob, .modal-idmodal-agenda{
+  width: 80vw !important;
+}
+
 
 @media only screen and (min-width: 750px) {
 
@@ -232,6 +236,12 @@ MODAIS NOVO POST / NOVO AVISO / NOVA OCORRÊNCIA / NOVO OBJETO
     width: 95vh;
     height: 55vw;
   }
+
+  .nome-evento textarea{
+    width: 95vh;
+    height: 15vw;
+  }
+  
   .new-cancel-send {
     margin-top: 15px;
   }

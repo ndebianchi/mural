@@ -1,12 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <script defer src="javascripts/script.js"></script>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
+    <title>Configurações</title>
 </head>
+
 <body>
-    <h1>CADASTRO</h1>
-    <a href="/inicio">Voltar para Home</a>
+    <!-- DIV PAI DE TODAS -->
+    <div class="container">
+        <!-- Fundo escuro do modal -->
+        <div id="background-modal" onclick="toggleBackgroundModal()"></div>
+  
+        <!-- Nav Desktop -->
+        <div class="sidebarDesktop-cadastro">
+            <div><img src="images/logos-mural/logo-v-rosa.svg" alt=""></div>
+        </div>
+
+        <!-- Main Content -->
+
+        <div class="feed-container">
+
+            <!-- Header com Nav, Hendy e Titulo -->
+            <header>
+                <!-- Icone Logo Mural Mobile -->
+                <div class="icone-cadastro">
+                    <img src="images/logos-mural/logo-icone-rosa.svg" alt="Mural">
+                </div>
+
+                <!-- Icone + Titulo da Pagina -->
+                <div class="page-title-box">
+                    <div class="page-title">
+                        <img src="images/icones-mural/Cinza/user.svg" alt="Novo Post">
+                        <span>Novo Cadastro</span>
+                    </div>                    
+                </div>
+
+                <!-- Hendy -->
+                <button class="profile-icon">
+                    <img src="" alt="">
+                </button>
+                
+            </header>
+
+
+            <!-- Conteudo Principal -->
+            <main>                
+            <section class="settings">
+
+                <!-- Divisória (parte do Titulo) -->
+                <div class="page-title-linha"></div>
+
+                <!-- Configurações -->
+                <div class="cadastro-pic">
+                    <div>
+                        <img src="images/icones-mural/Rosa/profile.svg" alt="">
+                    </div>
+                    <div>
+                        <a href="#">Adicionar Foto</a>
+                    </div>
+                </div>
+
+                <div class="profile-info">
+                    <div class="header">
+                        <div><p>Insira seus dados</p></div>
+                        <div><p>Deixar Público</p></div>                            
+                    </div>
+                    <form action="">
+                        <div class="form-group">
+                            <div class="esq">
+                                <label for="...">Nome Completo</label><br>
+                                <input type="text">
+                            </div>
+                            <div class="dir">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="esq">
+                                <label for="...">E-mail</label><br>
+                                <input type="text">
+                            </div>
+                            <div class="dir">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <div class="esq">
+                                <label for="...">Telefone</label><br>
+                                <input type="text">
+                            </div>
+                            <div class="dir">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="esq">
+                                <label for="senha">Senha</label><br>
+                                <input type="password" value="mural_123" id="senha">
+                            </div>
+                            <div class="dir-senha">
+                                <input type="checkbox" id="versenha" onclick="mostrarSenha()"><label for="versenha">Mostrar</label>
+                            </div>
+                        </div>                          
+                        <div class="form-group-btn">
+                            <button class="cancelar" type="reset">Cancelar</button>
+                            <button class="salvar" type="submit">Salvar</button>
+                        </div>
+                        
+                    </form>
+                </div>
+
+                       
+
+            </section>
+
+            </main>
+        </div>
+
+        <!-- Modais -->
+        <div id="open-modal" class="modal"></div>
+    </div>
 </body>
 </html>

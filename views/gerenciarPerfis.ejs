@@ -1,12 +1,215 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <script defer src="javascripts/script.js"></script>
+    <script defer src="javascripts/select-box.js"></script>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
+    <title>Gerenciar Perfis</title>
 </head>
+
 <body>
-    <h1>GERENCIAR PERFIS</h1>
-    <a href="/inicio">Voltar para Home</a>
+    <!-- DIV PAI DE TODAS -->
+    <div class="container">
+        <!-- Fundo escuro do modal -->
+        <div id="background-modal" onclick="toggleBackgroundModal()"></div>
+
+        <!-- Nav Mobile  -->
+        <div id="mobileSidebar" class="sidebarMobile">
+            <a href="javascript:javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div id="logo-nav">
+                <a href="/inicio"><img src="images/logos-mural/logo-h-branco.svg" alt="Mural"></a>
+            </div>
+            <a href="/inicio"><img src="images/icones-mural/Branco/home.svg" alt="Inicio">Início</a>
+            <a href="/avisos"><img src="images/icones-mural/Branco/avisos.svg" alt="Avisos">Avisos</a>            
+            <a href="/ocorrencias"><img src="images/icones-mural/Branco/ocorrencias.svg"
+                    alt="Ocorrencias">Ocorrências</a>
+            <a href="/reservas"><img src="images/icones-mural/Branco/reservas.svg" alt="Reservas">Reservas</a>
+            <a href="/agenda"><img src="images/icones-mural/Branco/agenda.svg" alt="Agenda">Agenda</a>
+            <a href="/enquetes"><img src="images/icones-mural/Branco/enquete.svg" alt="Enquetes">Enquetes</a>
+            <a href="/boleto"><img src="images/icones-mural/Branco/2via.svg" alt="2ª via do Condomínio">2ª via do
+                Condomínio</a>
+            <a href="/contas"><img src="images/icones-mural/Branco/contas2.svg"
+                    alt="Prestação de Contas">Prestação de Contas</a>
+            <a href="/perdidos"><img src="images/icones-mural/Branco/achados3.svg"
+                    alt="Achados e Perdidos">Achados e Perdidos</a>
+            <a href="/gerenciarPerfis"><img src="images/icones-mural/Branco/profile.svg" alt="Gerenciar Perfis">Gerenciar
+                Perfis</a>
+        </div>
+
+        <!-- Nav Desktop -->
+        <div class="sidebarDesktop">
+            <div id="logo-nav">
+                <a href="/inicio"><img src="images/logos-mural/logo-h-rosa.svg" alt="Mural"></a>
+            </div>
+            <div><a href="/inicio"><img src="images/icones-mural/Preto/home.svg" alt="Inicio">Início</a></div>
+            <div><a href="/avisos"><img src="images/icones-mural/Preto/avisos.svg" alt="Avisos">Avisos</a></div>
+            <div><a href="/ocorrencias"><img src="images/icones-mural/Preto/ocorrencias.svg"
+                        alt="Ocorrencias">Ocorrências</a></div>
+            <div><a href="/reservas"><img src="images/icones-mural/Preto/reservas.svg"
+                        alt="Reservas">Reservas</a></div>
+            <div><a href="/agenda"><img src="images/icones-mural/Preto/agenda.svg" alt="Agenda">Agenda</a></div>
+            <div><a href="/enquetes"><img src="images/icones-mural/Preto/enquete.svg"
+                        alt="Enquetes">Enquetes</a></div>
+            <div><a href="/boleto"><img src="images/icones-mural/Preto/2via.svg" alt="2ª via do Condomínio">2ª via do
+                    Condomínio</a>
+            </div>
+            <div><a href="/contas"><img src="images/icones-mural/Preto/contas2.svg"
+                        alt="Prestação de Contas">Prestação de
+                    Contas</a>
+            </div>
+            <div><a href="/perdidos"><img src="images/icones-mural/Preto/achados3.svg"
+                        alt="Achados e Perdidos">Achados e
+                    Perdidos</a>
+            </div>
+            <div><a href="/gerenciarPerfis"><img src="images/icones-mural/Preto/profile.svg" alt="Gerenciar Perfis">Gerenciar
+                    Perfis</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+
+        <div class="feed-container">
+            <!-- Header com Nav, Hendy e Titulo -->
+            <header>
+                <!-- Botão Nav-Mobile -->
+                <button class="menu-btn" onclick="openNav()">
+                    <img src="images/icones-mural/Cinza/menu.svg" alt="Icone do menu">
+                </button>
+
+                <!-- Icone + Titulo da Pagina -->
+                <div class="page-title-box">
+                    <div class="page-title">
+                        <img src="images/icones-mural/Cinza/profile.svg" alt="Novo Post">
+                        <span>Gerenciar Perfis</span>
+                    </div>                    
+                </div>
+
+                <!-- Hendy -->
+                <button class="profile-icon" onclick="profileDropdown()">
+                    <img src="images/posts-mural/hendy-almeida.jpg" alt="Imagem de perfil">
+                </button>
+                <div id="profile-dropdown" class="modal">
+                    <div class="profile-content">
+                        <header class="account-header">
+                            <div class="user-group">
+                                <img src="images/posts-mural/hendy-almeida.jpg" alt="Imagem de perfil">
+                                <div class="user-info">
+                                    <p>Hendy Almeida</p>
+                                    <span>Apartamento 1</span>
+                                </div>
+                            </div>
+                        </header>
+                       <div class="account-main">
+                            <a href="/config"><img src="images/icones-mural/Cinza/settings.svg"
+                                    alt="">Configurações</a>
+                            <a href="/perfil"><img src="images/icones-mural/Cinza/user.svg" alt="">Ver meu perfil</a>
+                        </div>
+                        <div class="account-footer">
+                            <hr>
+                            <a href="/login"><img src="images/icones-mural/Cinza/log-out.svg" alt=""> Sair</a>
+                        </div> 
+                    </div>
+                </div>
+
+            </header>
+
+            <!-- Conteudo Principal -->
+            <main>
+                <!-- Divisória (parte do Titulo) -->
+                <div class="page-title-linha"></div>
+                
+                <section class="gerenciar-perfis">                   
+
+                <div class="gp-section">
+                    <h2>Convidar Novo Morador</h2>
+                </div>
+                <form class="gp-convidar" action="">
+                    <div class="gp-direita">
+                    <label for="email">E-mail</label>
+                    <input type="email"> 
+                    </div>
+                    <div class="gp-esquerda">
+                    <label for="apartamento">Apartamento</label>
+                    <div class="" id="" style="width:200px;">
+                        <select>
+                        <option value="0">102</option>
+                        <option value="1">204</option>
+                        <option value="2">708</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="gp-botao">
+                        <button type="submit">Enviar</button>
+                    </div>                                           
+                </form>
+
+                <div class="gp-section">
+                    <h2>Gerenciar Moradores</h2>                    
+                </div>
+
+                <form action="" class="gp-convidar">
+                    <div class="gp-esquerda">
+                    <label for="">Apartamento</label>
+                    <div class="" id="" style="width:200px;">
+                        <select>
+                        <option value="0">102</option>
+                        <option value="1">204</option>
+                        <option value="2">708</option>
+                        </select>
+                    </div>
+                    </div>
+
+                    <div class="gp-botao-2">
+                        <button type="submit">Selecionar</button>
+                    </div>
+                </form>
+
+                <div class="profile-info">                    
+                    <div class="morador">
+                        <div>
+                            <img src="images/posts-mural/mulher-meiaidade-lenço.jpg" alt="">
+                        </div>
+                        
+                        <div>
+                            <h3>Maria de Lurdes Silva</h3>
+                            <a href="#">Excluir</a>
+                        </div>
+                    </div>
+                    <div class="morador">
+                        <div>
+                            <img src="images/posts-mural/homem-idoso-barba.jpg" alt="">
+                        </div>
+                        
+                        <div>
+                            <h3>Donatelo Silva e Silva</h3>
+                            <a href="#">Excluir</a>
+                        </div>
+                    </div>
+                    <div class="morador">
+                        <div>
+                            <img src="images/posts-mural/homem-jovem-chapeu.jpg" alt="">
+                        </div>
+                        
+                        <div>
+                            <h3>Luis Inacio</h3>
+                            <a href="#">Excluir</a>
+                        </div>
+                    </div>
+
+                </div> 
+
+
+
+
+                </section>
+            </main>
+        </div>
+
+        <!-- Modais -->
+        <div id="open-modal" class="modal"></div>
+    </div>
 </body>
 </html>

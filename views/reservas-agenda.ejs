@@ -1,12 +1,407 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <script defer src="javascripts/script.js"></script>
+    <script defer src="javascripts/carousel.js"></script>
+    <script defer src="javascripts/select-box.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
+    <title>Reservas - Salão de Festas</title>
 </head>
+
 <body>
-    <h1>RESERVAS - AGENDA</h1>
-    <a href="/inicio">Voltar para Home</a>
+    <!-- DIV PAI DE TODAS -->
+    <div class="container">
+        <!-- Fundo escuro do modal -->
+        <div id="background-modal" onclick="toggleBackgroundModal()"></div>
+
+        <!-- Nav Mobile  -->
+        <div id="mobileSidebar" class="sidebarMobile">
+            <a href="javascript:javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div id="logo-nav">
+                <a href="/inicio"><img src="images/logos-mural/logo-h-branco.svg" alt="Mural"></a>
+            </div>
+            <a href="/inicio"><img src="images/icones-mural/Branco/home.svg" alt="Inicio">Início</a>
+            <a href="/avisos"><img src="images/icones-mural/Branco/avisos.svg" alt="Avisos">Avisos</a>            
+            <a href="/ocorrencias"><img src="images/icones-mural/Branco/ocorrencias.svg"
+                    alt="Ocorrencias">Ocorrências</a>
+            <a href="/reservas"><img src="images/icones-mural/Branco/reservas.svg" alt="Reservas">Reservas</a>
+            <a href="/agenda"><img src="images/icones-mural/Branco/agenda.svg" alt="Agenda">Agenda</a>
+            <a href="/enquetes"><img src="images/icones-mural/Branco/enquete.svg" alt="Enquetes">Enquetes</a>
+            <a href="/boleto"><img src="images/icones-mural/Branco/2via.svg" alt="2ª via do Condomínio">2ª via do
+                Condomínio</a>
+            <a href="/contas"><img src="images/icones-mural/Branco/contas2.svg"
+                    alt="Prestação de Contas">Prestação de Contas</a>
+            <a href="/perdidos"><img src="images/icones-mural/Branco/achados3.svg"
+                    alt="Achados e Perdidos">Achados e Perdidos</a>
+            <a href="/gerenciarPerfis"><img src="images/icones-mural/Branco/profile.svg" alt="Gerenciar Perfis">Gerenciar
+                Perfis</a>
+        </div>
+
+        <!-- Nav Desktop -->
+        <div class="sidebarDesktop">
+            <div id="logo-nav">
+                <a href="/inicio"><img src="images/logos-mural/logo-h-rosa.svg" alt="Mural"></a>
+            </div>
+            <div><a href="/inicio"><img src="images/icones-mural/Preto/home.svg" alt="Inicio">Início</a></div>
+            <div><a href="/avisos"><img src="images/icones-mural/Preto/avisos.svg" alt="Avisos">Avisos</a></div>
+            <div><a href="/ocorrencias"><img src="images/icones-mural/Preto/ocorrencias.svg"
+                        alt="Ocorrencias">Ocorrências</a></div>
+            <div><a href="/reservas"><img src="images/icones-mural/Preto/reservas.svg"
+                        alt="Reservas">Reservas</a></div>
+            <div><a href="/agenda"><img src="images/icones-mural/Preto/agenda.svg" alt="Agenda">Agenda</a></div>
+            <div><a href="/enquetes"><img src="images/icones-mural/Preto/enquete.svg"
+                        alt="Enquetes">Enquetes</a></div>
+            <div><a href="/boleto"><img src="images/icones-mural/Preto/2via.svg" alt="2ª via do Condomínio">2ª via do
+                    Condomínio</a>
+            </div>
+            <div><a href="/contas"><img src="images/icones-mural/Preto/contas2.svg"
+                        alt="Prestação de Contas">Prestação de
+                    Contas</a>
+            </div>
+            <div><a href="/perdidos"><img src="images/icones-mural/Preto/achados3.svg"
+                        alt="Achados e Perdidos">Achados e
+                    Perdidos</a>
+            </div>
+            <div><a href="/gerenciarPerfis"><img src="images/icones-mural/Preto/profile.svg" alt="Gerenciar Perfis">Gerenciar
+                    Perfis</a>
+            </div>
+        </div>
+
+        <!-- Conteudo -->
+
+        <div class="feed-container">
+
+            <!-- Header com Nav, Hendy e Titulo -->
+            <header>
+                <button class="menu-btn" onclick="openNav()">
+                    <img src="images/icones-mural/Cinza/menu.svg" alt="Icone do menu">
+                </button>
+
+                <!-- Icone + Titulo da Pagina -->
+                <div class="page-title-box">
+                    <div class="page-title">
+                        <img src="images/icones-mural/Cinza/reservas.svg" alt="Novo Post">
+                        <span>Reservas</span>
+                    </div>
+                </div>
+
+                <!-- Hendy -->
+                <button class="profile-icon" onclick="profileDropdown()">
+                    <img src="images/posts-mural/hendy-almeida.jpg" alt="Imagem de perfil">
+                </button>
+                <div id="profile-dropdown" class="modal">
+                    <div class="profile-content">
+                        <header class="account-header">
+                            <div class="user-group">
+                                <img src="images/posts-mural/hendy-almeida.jpg" alt="Imagem de perfil">
+                                <div class="user-info">
+                                    <p>Hendy Almeida</p>
+                                    <span>Apartamento 1</span>
+                                </div>
+                            </div>
+                        </header>
+                       <div class="account-main">
+                            <a href="/config"><img src="images/icones-mural/Cinza/settings.svg"
+                                    alt="">Configurações</a>
+                            <a href="/perfil"><img src="images/icones-mural/Cinza/user.svg" alt="">Ver meu perfil</a>
+                        </div>
+                        <div class="account-footer">
+                            <hr>
+                            <a href="/login"><img src="images/icones-mural/Cinza/log-out.svg" alt=""> Sair</a>
+                        </div> 
+                    </div>
+                </div>
+
+            </header>
+
+
+            <!-- Conteudo Principal -->
+            <main>
+                <!-- Divisória (parte do Titulo) -->
+                <div class="page-title-linha-box"></div>
+
+                <div class="agendabox1Mob agendabasfMob agendacalMob">
+
+                    <div class="agendacaltMob">Março 2020</div>
+
+                    <span>Dom</span>
+                    <span>Seg</span>
+                    <span>Ter</span>
+                    <span>Qua</span>
+                    <span>Qui</span>
+                    <span>Sex</span>
+                    <span>Sab</span>
+
+
+                    <span class="agendabMob">
+                        <!--BLANK--></span>
+                    <span class="agendabMob">
+                        <!--BLANK--></span>
+                    <span class="agendabMob">
+                        <!--BLANK--></span>
+                    <span class="agendabMob">
+                        <!--BLANK--></span>
+                    <span class="agendabMob">
+                        <!--BLANK--></span>
+                    <span class="agendabMob">
+                        <!--BLANK--></span>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>1</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>2</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>3</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)" onclick="openModal('idmodal-agendaMob modal--reserva')"><span
+                            class="circle" data-title="Comemoração do aniversario de Jaiminho, o carteiro">4</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>5</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>6</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>7</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>8</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>9</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>10</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>11</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>12</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>13</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>14</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>15</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>16</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>17</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)" onclick="openModal('idmodal-agendaMob modal--reserva')"><span
+                            class="circle" data-title="Casamento da Dona Joaninha">18</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>19</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>20</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>21</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>22</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>23</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>24</span></a>
+                    <a class="modal-agendaMob" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agendaMob modal--reserva')"><span>25</span>
+                        <a class="modal-agendaMob" href="javascript:void(0)"
+                            onclick="openModal('idmodal-agendaMob modal--reserva')"><span>26</span></a>
+                        <a class="modal-agendaMob" href="javascript:void(0)"
+                            onclick="openModal('idmodal-agendaMob modal--reserva')"><span>27</span></a>
+                        <a class="modal-agendaMob" href="javascript:void(0)"
+                            onclick="openModal('idmodal-agendaMob modal--reserva')"><span>28</span></a>
+                        <a class="modal-agendaMob" href="javascript:void(0)"
+                            onclick="openModal('idmodal-agendaMob modal--reserva')"><span>29</span></a>
+                        <a class="modal-agendaMob" href="javascript:void(0)"
+                            onclick="openModal('idmodal-agendaMob modal--reserva')"><span>30</span></a>
+                        <span class="agendabMob">
+                            <!--BLANK--></span>
+                        <span class="agendabMob">
+                            <!--BLANK--></span>
+                        <span class="agendabMob">
+                            <!--BLANK--></span>
+                        <span class="agendabMob">
+                            <!--BLANK--></span>
+                        <span class="agendabMob">
+                            <!--BLANK--></span>
+                        <span class="agendabMob">
+                            <!--BLANK--></span>
+                </div>
+
+                <div class="agendabox1 agendabasf agendacal">
+
+                    <div class="agendacalt">Março 2020</div>
+
+                    <span>Dom</span>
+                    <span>Seg</span>
+                    <span>Ter</span>
+                    <span>Qua</span>
+                    <span>Qui</span>
+                    <span>Sex</span>
+                    <span>Sab</span>
+
+
+                    <span class="agendab">
+                        <!--BLANK--></span>
+                    <span class="agendab">
+                        <!--BLANK--></span>
+                    <span class="agendab">
+                        <!--BLANK--></span>
+                    <span class="agendab">
+                        <!--BLANK--></span>
+                    <span class="agendab">
+                        <!--BLANK--></span>
+                    <span class="agendab">
+                        <!--BLANK--></span>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>1</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>2</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>3</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)" onclick="openModal('idmodal-agenda modal--reserva')"><span
+                            class="circle" data-title="Comemoração do aniversario de Jaiminho, o carteiro">4</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>5</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>6</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>7</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>8</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>9</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>10</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>11</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>12</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>13</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>14</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>15</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>16</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>17</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)" onclick="openModal('idmodal-agenda modal--reserva')"><span
+                            class="circle" data-title="Casamento da Dona Joaninha">18</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>19</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>20</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>21</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>22</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>23</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)"
+                        onclick="openModal('idmodal-agenda modal--reserva')"><span>24</span></a>
+                    <a class="modal-agenda" href="javascript:void(0)" onclick="openModal('idmodal-agenda modal--reserva')"><span>25</span>
+                        <a class="modal-agenda" href="javascript:void(0)"
+                            onclick="openModal('idmodal-agenda modal--reserva')"><span>26</span></a>
+                        <a class="modal-agenda" href="javascript:void(0)"
+                            onclick="openModal('idmodal-agenda modal--reserva')"><span>27</span></a>
+                        <a class="modal-agenda" href="javascript:void(0)"
+                            onclick="openModal('idmodal-agenda modal--reserva')"><span>28</span></a>
+                        <a class="modal-agenda" href="javascript:void(0)"
+                            onclick="openModal('idmodal-agenda modal--reserva')"><span>29</span></a>
+                        <a class="modal-agenda" href="javascript:void(0)"
+                            onclick="openModal('idmodal-agenda modal--reserva')"><span>30</span></a>
+                        <span class="agendab">
+                            <!--BLANK--></span>
+                        <span class="agendab">
+                            <!--BLANK--></span>
+                        <span class="agendab">
+                            <!--BLANK--></span>
+                        <span class="agendab">
+                            <!--BLANK--></span>
+                        <span class="agendab">
+                            <!--BLANK--></span>
+                        <span class="agendab">
+                            <!--BLANK--></span>
+                </div>
+            </main>
+        </div>
+
+        <!-- Modais -->
+        <div id="open-modal" class="modal modal--reserva">
+            <!-- Modal Novo Post -->
+            <div id="idmodal-agenda modal--reserva" class="modalInterno">
+                <div class="enquete__header">
+                    <h2 class="enquete__heading">reservar</h2>
+                    <i class="enquete__icon" data-feather="x"></i>
+                </div>
+                <div class="new-foto-mensagem new-foto-mensagem--reserva">
+                    <img class="new-foto-mensagem__img" src="images/posts-mural/hendy-almeida.jpg">
+                    <h2 class="reserva-data">Salão de Festas</h2>
+                    <p class="enquete__option enquete__option--bold enquete__option--reserva">
+                        07/09/2020
+                    </p>
+
+                    <div class="enquete__periodo enquete__periodo--reserva">
+                        <div class="periodo-text">
+                            <span class="enquete__option enquete__option--reserva">Em nome do</span>
+                        </div>
+    
+                        <div class="custom-select enquete__select enquete__select--reserva">
+                            <select>
+                                <option value="0">Apto. 1</option>
+                                <option value="1">Apto. 2</option>
+                                <option value="2">Apto. 3</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="new-cancel-send">
+
+                    <button class="enviar-modal-novo" type="submit">Reservar</button>
+                </div>
+            </div>
+
+            <div id="idmodal-agendaMob modal--reserva" class="modalInterno">
+                <div class="enquete__header">
+                    <h2 class="enquete__heading">reservar</h2>
+                    <i class="enquete__icon" data-feather="x"></i>
+                </div>
+                <div class="new-foto-mensagem new-foto-mensagem--reserva">
+                    <img class="new-foto-mensagem__img" src="images/posts-mural/hendy-almeida.jpg">
+                    <h2 class="reserva-data">Salão de Festas</h2>
+                    <p class="enquete__option enquete__option--bold enquete__option--reserva">
+                        07/09/2020
+                    </p>
+
+                    <div class="enquete__periodo enquete__periodo--reserva">
+                        <div class="periodo-text">
+                            <span class="enquete__option enquete__option--reserva">Em nome do</span>
+                        </div>
+    
+                        <div class="custom-select enquete__select enquete__select--reserva">
+                            <select>
+                                <option value="0">Apto. 1</option>
+                                <option value="1">Apto. 2</option>
+                                <option value="2">Apto. 3</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="new-cancel-send">
+
+                    <button class="enviar-modal-novo" type="submit">Reservar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        feather.replace()
+    </script>
 </body>
+
 </html>

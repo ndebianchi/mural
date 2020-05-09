@@ -19,58 +19,7 @@
         <!-- Fundo escuro do modal -->
         <div id="background-modal" onclick="toggleBackgroundModal()"></div>
 
-        <!-- Nav Mobile  -->
-        <div id="mobileSidebar" class="sidebarMobile">
-            <a href="javascript:javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <div id="logo-nav">
-                <a href="/inicio"><img src="images/logos-mural/logo-h-branco.svg" alt="Mural"></a>
-            </div>
-            <a href="/inicio"><img src="images/icones-mural/Branco/home.svg" alt="Inicio">Início</a>
-            <a href="/avisos"><img src="images/icones-mural/Branco/avisos.svg" alt="Avisos">Avisos</a>            
-            <a href="/ocorrencias"><img src="images/icones-mural/Branco/ocorrencias.svg"
-                    alt="Ocorrencias">Ocorrências</a>
-            <a href="/reservas"><img src="images/icones-mural/Branco/reservas.svg" alt="Reservas">Reservas</a>
-            <a href="/agenda"><img src="images/icones-mural/Branco/agenda.svg" alt="Agenda">Agenda</a>
-            <a href="/enquetes"><img src="images/icones-mural/Branco/enquete.svg" alt="Enquetes">Enquetes</a>
-            <a href="/boleto"><img src="images/icones-mural/Branco/2via.svg" alt="2ª via do Condomínio">2ª via do
-                Condomínio</a>
-            <a href="/contas"><img src="images/icones-mural/Branco/contas2.svg"
-                    alt="Prestação de Contas">Prestação de Contas</a>
-            <a href="/perdidos"><img src="images/icones-mural/Branco/achados3.svg"
-                    alt="Achados e Perdidos">Achados e Perdidos</a>
-            <a href="/gerenciarPerfis"><img src="images/icones-mural/Branco/profile.svg" alt="Gerenciar Perfis">Gerenciar
-                Perfis</a>
-        </div>
-
-        <!-- Nav Desktop -->
-        <div class="sidebarDesktop">
-            <div id="logo-nav">
-                <a href="/inicio"><img src="images/logos-mural/logo-h-rosa.svg" alt="Mural"></a>
-            </div>
-            <div><a href="/inicio"><img src="images/icones-mural/Preto/home.svg" alt="Inicio">Início</a></div>
-            <div><a href="/avisos"><img src="images/icones-mural/Preto/avisos.svg" alt="Avisos">Avisos</a></div>
-            <div><a href="/ocorrencias"><img src="images/icones-mural/Preto/ocorrencias.svg"
-                        alt="Ocorrencias">Ocorrências</a></div>
-            <div><a href="/reservas"><img src="images/icones-mural/Preto/reservas.svg"
-                        alt="Reservas">Reservas</a></div>
-            <div><a href="/agenda"><img src="images/icones-mural/Preto/agenda.svg" alt="Agenda">Agenda</a></div>
-            <div><a href="/enquetes"><img src="images/icones-mural/Preto/enquete.svg"
-                        alt="Enquetes">Enquetes</a></div>
-            <div><a href="/boleto"><img src="images/icones-mural/Preto/2via.svg" alt="2ª via do Condomínio">2ª via do
-                    Condomínio</a>
-            </div>
-            <div><a href="/contas"><img src="images/icones-mural/Preto/contas2.svg"
-                        alt="Prestação de Contas">Prestação de
-                    Contas</a>
-            </div>
-            <div><a href="/perdidos"><img src="images/icones-mural/Preto/achados3.svg"
-                        alt="Achados e Perdidos">Achados e
-                    Perdidos</a>
-            </div>
-            <div><a href="/gerenciarPerfis"><img src="images/icones-mural/Preto/profile.svg" alt="Gerenciar Perfis">Gerenciar
-                    Perfis</a>
-            </div>
-        </div>
+        <%- include('./partials/navbar') %>
 
         <!-- Conteudo -->
 
@@ -91,31 +40,7 @@
                 </div>
 
                 <!-- Hendy -->
-                <button class="profile-icon" onclick="profileDropdown()">
-                    <img src="images/posts-mural/hendy-almeida.jpg" alt="Imagem de perfil">
-                </button>
-                <div id="profile-dropdown" class="modal">
-                    <div class="profile-content">
-                        <header class="account-header">
-                            <div class="user-group">
-                                <img src="images/posts-mural/hendy-almeida.jpg" alt="Imagem de perfil">
-                                <div class="user-info">
-                                    <p>Hendy Almeida</p>
-                                    <span>Apartamento 1</span>
-                                </div>
-                            </div>
-                        </header>
-                       <div class="account-main">
-                            <a href="/config"><img src="images/icones-mural/Cinza/settings.svg"
-                                    alt="">Configurações</a>
-                            <a href="/perfil"><img src="images/icones-mural/Cinza/user.svg" alt="">Ver meu perfil</a>
-                        </div>
-                        <div class="account-footer">
-                            <hr>
-                            <a href="/login"><img src="images/icones-mural/Cinza/log-out.svg" alt=""> Sair</a>
-                        </div> 
-                    </div>
-                </div>
+                <%- include('./partials/hendy') %>
 
             </header>
 

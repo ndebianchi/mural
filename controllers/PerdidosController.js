@@ -1,6 +1,9 @@
 const PerdidosController = {
     index: (req, res) => {
-        res.render('perdidos')
+        res.render('perdidos', {
+            pageTitle: 'Achados e Perdidos',
+            pageIcon: 'achados3.svg'
+        })
     }
 }
 

@@ -1,6 +1,9 @@
 const AgendaController = {
     index: (req, res) => {
-        res.render('agenda')
+        res.render('agenda', {
+            pageTitle: 'Agenda',
+            pageIcon: 'agenda.svg'
+        })
     }
 }
 

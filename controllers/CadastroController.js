@@ -1,6 +1,9 @@
 const CadastroController = {
     index: (req, res) => {
-        res.render('cadastro')
+        res.render('cadastro', {
+            pageTitle: 'Novo Cadastro',
+            pageIcon: 'user.svg'
+        })
     }
 }
 

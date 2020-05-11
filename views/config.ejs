@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="stylesheets/styles.css">
     <script defer src="javascripts/script.js"></script>
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
-    <title>Configurações</title>
+    <title><%= pageTitle %></title>
 </head>
 
 <body>
@@ -29,12 +29,7 @@
                 </button>
 
                 <!-- Icone + Titulo da Pagina -->
-                <div class="page-title-box">
-                    <div class="page-title">
-                        <img src="images/icones-mural/Cinza/settings.svg" alt="Novo Post">
-                        <span>Configurações</span>
-                    </div>                    
-                </div>
+                <%- include('./partials/pageTitle') %>
 
                 <!-- Hendy -->
                 <%- include('./partials/hendy') %>

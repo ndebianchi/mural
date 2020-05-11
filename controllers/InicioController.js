@@ -1,6 +1,8 @@
 const InicioController = {
     index: (req, res) => {
-        res.render('inicio')
+        res.render('inicio', {
+            pageTitle: 'Mural'
+        })
     }
 }
 

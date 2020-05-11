@@ -1,6 +1,9 @@
 const EnquetesController = {
     index: (req, res) => {
-        res.render('enquetes')
+        res.render('enquetes', {
+            pageTitle: 'Enquetes',
+            pageIcon: 'enquete.svg'
+        })
     }
 }
 

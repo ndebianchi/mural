@@ -1,6 +1,8 @@
 const LoginController = {
     index: (req, res) => {
-        res.render('login')
+        res.render('login', {
+            pageTitle: 'Mural | Login'
+        })
     }
 }
 

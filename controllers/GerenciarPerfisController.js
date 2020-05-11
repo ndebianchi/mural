@@ -1,6 +1,9 @@
 const GerenciarPerfisController = {
     index: (req, res) => {
-        res.render('gerenciarperfis')
+        res.render('gerenciarperfis', {
+            pageTitle: 'Gerenciar Perfis',
+            pageIcon: 'profile.svg'
+        })
     }
 }
 

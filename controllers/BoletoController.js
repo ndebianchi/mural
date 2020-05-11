@@ -1,6 +1,9 @@
 const BoletoController = {
     index: (req, res) => {
-        res.render('boleto')
+        res.render('boleto', {
+            pageTitle: '2ª Via do Condomínio',
+            pageIcon: '2via.svg'
+        })
     }
 }
 

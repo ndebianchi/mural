@@ -8,7 +8,7 @@
     <script defer src="javascripts/carousel.js"></script>
     <script defer src="javascripts/select-box.js"></script>
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
-    <title>2ª Via</title>
+    <title><%= pageTitle %></title>
 </head>
 
 <body>
@@ -30,12 +30,7 @@
                 </button>
 
                 <!-- Icone + Titulo da Pagina -->
-                <div class="page-title-box">
-                    <div class="page-title">
-                        <img src="images/icones-mural/Cinza/2via.svg" alt="Novo Post">
-                        <span>2ª Via do Condomínio</span>
-                    </div>                    
-                </div>
+                <%- include('./partials/pageTitle') %>
 
                 <!-- Hendy -->
                 <%- include('./partials/hendy') %>

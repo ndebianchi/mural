@@ -7,7 +7,7 @@
     <script defer src="javascripts/script.js"></script>
     <script defer src="javascripts/select-box.js"></script>
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
-    <title>Gerenciar Perfis</title>
+    <title><%= pageTitle %></title>
 </head>
 
 <body>
@@ -28,12 +28,7 @@
                 </button>
 
                 <!-- Icone + Titulo da Pagina -->
-                <div class="page-title-box">
-                    <div class="page-title">
-                        <img src="images/icones-mural/Cinza/profile.svg" alt="Novo Post">
-                        <span>Gerenciar Perfis</span>
-                    </div>                    
-                </div>
+                <%- include('./partials/pageTitle') %>
 
                 <!-- Hendy -->
                 <%- include('./partials/hendy') %>

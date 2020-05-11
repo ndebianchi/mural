@@ -15,7 +15,7 @@
     >
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     
-    <title>Enquetes</title>
+    <title><%= pageTitle %></title>
 </head>
 
 <body>
@@ -37,12 +37,7 @@
                 </button>
 
                 <!-- Icone + Titulo da Pagina -->
-                <div class="page-title-box">
-                    <div class="page-title">
-                        <img src="images/icones-mural/Cinza/enquete.svg" alt="Novo Post">
-                        <span>Enquetes</span>
-                    </div>
-                </div>
+                <%- include('./partials/pageTitle') %>
 
                 <!-- Hendy -->
                 <%- include('./partials/hendy') %>

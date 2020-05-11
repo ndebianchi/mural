@@ -1,6 +1,8 @@
 const PerfilController = {
     index: (req, res) => {
-        res.render('perfil')
+        res.render('perfil', {
+            pageTitle: 'Perfil'
+        })
     }
 }
 

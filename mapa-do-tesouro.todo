@@ -66,8 +66,8 @@ D2: Testar Models + Atualizar muralteste
 
 E: Migrations
     ☐ agenda
-    ☐ apartamento
-    ☐ apartamento_usuario (opcional?)
+    ✔ apartamento @done(20-05-12 18:13)
+    ✔ apartamento_usuarios  @done(20-05-12 18:13)
     ✔ usuario @done(20-05-12 11:54)
     ✔ tipo_usuario @done(20-05-12 11:54)
     ✔ reserva @done(20-05-12 11:57)

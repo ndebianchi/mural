@@ -35,7 +35,23 @@ C: Criar Models (Murilo + Galera)
 ☐ PREVISAO INICIO D E: 12/05
 ===========================
 
-D: Relacionar Models
+D1: Relacionar Models
+    ☐ agenda
+    ☐ apartamento
+    ☐ apartamento_usuario (opcional?)
+    ✔ usuario @done(20-05-12 11:54)
+    ✔ tipo_usuario @done(20-05-12 11:54)
+    ✔ reserva @done(20-05-12 11:57)
+    ✔ local @done(20-05-12 11:54)
+    ☐ post
+    ☐ post_categoria
+    ☐ post_usuario_aviso
+    ☐ post_feed
+    ☐ post_usuario_like
+    ☐ post_ocorrencia
+    ☐ post_perdidos
+
+D2: Testar Models
     ☐ agenda
     ☐ apartamento
     ☐ apartamento_usuario (opcional?)

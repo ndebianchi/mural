@@ -28,11 +28,12 @@ C: Criar Models (Murilo + Galera)
     ☐ post_perdidos
 
 ===========================
-☐ ENTREGA A B C: 11/05
+✘ ENTREGA A B C: 11/05 @cancelled(20-05-12 12:48)
+✔ ENTREGA A B: 11/05 @done(20-05-12 12:49)
 ===========================
 
 ===========================
-☐ PREVISAO INICIO D E: 12/05
+✔ PREVISAO INICIO C D E: 12/05 @done(20-05-12 12:48)
 ===========================
 
 D1: Relacionar Models
@@ -51,7 +52,7 @@ D1: Relacionar Models
     ☐ post_ocorrencia
     ☐ post_perdidos
 
-D2: Testar Models
+D2: Testar Models + Atualizar muralteste
     ☐ agenda
     ☐ apartamento
     ☐ apartamento_usuario (opcional?)
@@ -81,13 +82,28 @@ E: Migrations
     ☐ post_feed
     ☐ post_usuario_like
     ☐ post_ocorrencia
-    ☐ post_perdidos
+    ☐ post_perdidos    
+
+===========================
+ENTREGA C D1 D2 E: 12/05
+===========================
 
 
-F: Módulos Essenciais
-    ☐ <listar modulos aqui>
+F: Módulos Essenciais I
+    ☐ Login
+    ☐ Session
+    ☐ Exibir: Main Feed (Posts)
+    ☐ Exibir: Avisos (Posts)
+    ☐ Exibir: Ocorrências (Posts)
+    ☐ Exibir: Perfil (Usuário)
+    ☐ Inserir: Novo Post
+    ☐ Inserir: Nova Ocorrência
+    ☐ Inserir: Novo Aviso
+    
+G: Módulos Essenciais II
+    ☐ ?????????
 
-G: Módulos Perfumaria
+H: Módulos Perfumaria
     ☐ Responder Post
     ☐ Enquetes
     ☐ Prestação Contas

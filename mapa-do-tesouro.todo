@@ -1,17 +1,18 @@
 A: Partials EJS (Aguiaia + Elon) 
     ✔ Definir as partials @done(20-05-08 16:11)
-    ☐ Navbar
-    ☐ Hendy
-    ☐ Titulo da Pagina (com icone)
-    ☐ CardReserva
-    ☐ Calendario
+    ✔ Navbar @done(20-05-12 11:12)
+    ✔ Hendy @done(20-05-12 11:12)
+    ✔ Titulo da Pagina (com icone) @done(20-05-12 11:12)
+    ✔ CardReserva @done(20-05-12 11:12)
+    ✔ Calendario @done(20-05-12 11:12)
 
 B: Preencher Banco de Dados (Nicolas)
-    ☐ Atualizar Banco (ver txt)
-    ☐ Preencher com informações
-    ☐ Atualizar o arquivo (Slack)
+    ✔ Atualizar Banco (ver txt) @done(20-05-12 11:13)
+    ✔ Preencher com informações @done(20-05-12 11:13)
+    ✔ Atualizar o arquivo (Slack) @done(20-05-12 11:13)
 
 C: Criar Models (Murilo + Galera)
+    ☐ agenda
     ☐ apartamento
     ☐ apartamento_usuario (opcional?)
     ☐ usuario
@@ -34,7 +35,8 @@ C: Criar Models (Murilo + Galera)
 ☐ PREVISAO INICIO D E: 12/05
 ===========================
 
-D: Relacionar Models 
+D: Relacionar Models
+    ☐ agenda
     ☐ apartamento
     ☐ apartamento_usuario (opcional?)
     ☐ usuario

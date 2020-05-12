@@ -15,10 +15,10 @@ C: Criar Models (Murilo + Galera)
     ☐ agenda
     ☐ apartamento
     ☐ apartamento_usuario (opcional?)
-    ☐ usuario
-    ☐ tipo_usuario
-    ☐ reserva
-    ☐ local
+    ✔ usuario @done(20-05-12 11:54)
+    ✔ usuario_tipo @done(20-05-12 11:52)
+    ✔ reserva @done(20-05-12 11:56)
+    ✔ local @done(20-05-12 11:51)
     ☐ post
     ☐ post_categoria
     ☐ post_usuario_aviso
@@ -39,10 +39,10 @@ D: Relacionar Models
     ☐ agenda
     ☐ apartamento
     ☐ apartamento_usuario (opcional?)
-    ☐ usuario
-    ☐ tipo_usuario
-    ☐ reserva
-    ☐ local
+    ✔ usuario @done(20-05-12 11:54)
+    ✔ tipo_usuario @done(20-05-12 11:54)
+    ✔ reserva @done(20-05-12 11:57)
+    ✔ local @done(20-05-12 11:54)
     ☐ post
     ☐ post_categoria
     ☐ post_usuario_aviso
@@ -51,10 +51,27 @@ D: Relacionar Models
     ☐ post_ocorrencia
     ☐ post_perdidos
 
-E: Módulos Essenciais
+E: Migrations
+    ☐ agenda
+    ☐ apartamento
+    ☐ apartamento_usuario (opcional?)
+    ✔ usuario @done(20-05-12 11:54)
+    ✔ tipo_usuario @done(20-05-12 11:54)
+    ✔ reserva @done(20-05-12 11:57)
+    ✔ local @done(20-05-12 11:54)
+    ☐ post
+    ☐ post_categoria
+    ☐ post_usuario_aviso
+    ☐ post_feed
+    ☐ post_usuario_like
+    ☐ post_ocorrencia
+    ☐ post_perdidos
+
+
+F: Módulos Essenciais
     ☐ <listar modulos aqui>
 
-F: Módulos Perfumaria
+G: Módulos Perfumaria
     ☐ Responder Post
     ☐ Enquetes
     ☐ Prestação Contas

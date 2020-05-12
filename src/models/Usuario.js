@@ -6,7 +6,10 @@ module.exports = (sequelize, DataTypes) => {
     senha: DataTypes.STRING,
     telefone: DataTypes.STRING,
     foto: DataTypes.STRING
-  });
+  },{
+    // remover
+    timestamps: false
+  });  
 
   Usuario.associate = models => {
     Usuario.belongsTo(models.UsuarioTipo, {

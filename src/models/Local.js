@@ -4,7 +4,9 @@ module.exports = (sequelize, DataTypes) => {
     descricao: DataTypes.STRING,
     foto: DataTypes.STRING
   }, {
-    tableName: 'locais'
+    tableName: 'locais',
+    // remover
+    timestamps: false
   });
 
   Local.associate = models => {

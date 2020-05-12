@@ -5,5 +5,13 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     tableName: 'locais'
   });
+
+  Local.associate = models => {
+    Local.hasMany(models.Reserva, {
+      foreignKey: 'local_id',
+      as: 'reservas'
+    })
+  }
+
   return Local;
 };

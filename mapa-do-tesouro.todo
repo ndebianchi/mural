@@ -13,17 +13,15 @@ B: Preencher Banco de Dados (Nicolas)
 
 C: Criar Models (Murilo + Galera)
     ☐ agenda
-    ☐ apartamento
-    ☐ apartamento_usuario (opcional?)
+    ✔ apartamento @done(20-05-12 16:09)
     ✔ usuario @done(20-05-12 11:54)
     ✔ usuario_tipo @done(20-05-12 11:52)
     ✔ reserva @done(20-05-12 11:56)
     ✔ local @done(20-05-12 11:51)
     ☐ post
     ☐ post_categoria
-    ☐ post_usuario_aviso
-    ☐ post_feed
-    ☐ post_usuario_like
+    ☐ likes_vistos
+    ☐ post_feed    
     ☐ post_ocorrencia
     ☐ post_perdidos
 
@@ -38,33 +36,31 @@ C: Criar Models (Murilo + Galera)
 
 D1: Relacionar Models
     ☐ agenda
-    ☐ apartamento
-    ☐ apartamento_usuario (opcional?)
+    ✔ apartamento @done(20-05-12 16:09)
+    ✔ apartamento_usuario (opcional?) @done(20-05-12 16:09)
     ✔ usuario @done(20-05-12 11:54)
     ✔ tipo_usuario @done(20-05-12 11:54)
     ✔ reserva @done(20-05-12 11:57)
     ✔ local @done(20-05-12 11:54)
     ☐ post
     ☐ post_categoria
-    ☐ post_usuario_aviso
-    ☐ post_feed
-    ☐ post_usuario_like
-    ☐ post_ocorrencia
+    ☐ likes_vistos
+    ☐ post_feed    
+    ☐ post_ocorrencia  
     ☐ post_perdidos
 
 D2: Testar Models + Atualizar muralteste
     ☐ agenda
-    ☐ apartamento
-    ☐ apartamento_usuario (opcional?)
+    ✔ apartamento @done(20-05-12 16:09)
+    ✔ apartamento_usuario (opcional?) @done(20-05-12 16:09)
     ✔ usuario @done(20-05-12 11:54)
     ✔ tipo_usuario @done(20-05-12 11:54)
     ✔ reserva @done(20-05-12 11:57)
     ✔ local @done(20-05-12 11:54)
     ☐ post
     ☐ post_categoria
-    ☐ post_usuario_aviso
+    ☐ likes_vistos
     ☐ post_feed
-    ☐ post_usuario_like
     ☐ post_ocorrencia
     ☐ post_perdidos
 
@@ -78,14 +74,13 @@ E: Migrations
     ✔ local @done(20-05-12 11:54)
     ☐ post
     ☐ post_categoria
-    ☐ post_usuario_aviso
-    ☐ post_feed
-    ☐ post_usuario_like
+    ☐ likes_vistos
+    ☐ post_feed    
     ☐ post_ocorrencia
     ☐ post_perdidos    
 
 ===========================
-ENTREGA C D1 D2 E: 12/05
+ENTREGA C D1 D2 E: 14/05
 ===========================
 
 

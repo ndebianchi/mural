@@ -25,12 +25,12 @@ DROP TABLE IF EXISTS `agenda`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `agenda` (
-  `agenda_id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
-  PRIMARY KEY (`agenda_id`),
+  PRIMARY KEY (`id`),
   KEY `fk_agenda_post1_idx` (`post_id`),
-  CONSTRAINT `fk_agenda_post1` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+  CONSTRAINT `fk_agenda_post1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,55 +44,112 @@ INSERT INTO `agenda` VALUES (1,1);
 UNLOCK TABLES;
 
 --
--- Table structure for table `apartamento`
+-- Table structure for table `apartamento_usuarios`
 --
 
-DROP TABLE IF EXISTS `apartamento`;
+DROP TABLE IF EXISTS `apartamento_usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `apartamento` (
-  `apartamento_id` int(11) NOT NULL AUTO_INCREMENT,
-  `bloco` varchar(64) DEFAULT NULL,
-  `numero` int(12) NOT NULL,
-  PRIMARY KEY (`apartamento_id`)
+CREATE TABLE `apartamento_usuarios` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `apartamento_id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_apartamento_id` (`apartamento_id`),
+  KEY `fk_usuario_id` (`usuario_id`),
+  CONSTRAINT `fk_apartamento_id` FOREIGN KEY (`apartamento_id`) REFERENCES `apartamentos` (`id`),
+  CONSTRAINT `fk_apartamento_usuario_id` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `apartamento`
+-- Dumping data for table `apartamento_usuarios`
 --
 
-LOCK TABLES `apartamento` WRITE;
-/*!40000 ALTER TABLE `apartamento` DISABLE KEYS */;
-INSERT INTO `apartamento` VALUES (1,'A',101),(2,'Alfa',2022),(3,'B',10178),(4,'C',101),(5,'Céu Azul',7987);
-/*!40000 ALTER TABLE `apartamento` ENABLE KEYS */;
+LOCK TABLES `apartamento_usuarios` WRITE;
+/*!40000 ALTER TABLE `apartamento_usuarios` DISABLE KEYS */;
+INSERT INTO `apartamento_usuarios` VALUES (1,1,1),(2,2,2),(3,3,3),(4,4,4),(5,5,5);
+/*!40000 ALTER TABLE `apartamento_usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `apartamento_usuario`
+-- Table structure for table `apartamentos`
 --
 
-DROP TABLE IF EXISTS `apartamento_usuario`;
+DROP TABLE IF EXISTS `apartamentos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `apartamento_usuario` (
-  `apartamento_id` int(11) NOT NULL,
-  `usuario_id` int(11) NOT NULL,
-  KEY `fk_apartamento_id` (`apartamento_id`),
-  KEY `fk_usuario_id` (`usuario_id`),
-  CONSTRAINT `fk_apartamento_id` FOREIGN KEY (`apartamento_id`) REFERENCES `apartamento` (`apartamento_id`),
-  CONSTRAINT `fk_apartamento_usuario_id` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `apartamentos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bloco` varchar(64) DEFAULT NULL,
+  `numero` int(12) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `apartamento_usuario`
+-- Dumping data for table `apartamentos`
 --
 
-LOCK TABLES `apartamento_usuario` WRITE;
-/*!40000 ALTER TABLE `apartamento_usuario` DISABLE KEYS */;
-INSERT INTO `apartamento_usuario` VALUES (1,1),(2,2),(3,3),(4,4),(5,5);
-/*!40000 ALTER TABLE `apartamento_usuario` ENABLE KEYS */;
+LOCK TABLES `apartamentos` WRITE;
+/*!40000 ALTER TABLE `apartamentos` DISABLE KEYS */;
+INSERT INTO `apartamentos` VALUES (1,'A',101),(2,'Alfa',2022),(3,'B',10178),(4,'C',101),(5,'Céu Azul',7987);
+/*!40000 ALTER TABLE `apartamentos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `feed_posts`
+--
+
+DROP TABLE IF EXISTS `feed_posts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `feed_posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `post_id` int(11) NOT NULL,
+  `foto` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_post_id` (`post_id`),
+  CONSTRAINT `fk_post_feed_id` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `feed_posts`
+--
+
+LOCK TABLES `feed_posts` WRITE;
+/*!40000 ALTER TABLE `feed_posts` DISABLE KEYS */;
+INSERT INTO `feed_posts` VALUES (1,3,NULL),(2,4,NULL),(3,5,NULL),(4,6,NULL),(5,7,NULL),(6,8,NULL),(7,9,NULL),(8,10,NULL);
+/*!40000 ALTER TABLE `feed_posts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `likes_vistos`
+--
+
+DROP TABLE IF EXISTS `likes_vistos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `likes_vistos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `post_id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_post_id` (`post_id`),
+  KEY `fk_usuario_id` (`usuario_id`),
+  CONSTRAINT `post_id` FOREIGN KEY (`id`) REFERENCES `posts` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `likes_vistos`
+--
+
+LOCK TABLES `likes_vistos` WRITE;
+/*!40000 ALTER TABLE `likes_vistos` DISABLE KEYS */;
+INSERT INTO `likes_vistos` VALUES (1,1,1),(2,1,2),(3,1,3);
+/*!40000 ALTER TABLE `likes_vistos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -122,197 +179,113 @@ INSERT INTO `locais` VALUES (1,'Piscina','Aberta',NULL),(2,'Churrasqueira',NULL,
 UNLOCK TABLES;
 
 --
--- Table structure for table `post`
+-- Table structure for table `ocorrencia_posts`
 --
 
-DROP TABLE IF EXISTS `post`;
+DROP TABLE IF EXISTS `ocorrencia_posts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `post` (
-  `post_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ocorrencia_posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `post_id` int(11) NOT NULL,
+  `foto` varchar(256) DEFAULT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_post_id` (`post_id`),
+  CONSTRAINT `fk_post_ocorrencia_id` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ocorrencia_posts`
+--
+
+LOCK TABLES `ocorrencia_posts` WRITE;
+/*!40000 ALTER TABLE `ocorrencia_posts` DISABLE KEYS */;
+INSERT INTO `ocorrencia_posts` VALUES (1,4,NULL,1);
+/*!40000 ALTER TABLE `ocorrencia_posts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `perdidos_posts`
+--
+
+DROP TABLE IF EXISTS `perdidos_posts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `perdidos_posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `post_id` int(11) NOT NULL,
+  `foto` varchar(256) DEFAULT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_post_id` (`post_id`),
+  CONSTRAINT `fk_post_perdidos_id` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `perdidos_posts`
+--
+
+LOCK TABLES `perdidos_posts` WRITE;
+/*!40000 ALTER TABLE `perdidos_posts` DISABLE KEYS */;
+INSERT INTO `perdidos_posts` VALUES (1,11,NULL,1),(2,12,NULL,2);
+/*!40000 ALTER TABLE `perdidos_posts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `post_categorias`
+--
+
+DROP TABLE IF EXISTS `post_categorias`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `post_categorias` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `post_categorias`
+--
+
+LOCK TABLES `post_categorias` WRITE;
+/*!40000 ALTER TABLE `post_categorias` DISABLE KEYS */;
+INSERT INTO `post_categorias` VALUES (1,'Aviso'),(2,'Post'),(3,'Ocorrência'),(4,'Anúncio'),(5,'Classificados'),(6,'Serviços'),(7,'Eventos'),(8,'Achados e Perdidos');
+/*!40000 ALTER TABLE `post_categorias` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `posts`
+--
+
+DROP TABLE IF EXISTS `posts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `usuario_id` int(11) NOT NULL,
   `categoria_id` int(11) NOT NULL,
   `mensagem` text NOT NULL,
-  `data_cricao` datetime NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`post_id`),
+  PRIMARY KEY (`id`),
   KEY `fk_categoria_id` (`categoria_id`),
   KEY `fk_usuario_id` (`usuario_id`),
-  CONSTRAINT `fk_post_categoria_id` FOREIGN KEY (`categoria_id`) REFERENCES `post_categoria` (`categoria_id`),
+  CONSTRAINT `fk_post_categoria_id` FOREIGN KEY (`categoria_id`) REFERENCES `post_categorias` (`id`),
   CONSTRAINT `fk_post_usuario_id` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `post`
+-- Dumping data for table `posts`
 --
 
-LOCK TABLES `post` WRITE;
-/*!40000 ALTER TABLE `post` DISABLE KEYS */;
-INSERT INTO `post` VALUES (1,1,1,'Boa tarde, a partir de segunda feira (22/05) estaremos distribuindo mascaras no hall','2020-04-05 20:00:00'),(2,1,1,'Boa noite, odeio todos vocês. Passar bem.','2020-04-06 20:00:00'),(3,2,2,'Caracas, acho que peguei corona do Murilo','2020-04-07 20:00:00'),(4,2,3,'Os cachorros do Murilo são fofos demais e me desconcentram durante a aula ;(','2020-04-08 20:00:00'),(5,3,4,'Doando filhotes de cachorrineos','2020-04-09 20:00:00'),(6,3,5,'Alugo minha vaga por R$50,00 mensais','2020-04-10 20:00:00'),(7,4,6,'Faço o seu banco de dados por comida','2020-04-11 20:00:00'),(8,4,7,'Aula de SQL grátis online dia 20/04','2020-04-12 20:00:00'),(9,5,2,'QQ TA COM TESENO?','2020-04-13 20:00:00'),(10,5,2,'Gente? alô?','2020-04-14 20:00:00'),(11,1,8,'Mochila perdida ','2020-04-10 20:00:00'),(12,1,8,'Bebê Perdido','2020-04-10 20:00:00');
-/*!40000 ALTER TABLE `post` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `post_categoria`
---
-
-DROP TABLE IF EXISTS `post_categoria`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `post_categoria` (
-  `categoria_id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(32) NOT NULL,
-  PRIMARY KEY (`categoria_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `post_categoria`
---
-
-LOCK TABLES `post_categoria` WRITE;
-/*!40000 ALTER TABLE `post_categoria` DISABLE KEYS */;
-INSERT INTO `post_categoria` VALUES (1,'Aviso'),(2,'Post'),(3,'Ocorrência'),(4,'Anúncio'),(5,'Classificados'),(6,'Serviços'),(7,'Eventos'),(8,'Achados e Perdidos');
-/*!40000 ALTER TABLE `post_categoria` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `post_feed`
---
-
-DROP TABLE IF EXISTS `post_feed`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `post_feed` (
-  `post_feed_id` int(11) NOT NULL AUTO_INCREMENT,
-  `post_id` int(11) NOT NULL,
-  `foto` varchar(256) DEFAULT NULL,
-  PRIMARY KEY (`post_feed_id`),
-  KEY `fk_post_id` (`post_id`),
-  CONSTRAINT `fk_post_feed_id` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `post_feed`
---
-
-LOCK TABLES `post_feed` WRITE;
-/*!40000 ALTER TABLE `post_feed` DISABLE KEYS */;
-INSERT INTO `post_feed` VALUES (1,3,NULL),(2,4,NULL),(3,5,NULL),(4,6,NULL),(5,7,NULL),(6,8,NULL),(7,9,NULL),(8,10,NULL);
-/*!40000 ALTER TABLE `post_feed` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `post_ocorrencia`
---
-
-DROP TABLE IF EXISTS `post_ocorrencia`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `post_ocorrencia` (
-  `post_ocorrencia_id` int(11) NOT NULL AUTO_INCREMENT,
-  `post_id` int(11) NOT NULL,
-  `foto` varchar(256) DEFAULT NULL,
-  `status` int(11) NOT NULL,
-  PRIMARY KEY (`post_ocorrencia_id`),
-  KEY `fk_post_id` (`post_id`),
-  CONSTRAINT `fk_post_ocorrencia_id` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `post_ocorrencia`
---
-
-LOCK TABLES `post_ocorrencia` WRITE;
-/*!40000 ALTER TABLE `post_ocorrencia` DISABLE KEYS */;
-INSERT INTO `post_ocorrencia` VALUES (1,4,NULL,1);
-/*!40000 ALTER TABLE `post_ocorrencia` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `post_perdidos`
---
-
-DROP TABLE IF EXISTS `post_perdidos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `post_perdidos` (
-  `post_perdidos_id` int(11) NOT NULL AUTO_INCREMENT,
-  `post_id` int(11) NOT NULL,
-  `foto` varchar(256) DEFAULT NULL,
-  `status` int(11) NOT NULL,
-  PRIMARY KEY (`post_perdidos_id`),
-  KEY `fk_post_id` (`post_id`),
-  CONSTRAINT `fk_post_perdidos_id` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `post_perdidos`
---
-
-LOCK TABLES `post_perdidos` WRITE;
-/*!40000 ALTER TABLE `post_perdidos` DISABLE KEYS */;
-INSERT INTO `post_perdidos` VALUES (1,11,NULL,1),(2,12,NULL,2);
-/*!40000 ALTER TABLE `post_perdidos` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `post_usuario_aviso`
---
-
-DROP TABLE IF EXISTS `post_usuario_aviso`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `post_usuario_aviso` (
-  `post_id` int(11) NOT NULL,
-  `usuario_id` int(11) NOT NULL,
-  `tipo` varchar(32) NOT NULL,
-  KEY `fk_post_id` (`post_id`),
-  KEY `fk_usuario_id` (`usuario_id`),
-  CONSTRAINT `fk_post_post_aviso_id` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`),
-  CONSTRAINT `fk_usuario_post_aviso_id` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `post_usuario_aviso`
---
-
-LOCK TABLES `post_usuario_aviso` WRITE;
-/*!40000 ALTER TABLE `post_usuario_aviso` DISABLE KEYS */;
-INSERT INTO `post_usuario_aviso` VALUES (1,1,'Aviso'),(1,2,'Aviso'),(1,3,'Aviso');
-/*!40000 ALTER TABLE `post_usuario_aviso` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `post_usuario_like`
---
-
-DROP TABLE IF EXISTS `post_usuario_like`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `post_usuario_like` (
-  `post_feed_post_feed_id` int(11) NOT NULL,
-  `usuario_id` int(11) NOT NULL,
-  `tipo` varchar(32) NOT NULL,
-  KEY `fk_usuario_id` (`usuario_id`),
-  KEY `fk_post_usuario_like_post_feed1_idx` (`post_feed_post_feed_id`),
-  CONSTRAINT `fk_post_usuario_like_post_feed1` FOREIGN KEY (`post_feed_post_feed_id`) REFERENCES `post_feed` (`post_feed_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_usuario_id0` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `post_usuario_like`
---
-
-LOCK TABLES `post_usuario_like` WRITE;
-/*!40000 ALTER TABLE `post_usuario_like` DISABLE KEYS */;
-INSERT INTO `post_usuario_like` VALUES (1,2,'Like'),(1,3,'Like'),(1,4,'Like'),(2,5,'Like'),(2,4,'Like'),(3,4,'Like'),(3,2,'Like'),(3,1,'Like'),(4,2,'Like');
-/*!40000 ALTER TABLE `post_usuario_like` ENABLE KEYS */;
+LOCK TABLES `posts` WRITE;
+/*!40000 ALTER TABLE `posts` DISABLE KEYS */;
+INSERT INTO `posts` VALUES (1,1,1,'Boa tarde, a partir de segunda feira (22/05) estaremos distribuindo mascaras no hall'),(2,1,1,'Boa noite, odeio todos vocês. Passar bem.'),(3,2,2,'Caracas, acho que peguei corona do Murilo'),(4,2,3,'Os cachorros do Murilo são fofos demais e me desconcentram durante a aula ;('),(5,3,4,'Doando filhotes de cachorrineos'),(6,3,5,'Alugo minha vaga por R$50,00 mensais'),(7,4,6,'Faço o seu banco de dados por comida'),(8,4,7,'Aula de SQL grátis online dia 20/04'),(9,5,2,'QQ TA COM TESENO?'),(10,5,2,'Gente? alô?'),(11,1,8,'Mochila perdida '),(12,1,8,'Bebê Perdido');
+/*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -410,4 +383,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-12 12:24:15
+-- Dump completed on 2020-05-12 16:50:41

@@ -31,6 +31,8 @@ app.use('/', require('./routes/perfil'));
 app.use('/', require('./routes/gerenciarPerfis'));
 app.use('/', require('./routes/cadastro'));
 app.use('/', require('./routes/config'));
+// ROTAS TESTE
+app.use('/', require('./routes/testes/teste'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

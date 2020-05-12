@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
   });  
 
   Usuario.associate = models => {
+    
     Usuario.belongsTo(models.UsuarioTipo, {
       foreignKey: 'usuario_tipo_id',
       as: 'tipo'
@@ -18,6 +19,13 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'usuario_id',
       as: 'reservas'
     })
+    
+    Usuario.belongsToMany(models.Apartamento, {
+      through: 'apartamento_usuarios',
+      foreignKey: 'usuario_id',
+      as: 'apartamentos'
+  })
+    
   };
 
   return Usuario;

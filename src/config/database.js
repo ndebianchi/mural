@@ -8,7 +8,8 @@ module.exports = {
   port: process.env.DB_PORT,
   dialect: 'mysql',
   define: {
-    // trocar para true eventualmente
+    // usar false = testando com muralbeta
+    // usar true = testando com migrations
     timestamps: false,
     underscored: true
   }

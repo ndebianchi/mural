@@ -25,8 +25,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-
     return queryInterface.dropTable('usuario_tipos');
-
   }
 };

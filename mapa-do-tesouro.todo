@@ -18,8 +18,8 @@ C: Criar Models (Murilo + Galera)
     ✔ usuario_tipo @done(20-05-12 11:52)
     ✔ reserva @done(20-05-12 11:56)
     ✔ local @done(20-05-12 11:51)
-    ☐ post
-    ☐ post_categoria
+    ✔ post @done(20-05-12 21:33)
+    ✔ post_categoria @done(20-05-12 21:33)
     ☐ likes_vistos
     ☐ post_feed    
     ☐ post_ocorrencia
@@ -42,8 +42,8 @@ D1: Relacionar Models
     ✔ tipo_usuario @done(20-05-12 11:54)
     ✔ reserva @done(20-05-12 11:57)
     ✔ local @done(20-05-12 11:54)
-    ☐ post
-    ☐ post_categoria
+    ✔ post @done(20-05-12 21:33)
+    ✔ post_categoria @done(20-05-12 21:33)
     ☐ likes_vistos
     ☐ post_feed    
     ☐ post_ocorrencia  
@@ -57,8 +57,8 @@ D2: Testar Models + Atualizar muralteste
     ✔ tipo_usuario @done(20-05-12 11:54)
     ✔ reserva @done(20-05-12 11:57)
     ✔ local @done(20-05-12 11:54)
-    ☐ post
-    ☐ post_categoria
+    ✔ post @done(20-05-12 21:33)
+    ✔ post_categoria @done(20-05-12 21:33)
     ☐ likes_vistos
     ☐ post_feed
     ☐ post_ocorrencia
@@ -72,8 +72,8 @@ E: Migrations
     ✔ tipo_usuario @done(20-05-12 11:54)
     ✔ reserva @done(20-05-12 11:57)
     ✔ local @done(20-05-12 11:54)
-    ☐ post
-    ☐ post_categoria
+    ✔ post @done(20-05-12 21:33)
+    ✔ post_categoria @done(20-05-12 21:33)
     ☐ likes_vistos
     ☐ post_feed    
     ☐ post_ocorrencia

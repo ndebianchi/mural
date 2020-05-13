@@ -74,7 +74,7 @@ E: Migrations
     ✔ local @done(20-05-12 11:54)
     ✔ post @done(20-05-12 21:33)
     ✔ post_categoria @done(20-05-12 21:33)
-    ☐ likes_vistos
+    ✔ likes_vistos @done(20-05-13 12:11)
     ☐ post_feed    
     ☐ post_ocorrencia
     ☐ post_perdidos    

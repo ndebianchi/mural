@@ -23,7 +23,7 @@ C: Criar Models (Murilo + Galera)
     ✔ likes_vistos @done(20-05-13 11:57)
     ☐ post_feed    
     ☐ post_ocorrencia
-    ☐ post_perdidos
+    ✔ post_perdidos @done(20-05-13 12:37)
 
 ===========================
 ✘ ENTREGA A B C: 11/05 @cancelled(20-05-12 12:48)
@@ -47,7 +47,7 @@ D1: Relacionar Models
     ✔ likes_vistos @done(20-05-13 11:57)
     ☐ post_feed    
     ☐ post_ocorrencia  
-    ☐ post_perdidos
+    ✔ post_perdidos @done(20-05-13 12:37)
 
 D2: Testar Models + Atualizar muralteste
     ☐ agenda
@@ -62,7 +62,7 @@ D2: Testar Models + Atualizar muralteste
     ✔ likes_vistos @done(20-05-13 11:57)
     ☐ post_feed
     ☐ post_ocorrencia
-    ☐ post_perdidos
+    ✔ post_perdidos @done(20-05-13 12:38)
 
 E: Migrations
     ☐ agenda

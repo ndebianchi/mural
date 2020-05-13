@@ -1,4 +1,4 @@
-const { Apartamento, Usuario, Post } = require('../../models')
+const { Apartamento, Usuario, Post, PostPerdido } = require('../../models')
 
 const testeController = {
 
@@ -18,6 +18,13 @@ const testeController = {
                
     },
     
+    perdido: async (req, res) => {
+        
+        const resultado = await Post.findAll({include: ['usuario', 'postperdido']})
+
+        res.json(resultado)
+               
+    },
 }
 
 module.exports = testeController;

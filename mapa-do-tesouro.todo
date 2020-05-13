@@ -77,7 +77,7 @@ E: Migrations
     ✔ likes_vistos @done(20-05-13 12:11)
     ☐ post_feed    
     ☐ post_ocorrencia
-    ☐ post_perdidos    
+    ✔ post_perdidos @done(20-05-13 12:50)
 
 ===========================
 ENTREGA C D1 D2 E: 14/05

@@ -20,7 +20,7 @@ C: Criar Models (Murilo + Galera)
     ✔ local @done(20-05-12 11:51)
     ✔ post @done(20-05-12 21:33)
     ✔ post_categoria @done(20-05-12 21:33)
-    ☐ likes_vistos
+    ✔ likes_vistos @done(20-05-13 11:57)
     ☐ post_feed    
     ☐ post_ocorrencia
     ☐ post_perdidos
@@ -44,7 +44,7 @@ D1: Relacionar Models
     ✔ local @done(20-05-12 11:54)
     ✔ post @done(20-05-12 21:33)
     ✔ post_categoria @done(20-05-12 21:33)
-    ☐ likes_vistos
+    ✔ likes_vistos @done(20-05-13 11:57)
     ☐ post_feed    
     ☐ post_ocorrencia  
     ☐ post_perdidos
@@ -59,7 +59,7 @@ D2: Testar Models + Atualizar muralteste
     ✔ local @done(20-05-12 11:54)
     ✔ post @done(20-05-12 21:33)
     ✔ post_categoria @done(20-05-12 21:33)
-    ☐ likes_vistos
+    ✔ likes_vistos @done(20-05-13 11:57)
     ☐ post_feed
     ☐ post_ocorrencia
     ☐ post_perdidos

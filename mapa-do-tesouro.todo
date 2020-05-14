@@ -12,7 +12,7 @@ B: Preencher Banco de Dados (Nicolas)
     ✔ Atualizar o arquivo (Slack) @done(20-05-12 11:13)
 
 C: Criar Models (Murilo + Galera)
-    ☐ agenda
+    ✔ agenda @done(20-05-14 10:53)
     ✔ apartamento @done(20-05-12 16:09)
     ✔ usuario @done(20-05-12 11:54)
     ✔ usuario_tipo @done(20-05-12 11:52)
@@ -35,7 +35,7 @@ C: Criar Models (Murilo + Galera)
 ===========================
 
 D1: Relacionar Models
-    ☐ agenda
+    ✔ agenda @done(20-05-14 10:53)
     ✔ apartamento @done(20-05-12 16:09)
     ✔ apartamento_usuario (opcional?) @done(20-05-12 16:09)
     ✔ usuario @done(20-05-12 11:54)
@@ -50,7 +50,7 @@ D1: Relacionar Models
     ✔ post_perdidos @done(20-05-13 12:37)
 
 D2: Testar Models + Atualizar muralteste
-    ☐ agenda
+    ✔ agenda @done(20-05-14 10:53)
     ✔ apartamento @done(20-05-12 16:09)
     ✔ apartamento_usuario (opcional?) @done(20-05-12 16:09)
     ✔ usuario @done(20-05-12 11:54)
@@ -65,7 +65,7 @@ D2: Testar Models + Atualizar muralteste
     ✔ post_perdidos @done(20-05-13 12:38)
 
 E: Migrations
-    ☐ agenda
+    ✔ agenda @done(20-05-14 10:53)
     ✔ apartamento @done(20-05-12 18:13)
     ✔ apartamento_usuarios  @done(20-05-12 18:13)
     ✔ usuario @done(20-05-12 11:54)

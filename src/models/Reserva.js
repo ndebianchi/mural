@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     Reserva.belongsTo(models.Local, {
       foreignKey: 'local_id',
       as: 'local'
-    })
+    });
   };
 
   return Reserva;

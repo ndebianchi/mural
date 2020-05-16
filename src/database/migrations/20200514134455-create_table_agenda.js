@@ -9,18 +9,14 @@ module.exports = {
         autoIncrement: true,
         allowNull: false
       },
-
-      // Inserir aqui colunas
-
       post_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'post',
+          model: 'posts',
           key: 'id'
         }
       },
-
       created_at: {
         type: Sequelize.DATE,
         allowNull: false
@@ -29,7 +25,6 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false
       }
-    
     });
   },
 

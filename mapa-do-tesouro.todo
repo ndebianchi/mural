@@ -21,8 +21,8 @@ C: Criar Models (Murilo + Galera)
     ✔ post @done(20-05-12 21:33)
     ✔ post_categoria @done(20-05-12 21:33)
     ✔ likes_vistos @done(20-05-13 11:57)
-    ☐ post_feed    
-    ☐ post_ocorrencia
+    ✔ post_feed @done(20-05-17 13:17)
+    ✔ post_ocorrencia @done(20-05-17 13:17)
     ✔ post_perdidos @done(20-05-13 12:37)
 
 ===========================
@@ -45,8 +45,8 @@ D1: Relacionar Models
     ✔ post @done(20-05-12 21:33)
     ✔ post_categoria @done(20-05-12 21:33)
     ✔ likes_vistos @done(20-05-13 11:57)
-    ☐ post_feed    
-    ☐ post_ocorrencia  
+    ✔ post_feed @done(20-05-17 13:17)
+    ✔ post_ocorrencia @done(20-05-17 13:17)
     ✔ post_perdidos @done(20-05-13 12:37)
 
 D2: Testar Models + Atualizar muralteste
@@ -60,8 +60,8 @@ D2: Testar Models + Atualizar muralteste
     ✔ post @done(20-05-12 21:33)
     ✔ post_categoria @done(20-05-12 21:33)
     ✔ likes_vistos @done(20-05-13 11:57)
-    ☐ post_feed
-    ☐ post_ocorrencia
+    ✔ post_feed @done(20-05-17 13:18)
+    ✔ post_ocorrencia @done(20-05-17 13:18)
     ✔ post_perdidos @done(20-05-13 12:38)
 
 E: Migrations
@@ -75,33 +75,40 @@ E: Migrations
     ✔ post @done(20-05-12 21:33)
     ✔ post_categoria @done(20-05-12 21:33)
     ✔ likes_vistos @done(20-05-13 12:11)
-    ☐ post_feed    
-    ☐ post_ocorrencia
+    ✔ post_feed @done(20-05-17 13:18)
+    ✔ post_ocorrencia @done(20-05-17 13:18)
     ✔ post_perdidos @done(20-05-13 12:50)
 
 ===========================
-☐ ENTREGA C D1 D2 E: 14/05
+✔ ENTREGA C D1 D2 E: 14/05 @done(20-05-17 13:18)
 ===========================
 ===========================
-☐ PREVISÃO INICIO F Fx: 14/05
+✘ PREVISÃO INICIO F Fx: 14/05 @cancelled(20-05-17 13:18)
+✔ INICIO F Fx: 17/05 @done(20-05-17 13:18)
 ===========================
 
 F: Módulos Essenciais I
-    ☐ Login
-    ☐ Session
+    ☐ Login e Logout (bcrypt)
+    ☐ Session + Hendy
     ☐ Exibir: Main Feed (Posts)
     ☐ Exibir: Avisos (Posts)
     ☐ Exibir: Ocorrências (Posts)
-    ☐ Exibir: Perfil (Usuário)
+    ☐ Exibir: Perfil (Usuário) 
+
+    ☐ Middleware: Validação
     ☐ Inserir: Novo Post
     ☐ Inserir: Nova Ocorrência
-    ☐ Inserir: Novo Aviso
+    ☐ Inserir: Novo Aviso   
 
 Fx: FASE SECRETA - Seeders
     ☐ Usuarios
     ☐ Posts
     ☐ tudo? 
     ☐ ;(((
+
+F II: Extras
+    ☐ Exibir: Perfil (Outros)
+    ☐ Cadastro (apartamento) 
 
 ===========================
 ☐ ENTREGA F Fx: 18/05

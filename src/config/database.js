@@ -10,7 +10,7 @@ module.exports = {
   define: {
     // usar false = testando com muralbeta
     // usar true = testando com migrations
-    timestamps: true,
+    timestamps: false,
     underscored: true
   }
 }

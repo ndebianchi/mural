@@ -1,0 +1,3 @@
+/login erro 1 > email/usuario não existe
+/login erro 2 > senha incorreta
+/login erro 3 > acessou pagina sem estar logado

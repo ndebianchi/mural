@@ -3,6 +3,6 @@ var router = express.Router();
 
 const OcorrenciasController = require('../controllers/OcorrenciasController');
 
-router.get('/ocorrencias', OcorrenciasController.index);
+router.get('/ocorrencias', UsuarioLogado, OcorrenciasController.index);
 
 module.exports = router;

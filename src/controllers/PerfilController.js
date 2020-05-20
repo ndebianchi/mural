@@ -1,7 +1,8 @@
 const PerfilController = {
     index: (req, res) => {
         res.render('perfil', {
-            pageTitle: 'Perfil'
+            pageTitle: 'Perfil',
+            usuario: req.session.usuario
         })
     }
 }

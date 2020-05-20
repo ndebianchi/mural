@@ -3,6 +3,6 @@ var router = express.Router();
 
 const AvisosController = require('../controllers/AvisosController');
 
-router.get('/avisos', AvisosController.index);
+router.get('/avisos', UsuarioLogado, AvisosController.index);
 
 module.exports = router;

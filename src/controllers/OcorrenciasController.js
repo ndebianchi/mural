@@ -2,7 +2,8 @@ const OcorrenciasController = {
     index: (req, res) => {
         res.render('ocorrencias', {
             pageTitle: 'Ocorrências',
-            pageIcon: 'ocorrencias.svg'
+            pageIcon: 'ocorrencias.svg',
+            usuario: req.session.usuario
         })
     }
 }

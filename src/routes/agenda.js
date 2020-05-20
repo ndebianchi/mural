@@ -3,6 +3,6 @@ var router = express.Router();
 
 const AgendaController = require('../controllers/AgendaController');
 
-router.get('/agenda', AgendaController.index);
+router.get('/agenda', UsuarioLogado, AgendaController.index);
 
 module.exports = router;

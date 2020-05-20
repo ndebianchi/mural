@@ -3,6 +3,6 @@ var router = express.Router();
 
 const EnquetesController = require('../controllers/EnquetesController');
 
-router.get('/enquetes', EnquetesController.index);
+router.get('/enquetes', UsuarioLogado, EnquetesController.index);
 
 module.exports = router;

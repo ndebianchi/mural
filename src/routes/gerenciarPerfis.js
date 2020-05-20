@@ -3,6 +3,6 @@ var router = express.Router();
 
 const GerenciarPerfisController = require('../controllers/GerenciarPerfisController');
 
-router.get('/gerenciarPerfis', GerenciarPerfisController.index);
+router.get('/gerenciarPerfis', UsuarioLogado, GerenciarPerfisController.index);
 
 module.exports = router;

@@ -27,6 +27,9 @@ const LoginController = {
             res.redirect('/login?error=2')
         }
 
+        // Remove valor da senha para não ser enviada junto aos demais parâmetros
+        usuario.senha = '';
+
         // Cria Session com usuario logado
         req.session.usuario = usuario;
 

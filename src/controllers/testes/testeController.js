@@ -12,8 +12,16 @@ const testeController = {
 
     likesvistos: async (req, res) => {
         
-        const feed = await FeedPost.findAll({include: ['post']})
-        // const posts = await Post.findAll({include: ['usuario']})
+        const feed = await FeedPost.findAll({include:
+            [
+                {
+                    model: Post,
+                    as: "post",
+                    include: ["categoria", "usuario", "usuario_visualizado"]
+                }
+            ]
+        })
+
 
         res.json(feed)
                

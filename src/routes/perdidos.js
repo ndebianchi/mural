@@ -3,6 +3,6 @@ var router = express.Router();
 
 const PerdidosController = require('../controllers/PerdidosController');
 
-router.get('/perdidos', PerdidosController.index);
+router.get('/perdidos', UsuarioLogado, PerdidosController.index);
 
 module.exports = router;

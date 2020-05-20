@@ -370,7 +370,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,1,'Nicolas','Debianchi','nicolas@mural.com','mural1','123456789',NULL),(2,2,'Aguiaia','Ximenes','aguiaia@mural.com','mural1','123456789',NULL),(3,2,'Murilo','Ignaccio','murilo@mural.com','mural1','123456789',NULL),(4,3,'Elon','Castro','elon@mural.com','mural1','123456789',NULL),(5,3,'Eric','Reis','eric@mural.com','mural1','123456',NULL);
+INSERT INTO `usuarios` VALUES (1,1,'Nicolas','Debianchi','nicolas@mural.com','$2b$10$oBkKH0HAGeeuoOYoOLyR7uAtvbAIaF/FJvmTiIc3ztdDmYJtUjtBC','123456789','nicolas.jpg'),(2,2,'Aguiaia','Ximenes','aguiaia@mural.com','$2b$10$oBkKH0HAGeeuoOYoOLyR7uAtvbAIaF/FJvmTiIc3ztdDmYJtUjtBC','123456789','aguiaia.jpg'),(3,2,'Murilo','Ignaccio','murilo@mural.com','$2b$10$oBkKH0HAGeeuoOYoOLyR7uAtvbAIaF/FJvmTiIc3ztdDmYJtUjtBC','123456789','murilo.jpg'),(4,3,'Elon','Castro','elon@mural.com','$2b$10$oBkKH0HAGeeuoOYoOLyR7uAtvbAIaF/FJvmTiIc3ztdDmYJtUjtBC','123456789','elon.jpg'),(5,3,'Eric','Reis','eric@mural.com','$2b$10$oBkKH0HAGeeuoOYoOLyR7uAtvbAIaF/FJvmTiIc3ztdDmYJtUjtBC','123456','eric.jpg');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -383,4 +383,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-12 16:50:41
+-- Dump completed on 2020-05-19 16:04:08

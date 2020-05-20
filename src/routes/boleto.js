@@ -3,6 +3,6 @@ var router = express.Router();
 
 const BoletoController = require('../controllers/BoletoController');
 
-router.get('/boleto', BoletoController.index);
+router.get('/boleto', UsuarioLogado, BoletoController.index);
 
 module.exports = router;

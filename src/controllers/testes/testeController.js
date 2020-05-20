@@ -1,4 +1,4 @@
-const { Apartamento, Usuario, Post, PostPerdido } = require('../../models')
+const { Apartamento, Usuario, Post, PostPerdido, PostCategoria, FeedPost } = require('../../models')
 
 const testeController = {
 
@@ -12,9 +12,10 @@ const testeController = {
 
     likesvistos: async (req, res) => {
         
-        const resultado = await Post.findAll({include: ['usuario', 'usuarioviu']})
+        const feed = await FeedPost.findAll({include: ['post']})
+        // const posts = await Post.findAll({include: ['usuario']})
 
-        res.json(resultado)
+        res.json(feed)
                
     },
     

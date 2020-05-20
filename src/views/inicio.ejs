@@ -162,6 +162,41 @@
 
                 <!-- Feed Principal -->
                 <section class="feed">
+                    <% for(let fed of feed) { %>
+                    <div class="card">
+                        <header>
+                            <div class="user-group">
+                                <img src=""
+                                    alt="Imagem de perfil">
+                                <div class="user-info">
+                                    <p></p>
+                                    <span>Apartamento 212</span>
+                                </div>
+                            </div>
+                            <p class="post-type"></p>
+                        </header>
+                        <main>
+                            <p class="post-text"><%= fed.post.mensagem%></p>
+                            </p>
+                            <img class="post-img"
+                                src="images/posts-mural/anuncios-bolo-rosquinhas2_200402033951.jpg"
+                                alt="Imagem do post">
+                        </main>
+                        <footer>
+                            <div class="post-info">
+                                <span> likes</span>
+                                <span>3 respostas</span>
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn-comment"><img
+                                        src="images/icones-mural/Branco/message-square-white.svg"
+                                        alt="Botão de comentar">Responder</button>
+                                <button class="btn-like"><img src="images/icones-mural/Branco/heart-white.svg"
+                                        alt="Botão de like">Curtir</button>
+                            </div>
+                        </footer>
+                    </div>
+                    <% } %>
                     <div class="card">
                         <header>
                             <div class="user-group">

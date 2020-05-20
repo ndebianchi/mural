@@ -4,34 +4,41 @@ const InicioController = {
 
     index: async (req, res) => {
         
-        const posts = await Post.findAll({include: ['usuario', 'categoria', 'usuario_visualizado']})
-        const feed = await FeedPost.findAll({include: ['post']})
-        // const posts = await Post.findAll({include: ['usuario']})
+        const feeds = await FeedPost.findAll({
+            include: [{
+                    model: Post,
+                    as: "post",
+                    include: ["categoria",
+                        {
+                            model: Usuario,
+                            as: "usuario",
+                            include: ["apartamentos"]
+                        },
+                        "usuario_visualizado"
+                    ]
+                },
 
-        // res.json(posts)
+            ]
+        })
+        const postavisos = await Post.findAll({
+            include: ["categoria",
+            {
+                model: Usuario,
+                as: "usuario",
+                include: ["apartamentos"]
+            },
+            "usuario_visualizado"
+        ]
+        })
 
         res.render('inicio', {
                     pageTitle: 'Mural',
-                    usuario: req.session.usuario,
-                    posts, 
-                    feed
+                    usuario: req.session.usuario, 
+                    feeds, 
+                    postavisos
                 })
                
-    },
-    // index: (req, res) => {
-
-    //     let usuario = req.session.usuario;
-
-    //     // // deixa aqui ou por middleware?
-    //     // if(!req.session.usuario){
-    //     //     res.redirect('/login');
-    //     // }
-
-    //     res.render('inicio', {
-    //         pageTitle: 'Mural',
-    //         usuario
-    //     })
-    // }
+    }
 }
 
 module.exports = InicioController;

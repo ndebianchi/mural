@@ -47,7 +47,8 @@
         justify-content: center;
         display: flex;
         margin: 15px 0;
-        width: 100%;
+        /* width: 100%; comentei porque com pouco texto o card ficava muito pequeno */
+        max-width: 700px;
     }
 
     .carousel-wrapper .next-wrapper img,

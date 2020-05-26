@@ -88,50 +88,49 @@ E: Migrations
 ===========================
 
 F: Módulos Essenciais I
+    Login e Middlewares:
     ✔ Login e Logout (bcrypt) @done(20-05-26 16:49)
     ✔ Session + Hendy @done(20-05-26 16:49)
+    ☐ Middleware: Validação (express-validator)
+
+    Paginas:
     ✔ Exibir: Main Feed (Posts) @done(20-05-26 16:50)
     ☐ Exibir: Avisos (Posts)
     ☐ Exibir: Ocorrências (Posts)
-    ☐ Exibir: Perfil (Usuário) 
-
-    ☐ Middleware: Validação (express-validator)
+    ☐ Exibir: Perfil (Usuário)    
+    
+    Posts:
     ☐ Inserir: Novo Post
     ☐ Inserir: Nova Ocorrência
     ☐ Inserir: Novo Aviso
-    ☐ Inserir: Novo Objeto Perdido
+    ☐ Inserir: Novo Objeto Perdido    
+    ☐ Deletar: Post
+    ☐ Update: Like no Post
+    ☐ Update: Tirar Like
+    ☐ Update: Entendido no Aviso
+
+    Reserva:
+    ☐ Criar: Nova Reserva
+    ☐ Apagar: Reserva existente
     
-    ☐ Deletar Post
-    
-    FUNCIONALIDADES:
-        ☐ Criar um usuário
-        ☐ Editar informações do usuário
-        ☐ Excluir um usuário
-        ☐ Ver todos os posts do feed
-        ☐ Dar like nos posts do feed
-        ☐ Tirar o like dos posts do feed
-        ☐ Dar entendido nos aviso
-        ☐ Criar uma reserva
-        ☐ Apagar uma reserva
+    Usuário:
+    ☐ Criar: Usuário
+    ☐ Update: Dados do usuário
+    ☐ Apagar: Usuário
+
 
 Fx: FASE SECRETA - Seeders
-    ☐ Usuarios
-    ☐ Posts
-    ☐ tudo? 
-    ☐ ;(((
+    ☐ Todos
 
 F II: Extras
-    ☐ Exibir: Perfil (Outros)
-    ☐ Cadastro (apartamento) 
+    ☐ Exibir: Perfil (Outros Moradores via Post)
+    
 
 ===========================
-☐ ENTREGA F Fx: 18/05
+☐ ENTREGA F Fx: 02/06
 ===========================
     
-G: Módulos Essenciais II
-    ☐ ?????????
-
-H: Módulos Perfumaria
+F: Módulos Perfumaria
     ☐ Responder Post
     ☐ Enquetes
     ☐ Prestação Contas

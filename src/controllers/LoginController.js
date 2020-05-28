@@ -14,7 +14,7 @@ const LoginController = {
         const { email, senha } = req.body;
         
         const usuario = await Usuario.findOne(
-            { where: { email } }
+            { where: { email }, include: 'apartamentos' }
         );
 
         // Interrompe se o usuário não existe (Erro 1)

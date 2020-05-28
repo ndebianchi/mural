@@ -1,3 +1,4 @@
+const { }
 const ConfigController = {
     index: (req, res) => {
         res.render('config', {
@@ -5,6 +6,10 @@ const ConfigController = {
             pageIcon: 'settings.svg',
             usuario: req.session.usuario
         })
+    },
+    update: (req, res) => {
+        let { nome, sobrenome, email, telefone } = req.body
+                
     }
 }
 

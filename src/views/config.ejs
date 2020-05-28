@@ -46,10 +46,10 @@
                     <!-- Configurações -->
                     <div class="profile-pic">
                         <div>
-                            <img src="images/posts-mural/mulher-idosa-chapeuVermelho.jpg" alt="">
+                            <img src="<%=usuario.foto %>" alt="">
                         </div>
                         <div>
-                            <p>Nome Completo</p>
+                            <p><%= usuario.nome %> <%= usuario.sobrenome%></p>
                             <a href="#">Editar Foto</a>
                         </div>
                     </div>
@@ -59,12 +59,25 @@
                             <div><p>Configurações de Perfil</p></div>
                             <div><p>Deixar Público</p></div>                            
                         </div>
-                        <form action="">
+                        <form action="/atualizar-perfil" method="POST">
                             <div class="form-group">
                                 <div class="esq">
-                                    <label for="...">Nome Completo</label><br>
-                                    <input type="text">
+                                    <label for="nome">Nome</label><br>
+                                    <input type="text" name="nome" value="<%= usuario.nome %>">
+                                </div>                                
+                                <div class="dir">
+                                    <label class="switch">
+                                        <!-- <input type="checkbox" name="nomePublico" value="1" checked> -->
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="esq">
+                                    <label for="nome">Sobrenome</label><br>
+                                    <input type="text" name="nome" value="<%= usuario.sobrenome%>">
+                                </div>                                
                                 <div class="dir">
                                     <label class="switch">
                                         <input type="checkbox" checked>
@@ -74,8 +87,8 @@
                             </div>
                             <div class="form-group">
                                 <div class="esq">
-                                    <label for="...">E-mail</label><br>
-                                    <input type="text">
+                                    <label for="email">E-mail</label><br>
+                                    <input type="text" name="email" value="<%= usuario.email %>">
                                 </div>
                                 <div class="dir">
                                     <label class="switch">
@@ -86,8 +99,8 @@
                             </div> 
                             <div class="form-group">
                                 <div class="esq">
-                                    <label for="...">Telefone</label><br>
-                                    <input type="text">
+                                    <label for="telefone">Telefone</label><br>
+                                    <input type="text" name="telefone" value="<%= usuario.telefone %>">
                                 </div>
                                 <div class="dir">
                                     <label class="switch">
@@ -96,15 +109,19 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="form-group">
+
+                            <!-- Método não seguro. Procurar melhor forma para trocar senha -->
+                            
+                            <!-- <div class="form-group">
                                 <div class="esq">
                                     <label for="senha">Senha</label><br>
-                                    <input type="password" value="mural_123" id="senha">
+                                    <input type="password" value="muralha" id="senha">
                                 </div>
                                 <div class="dir-senha">
                                     <input type="checkbox" id="versenha" onclick="mostrarSenha()"><label for="versenha">Mostrar</label>
                                 </div>
-                            </div>                          
+                            </div> -->
+
                             <div class="form-group-btn">
                                 <button class="cancelar" type="reset">Cancelar</button>
                                 <button class="salvar" type="submit">Salvar</button>

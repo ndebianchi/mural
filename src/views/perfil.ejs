@@ -55,15 +55,15 @@
             <main>
 
               <div class="user-profile">
-                <img class="user-profile__image" src="images/posts-mural/hendy-almeida.jpg" alt="Foto da Hendy">
+                <img class="user-profile__image" src="<%=usuario.foto %>" alt="Foto da Hendy">
 
                 <div class="user-profile__info">
-                  <h1 class="user-profile__heading">Hendy Almeida</h1>
+                  <h1 class="user-profile__heading"><%=usuario.nome %> <%=usuario.sobrenome %></h1>
                   <hr class="user-profile__divider">
                   <div class="user-profile__personal-info">
-                    <p class="user-profile__text">Apartamento 1</p>
-                    <p class="user-profile__text">(11) 96548-0821</p>
-                    <p class="user-profile__text">hendy.sumida@vazei.com</p>
+                    <p class="user-profile__text">Apartamento <%=usuario.apartamentos[0].numero %> <%=usuario.apartamentos[0].bloco %></p>
+                    <p class="user-profile__text"><%=usuario.telefone %></p>
+                    <p class="user-profile__text"><%=usuario.email %></p>
                   </div>
                 </div>
                 <hr class="user-profile__divider user-profile__divider--bottom">
@@ -71,141 +71,47 @@
 
                 <!-- Feed Principal -->
                 <section class="feed">
-                    <div class="card">
-                        <header>
-                            <div class="user-group">
-                                <img src="images/posts-mural/hendy-almeida.jpg"
-                                    alt="Imagem de perfil">
-                                <div class="user-info">
-                                    <p>Hendy Almeida</p>
-                                    <span>Apartamento 1</span>
-                                </div>
-                            </div>
-                            <p class="post-type">Post</p>
-                        </header>
-                        <main>
-                            <p class="post-text">
-                                Bom dia! Como vocês estão? Estou cada dia mais grata por essa quarentena, assim não tem
-                                que
-                                olhar pra cara de vocês!
-                            </p>
-                        </main>
-                        <footer>
-                            <div class="post-info">
-                                <span>62 likes</span>
-                                <span>3 respostas</span>
-                            </div>
-                            <div class="btn-group">
-                                <button class="btn-comment"><img
-                                        src="images/icones-mural/Branco/message-square-white.svg"
-                                        alt="Botão de comentar">Responder</button>
-                                <button class="btn-like"><img src="images/icones-mural/Branco/heart-white.svg"
-                                        alt="Botão de like">Curtir</button>
-                            </div>
-                        </footer>
-                    </div>
-                    <div class="card">
-                        <header>
-                            <div class="user-group">
-                                <img src="images/posts-mural/hendy-almeida.jpg" alt="Imagem de perfil">
-                                <div class="user-info">
-                                    <p>Hendy Almeida</p>
-                                    <span>Apartamento 1</span>
-                                </div>
-                            </div>
-                            <p class="post-type">Anúncio</p>
-                        </header>
-                        <main>
-                            <p class="post-text">
-                                Boa noite! <br><br>Estou começando a vender bolos por conta dessa crise! haha. Cada um
-                                custa
-                                R$5,00, quem tiver interesse é só me ligar ou bater aqui no meu apartamento!
-                            </p>
-                            <img class="post-img"
-                                src="images/posts-mural/anuncios-bolo-rosquinhas2_200402033951.jpg"
-                                alt="Imagem de rosquinhas">
-                        </main>
-                        <footer>
-                            <div class="post-info">
-                                <span>225 likes</span>
-                                <span>38 respostas</span>
-                            </div>
-                            <div class="btn-group">
-                                <button class="btn-comment"><img
-                                        src="images/icones-mural/Branco/message-square-white.svg"
-                                        alt="Botão de comentar">Responder</button>
-                                <button class="btn-like"><img src="images/icones-mural/Branco/heart-white.svg"
-                                        alt="Botão de like">Curtir</button>
-                            </div>
-                        </footer>
-                    </div>
-                    <div class="card">
-                        <header>
-                            <div class="user-group">
-                                <img src="images/posts-mural/hendy-almeida.jpg" alt="Imagem de perfil">
-                                <div class="user-info">
-                                    <p>Hendy Almeida</p>
-                                    <span>Apartamento 1</span>
-                                </div>
-                            </div>
-                            <p class="post-type">Classificados</p>
-                        </header>
-                        <main>
-                            <p class="post-text">
-                                Olá, meus queridos! <br><br>Minha cachorra deu cria há algumas semanas e estou vendendo
-                                alguns filhotes. São da raça Golden Retriever e já estão vacinados e vermifugados!
-                            </p>
-                            <img class="post-img" src="images/posts-mural/anuncios-pets-dogfofo_200402034056.jpg"
-                                alt="">
-                        </main>
-                        <footer>
-                            <div class="post-info">
-                                <span>27 likes</span>
-                                <span>10 respostas</span>
-                            </div>
-                            <div class="btn-group">
-                                <button class="btn-comment"><img
-                                        src="images/icones-mural/Branco/message-square-white.svg"
-                                        alt="Botão de comentar">Responder</button>
-                                <button class="btn-like"><img src="images/icones-mural/Branco/heart-white.svg"
-                                        alt="Botão de like">Curtir</button>
-                            </div>
-                        </footer>
-                    </div>
-                    <div class="card">
-                        <header>
-                            <div class="user-group">
-                                <img src="images/posts-mural/hendy-almeida.jpg" alt="Imagem de perfil">
-                                <div class="user-info">
-                                    <p>Hendy Almeida</p>
-                                    <span>Apartamento 1</span>
-                                </div>
-                            </div>
-                            <p class="post-type">Ocorrência</p>
-                        </header>
-                        <main>
-                            <p class="post-text">
-                                Eu gostaria de saber quem é o maldito que está cagando no meu tapete! Já descartei a
-                                possibilidade de ser um pet porque vi milho nas fezes. Vocês que se cuidem porque a
-                                partir
-                                de agora vou andar com chumbinho!
-                            </p>
-                        </main>
-                        <footer>
-                            <div class="post-info">
-                                <span>10 likes</span>
-                                <span>0 respostas</span>
-                            </div>
-                            <div class="btn-group">
-                                <button class="btn-comment"><img
-                                        src="images/icones-mural/Branco/message-square-white.svg"
-                                        alt="Botão de comentar">Responder</button>
-                                <button class="btn-like"><img src="images/icones-mural/Branco/heart-white.svg"
-                                        alt="Botão de like">Curtir</button>
-                            </div>
-                        </footer>
-                    </div>
+                    <% for(let feed of feeds) { %>
+                        <% if(feed.post.usuario.email == usuario.email){ %>
+                            <div class="card">
+                                <header>
+                                    <div class="user-group">
+                                        <img src="<%=feed.post.usuario.foto%>"
+                                            alt="Imagem de perfil">
+                                        <div class="user-info">
+                                            <p><%=feed.post.usuario.nome%> <%=feed.post.usuario.sobrenome%></p>
+                                            <span>Apartamento <%=feed.post.usuario.apartamentos[0].numero%></span>
+                                        </div>
+                                    </div>
+                                    <p class="post-type"><%=feed.post.categoria.nome%></p>
+                                </header>
+                                <main>
+                                    <p class="post-text"><%= feed.post.mensagem%></p>
+                                    </p>
+                                    <% if (feed.foto = null) { %>
 
+                                    }
+                                    else {
+                                        <img class="post-img" src="<%=feed.foto%>" alt="Imagem do post">
+                                    }
+                                    <% } %>
+                                </main>
+                                <footer>
+                                    <div class="post-info">
+                                        <span><%= feed.post.usuario_visualizado.length%> likes</span>
+                                        <!-- <span>3 respostas</span> -->
+                                    </div>
+                                    <div class="btn-group">
+                                        <!-- <button class="btn-comment"><img
+                                                src="images/icones-mural/Branco/message-square-white.svg"
+                                                alt="Botão de comentar">Responder</button> -->
+                                        <button class="btn-like"><img src="images/icones-mural/Branco/heart-white.svg"
+                                                alt="Botão de like">Curtir</button>
+                                    </div>
+                                </footer>
+                            </div>
+                        <% } %>
+                    <% } %>
                 </section>
 
             </main>

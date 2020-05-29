@@ -24,18 +24,18 @@ module.exports = (sequelize, DataTypes) => {
       through: 'apartamento_usuarios',
       foreignKey: 'usuario_id',
       as: 'apartamentos'
-  })
+    })
 
-  Usuario.hasMany(models.Post, {
+    Usuario.hasMany(models.Post, {
     foreignKey: 'usuario_id',
     as: 'posts'
-  })
+    })
 
-  Usuario.belongsToMany(models.Post, {
+    Usuario.belongsToMany(models.Post, {
     through: 'likes_vistos',
     foreignKey: 'usuario_id',
     as: 'post_likes'
-})
+    })
     
   };
 

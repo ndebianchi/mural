@@ -64,11 +64,34 @@
                         <div><p>Insira seus dados</p></div>
                         <div><p>Deixar Público</p></div>                            
                     </div>
-                    <form action="">
+                    <form action="/cadastro" method="POST">
+
+                        <!-- Gambiarra do apto -->
                         <div class="form-group">
                             <div class="esq">
-                                <label for="...">Nome Completo</label><br>
-                                <input type="text">
+                                <label for="apartamento">Apartamento</label><br>
+                                <input type="text" name="apartamento">
+                            </div>
+                            <div class="dir">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="esq">
+                                <label for="bloco">Bloco</label><br>
+                                <input type="text" name="bloco">
+                            </div>
+                            <div class="dir">
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <br>                            
+                        <!-- Fim da gambiarra -->
+                        
+                        <div class="form-group">
+                            <div class="esq">
+                                <label for="nome">Nome</label><br>
+                                <input type="text" name="nome">
                             </div>
                             <div class="dir">
                                 <label class="switch">
@@ -79,8 +102,20 @@
                         </div>
                         <div class="form-group">
                             <div class="esq">
-                                <label for="...">E-mail</label><br>
-                                <input type="text">
+                                <label for="sobrenome">Sobrenome</label><br>
+                                <input type="text" name="sobrenome">
+                            </div>
+                            <div class="dir">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="esq">
+                                <label for="email">E-mail</label><br>
+                                <input type="text" name="email">
                             </div>
                             <div class="dir">
                                 <label class="switch">
@@ -91,8 +126,8 @@
                         </div> 
                         <div class="form-group">
                             <div class="esq">
-                                <label for="...">Telefone</label><br>
-                                <input type="text">
+                                <label for="telefone">Telefone</label><br>
+                                <input type="text" name="telefone">
                             </div>
                             <div class="dir">
                                 <label class="switch">
@@ -104,7 +139,7 @@
                         <div class="form-group">
                             <div class="esq">
                                 <label for="senha">Senha</label><br>
-                                <input type="password" value="mural_123" id="senha">
+                                <input type="password" value="exemplo" id="senha" name="senha">
                             </div>
                             <div class="dir-senha">
                                 <input type="checkbox" id="versenha" onclick="mostrarSenha()"><label for="versenha">Mostrar</label>

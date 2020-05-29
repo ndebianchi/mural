@@ -72,7 +72,7 @@
                 <!-- Feed Principal -->
                 <section class="feed">
                     <% for(let feed of feeds) { %>
-                        <% if(feed.post.usuario.email == usuario.email){ %>
+                        <% if(feed.post.usuario.id == usuario.id){ %>
                             <div class="card">
                                 <header>
                                     <div class="user-group">

@@ -87,36 +87,22 @@
                 </form>
 
                 <div class="profile-info">                    
-                    <div class="morador">
-                        <div>
-                            <img src="images/posts-mural/mulher-meiaidade-lenço.jpg" alt="">
+                  
+                    <% for(let morador of moradores){ %>
+                        <div class="morador">
+                            <div>
+                                <img src="<%= morador.foto %>" alt="">
+                            </div>
+                            
+                            <div>
+                                <h3><%= morador.nome %> <%= morador.sobrenome%> </h3>
+                                <form action="/excluirUsuario" method="POST">
+                                    <button class="excluirUsuario" type="submit"
+                                        name="id" value="<%= morador.id %>">Excluir</button>
+                                </form>                                
+                            </div>
                         </div>
-                        
-                        <div>
-                            <h3>Maria de Lurdes Silva</h3>
-                            <a href="#">Excluir</a>
-                        </div>
-                    </div>
-                    <div class="morador">
-                        <div>
-                            <img src="images/posts-mural/homem-idoso-barba.jpg" alt="">
-                        </div>
-                        
-                        <div>
-                            <h3>Donatelo Silva e Silva</h3>
-                            <a href="#">Excluir</a>
-                        </div>
-                    </div>
-                    <div class="morador">
-                        <div>
-                            <img src="images/posts-mural/homem-jovem-chapeu.jpg" alt="">
-                        </div>
-                        
-                        <div>
-                            <h3>Luis Inacio</h3>
-                            <a href="#">Excluir</a>
-                        </div>
-                    </div>
+                    <% } %>                 
 
                 </div> 
 

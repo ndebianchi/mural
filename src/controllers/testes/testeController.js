@@ -4,19 +4,31 @@ const {
     Post,
     PostPerdido,
     PostCategoria,
-    FeedPost
+    FeedPost, 
+    Local, 
+    OcorrenciaPost
 } = require('../../models')
 
 const testeController = {
 
     index: async (req, res) => {
+        const resultado = await OcorrenciaPost.findAll({
+            include: [{
+                    model: Post,
+                    as: "post",
+                    include: ["categoria",
+                        {
+                            model: Usuario,
+                            as: "usuario",
+                            include: ["apartamentos"]
+                        },
+                        "usuario_visualizado"
+                    ]
+                },
 
-        const resultado = await Usuario.findAll({
-            include: 'apartamentos'
+            ]
         })
-
         res.json(resultado)
-
     },
 
     likesvistos: async (req, res) => {

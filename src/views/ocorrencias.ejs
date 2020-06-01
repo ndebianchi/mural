@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,19 +52,19 @@
                         </div>
                         <div class="custom-select" id="select-tempo" style="width:200px;">
                             <select>
-                            <option value="0">Início</option>
-                            <option value="1">Jan/2020</option>
-                            <option value="2">Fev/2020</option>
-                            <option value="3">Mar/2020</option>
-                            <option value="4">Abr/2020</option>
-                            <option value="5">Mai/2020</option>
-                            <option value="6">Jun/2020</option>
-                            <option value="7">Jul/2020</option>
-                            <option value="8">Ago/2020</option>
-                            <option value="9">Set/2020</option>
-                            <option value="10">Out/2020</option>
-                            <option value="11">Nov/2020</option>
-                            <option value="12">Dez/2020</option>
+                                <option value="0">Início</option>
+                                <option value="1">Jan/2020</option>
+                                <option value="2">Fev/2020</option>
+                                <option value="3">Mar/2020</option>
+                                <option value="4">Abr/2020</option>
+                                <option value="5">Mai/2020</option>
+                                <option value="6">Jun/2020</option>
+                                <option value="7">Jul/2020</option>
+                                <option value="8">Ago/2020</option>
+                                <option value="9">Set/2020</option>
+                                <option value="10">Out/2020</option>
+                                <option value="11">Nov/2020</option>
+                                <option value="12">Dez/2020</option>
                             </select>
                         </div>
                         <div class="periodo-text">
@@ -85,139 +86,64 @@
                                 <option value="11">Nov/2020</option>
                                 <option value="12">Dez/2020</option>
                             </select>
-                        </div> 
+                        </div>
                         <div class="custom-select" style="width:200px;">
                             <select>
-                            <option value="0">Mostrar</option>
-                            <option value="1">Todas</option>
-                            <option value="2">Respondidas</option>
-                            <option value="3">Em análise</option>
+                                <option value="0">Mostrar</option>
+                                <option value="1">Todas</option>
+                                <option value="2">Respondidas</option>
+                                <option value="3">Em análise</option>
                             </select>
                         </div>
-                        <button class="btn-group">Gerar relatório</button>  
+                        <button class="btn-group">Gerar relatório</button>
                     </div>
                 </div>
 
                 <!-- Feed Principal -->
                 <section class="lista-enquetes">
+                    <% for(let ocpost of ocposts) { %>
                     <div class="card ocorr">
                         <header>
                             <div class="user-group">
-                                <img src="images/posts-mural/mulher-idosa-chapeuVermelho.jpg" alt="Imagem de perfil">
+                                <img src="<%=ocpost.post.usuario.foto%>" alt="Imagem de perfil">
                                 <div class="user-info">
-                                    <p>Maria da Silva</p>
-                                    <span>Apartamento 212</span>
+                                    <p><%=ocpost.post.usuario.nome%> <%=ocpost.post.usuario.sobrenome%></p>
+                                    <span>Apartamento <%=ocpost.post.usuario.apartamentos[0].numero%></span>
                                 </div>
                             </div>
                             <ol>
-                                <li class="post-type">Ocorrência</li>
-                                <li class="enquete-date">20/04/2020</li>
+                                <li class="post-type"><%=ocpost.post.categoria.nome%></li>
+                                <!-- <li class="enquete-date">20/04/2020</li> -->
                             </ol>
                         </header>
                         <main>
                             <p class="post-text">
-                                Prezados, informo que a luz do corredor do 2º andar está queimada. No aguardo de providências.
+                                <%= ocpost.post.mensagem%>
                             </p>
+                            <% if (ocpost.foto == null) { %>
+
+                            <% } else { %>
+                            <img class="post-img" src="<%=ocpost.foto%>" alt="Imagem do post">
+                            <% } %>
                         </main>
                         <footer>
-                            <ul class="post-info-ocorr">
-                                <li><img src="images/icones-mural/Azul/circle.svg" alt=""></li>
-                                <li id="ocurr-análise">Em Análise</lin>
-                            </ul>
+                                <% if (ocpost.status == 1) { %>
+                                    <ul class="post-info-ocorr">
+                                        <img class="oc-status" src="images/icones-mural/Azul/circle.svg" alt="">
+                                        <li id="ocurr-análise">Em Análise</li>
+                                    </ul>
+                                <% } else { %>
+                                    <ul class="post-info-ocorr">
+                                        <li><img src="images/icones-mural/Verde/check.svg" alt=""></li>
+                                        <li>Respondido</lin>
+                                    </ul>
+                                    <div class="btn-group">
+                                        <button class="btn-comment">Ver resposta</button>
+                                    </div>
+                                <% } %>
                         </footer>
                     </div>
-                    <div class="card ocorr">
-                        <header>
-                            <div class="user-group">
-                                <img src="images/posts-mural/homem-jovem-chapeu.jpg">
-                                <div class="user-info">
-                                    <p>José Dirceu</p>
-                                    <span>Apartamento 81</span>
-                                </div>
-                            </div>
-                            <ol>
-                                <li class="post-type">Ocorrência</li>
-                                <li class="enquete-date">08/03/2020</li>
-                            </ol>
-                        </header>
-                        <main>
-                            <p class="post-text">
-                                Hoje pela manhã, desci até a garagem e o vidro lateral do meu carro estava quebrado. Exijo providências do condomínio!
-                            </p>
-                        </main>
-                        <footer>
-                            <ul class="post-info-ocorr">
-                                <li><img src="images/icones-mural/Verde/check.svg" alt=""></li>
-                                <li>Respondido</lin>
-                            </ul>
-                            <div class="btn-group">
-                                <button class="btn-comment">Ver resposta</button>
-                                
-                            </div>
-                        </footer>
-                    </div>
-                    <div class="card ocorr">
-                        <header>
-                            <div class="user-group">
-                                <img src="images/posts-mural/mulher-idosa-floral.jpg" alt="Imagem de perfil">
-                                <div class="user-info">
-                                    <p>Silvana Aparecida</p>
-                                    <span>Apartamento 223</span>
-                                </div>
-                            </div>
-                            <ol>
-                                <li class="post-type">Ocorrência</li>
-                                <li class="enquete-date">06/02/2020</li>
-                            </ol>
-                        </header>
-                        <main>
-                            <p class="post-text">
-                                Na noite de ontem não consegui dormir devido à festa que a vizinha do 207 estava fazendo. Interfonei na portaria para que algo fosse feito. Nada aconteceu. Fui pessoalmente até o apartamento pedir a compreensão do vizinho, especialmente porque era quinta-feira e todo mundo trabalha ou estuda na sexta-feira logo cedo. Novamente, pedido ignorado. 
-                            </p>
-                        </main>
-                        <footer>
-                            <ul class="post-info-ocorr">
-                                <li><img src="images/icones-mural/Verde/check.svg" alt=""></li>
-                                <li>Respondido</lin>
-                            </ul>
-                            <div class="btn-group">
-                                <button class="btn-comment">Ver resposta</button>
-                                
-                            </div>
-                        </footer>
-                    </div>
-                    <div class="card ocorr">
-                        <header>
-                            <div class="user-group">
-                                <img src="images/posts-mural/homem-jovem-cachecol.jpg" alt="Imagem de perfil">
-                                <div class="user-info">
-                                    <p>Pedro Henrique</p>
-                                    <span>Apartamento 2</span>
-                                </div>
-                            </div>
-                            <ol>
-                                <li class="post-type">Ocorrência</li>
-                                <li class="enquete-date">08/12/2019</li>
-                            </ol>
-                        </header>
-                        <main>
-                            <p class="post-text">
-                                Hoje pela tarde estava tentando ao máximo concentrar-me nos meus estudos, mas os dois cachorros do vizinho (apto. 222) não paravam de latir e brigar entre si na tentativa de abrir a porta.
-                                Os latidos continuaram durante toda a tarde e noite, de forma que não consegui dormir.
-                            </p>
-                        </main>
-                        <footer>
-                            <ul class="post-info-ocorr">
-                                <li><img src="images/icones-mural/Verde/check.svg" alt=""></li>
-                                <li>Respondido</lin>
-                            </ul>
-                            <div class="btn-group">
-                                <button class="btn-comment">Ver resposta</button>
-                                
-                            </div>
-                        </footer>
-                    </div>
-                    
+                    <% } %>
                 </section>
 
             </main>
@@ -227,4 +153,5 @@
         <div id="open-modal" class="modal"></div>
     </div>
 </body>
+
 </html>

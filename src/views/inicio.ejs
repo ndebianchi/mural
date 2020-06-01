@@ -119,12 +119,10 @@
                         <main>
                             <p class="post-text"><%= feed.post.mensagem%></p>
                             </p>
-                            <% if (feed.foto = null) { %>
+                            <% if (feed.foto == null) { %>
 
-                            }
-                            else {
+                            <% } else { %>
                                 <img class="post-img" src="<%=feed.foto%>" alt="Imagem do post">
-                            }
                             <% } %>
                         </main>
                         <footer>

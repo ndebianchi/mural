@@ -8,6 +8,11 @@
     margin-right: 5px;
 }
 
+.oc-status{
+    width: 24px;
+    margin-right: 5px;
+}
+
 .post-info-ocorr{
     color: #57BC90;
     display: flex;

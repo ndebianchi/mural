@@ -42,8 +42,20 @@ const InicioController = {
 
     novoPost: async (req, res) => {
 
-        console.log(req.body)
+        let { mensagem, tipo, foto } = req.body
+
+        console.log('mensagem: ' + mensagem)
+        console.log('tipo: ' + tipo)
+        console.log('Usuario ID: ' + req.session.usuario.id)
+
+        // Criar o post no DB Post.create()
+        //      usuario_id, categoria_id, mensagem
         
+        // Criar a relação no DB FeedPost
+        //      post_id, foto
+
+        // Redireciona para /inicio
+        res.redirect('/inicio')
     }
 }
 

@@ -1,0 +1,49 @@
+Mostrar Perfil do usuário na '/perfil':
+    ✔ PerfilController.js (index) > enviar dados - usuário - para view @done(20-05-28 11:42)
+    ✔ perfil.ejs > mostrar dados @done(20-05-28 12:09)
+    ✔ PerfilController.js (index) > enviar dados - post do usuário - para view @done(20-05-28 13:08)
+    ✔ perfil.ejs > mostrar dados @done(20-05-28 13:08)
+Criar Usuário:
+    ✔ Atualizar view para conter inputs: 'apartamento' e 'bloco' @done(20-05-29 13:04)
+    ✔ CadastroController.js > criar rota @done(20-05-29 16:21)
+    ✔ CadastroController.js (create - POST) > receber dados do form @done(20-05-29 16:21)
+    ✔ CadastroController.js (create - POST) > inserir dados no DB @done(20-05-29 16:21)
+    ✔ Foto > usar a foto padrão (ícone) @done(20-05-29 16:21)
+    ✔ Redirecionar para Login @done(20-05-29 16:21)
+    ☐ Feedback de usuário criado
+Atualizar Dados do Usuário:
+    ✔ ConfigController.js (index) > enviar dados - usuário - para view @done(20-05-28 13:13)
+    ✔ config.ejs > mostrar dados no form @done(20-05-28 13:19)
+    ✔ Criar Rota @done(20-05-28 13:44)
+    ✔ ConfigController.js (update) > receber dados do form @done(20-05-28 13:44)
+    ✔ ConfigController.js (update) > atualizar dados no DB @done(20-05-29 12:37)
+    ✔ Recarregar a página @done(20-05-29 12:37)
+    ☐ Feedback de dados atualizados (alert?)
+Deletar Usuário:
+    ✔ Enviar dado para view '/gerenciarperfis' @done(20-06-01 12:03)
+    ✔ Mostrar todos os moradores @done(20-06-01 12:03)
+    ✔ Criar rota para exclusão @done(20-06-01 14:01)
+    ✔ Aplicar rota no botão excluir @done(20-06-01 14:02)
+    ✔ Rota envia o ID @done(20-06-01 14:02)
+    ✔ Deletar por ID @done(20-06-02 16:54)
+    ✔ Recarregar a Página @done(20-06-02 16:54)
+    ☐ Alerta de "Tem certeza" 
+    ☐ Feedback de Usuario deletado
+Novo Post:
+    ✔ Criar rota POST @done(20-06-02 17:24)
+    ✔ Criar ação no controller @done(20-06-02 17:24)
+    ✔ Enviar dados via POST @done(20-06-02 17:24)
+    Arrumar os dados enviados:
+        ☐ Mensagem 
+        ☐ Foto 
+        ☐ Tipo de Post
+    ☐ Registrar dados no DB
+    ☐ Redirecionar pra /inicio
+
+Extra:
+    ✔ incluir apto no req.session @done(20-05-28 13:51)
+    ✔ mostrar apto no hendy @done(20-05-28 13:51)
+    ☐ Outline input
+    ☐ Arrumar ordem de exibição dos Posts
+
+

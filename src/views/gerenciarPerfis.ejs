@@ -54,9 +54,9 @@
                     <label for="apartamento">Apartamento</label>
                     <div class="" id="" style="width:200px;">
                         <select>
-                        <option value="0">102</option>
-                        <option value="1">204</option>
-                        <option value="2">708</option>
+                        <% for(let apartamento of apartamentos){ %>
+                        <option value="0"><%=apartamento.numero%> <%=apartamento.bloco%></option>
+                        <% } %>                        
                         </select>
                     </div>
                     </div>
@@ -74,9 +74,9 @@
                     <label for="">Apartamento</label>
                     <div class="" id="" style="width:200px;">
                         <select>
-                        <option value="0">102</option>
-                        <option value="1">204</option>
-                        <option value="2">708</option>
+                            <% for(let apartamento of apartamentos){ %>
+                                <option value="0"><%=apartamento.numero%> <%=apartamento.bloco%></option>
+                            <% } %> 
                         </select>
                     </div>
                     </div>

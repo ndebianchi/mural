@@ -38,6 +38,12 @@ const InicioController = {
                     postavisos
                 })
                
+    },
+
+    novoPost: async (req, res) => {
+
+        console.log(req.body)
+        
     }
 }
 

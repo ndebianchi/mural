@@ -45,10 +45,15 @@
                         <img src="images/icones-mural/Branco/ocorrencias.svg" alt="Nova Ocorrência">
                         <span>Nova Ocorrência</span>
                     </a>
+                    <a href="javascript:void(0)" onclick="openModal('novo-aviso')">
+                        <img src="images/icones-mural/Branco/avisos.svg" alt="Novo Aviso">
+                        <span>Novo Aviso</span>
+                    </a>
                 </div>
 
                 <!-- Hendy -->
                 <%- include('./partials/hendy') %>
+                
             </header>
 
             <!-- Conteudo Principal -->
@@ -105,8 +110,8 @@
                                         <!-- <button class="btn-comment"><img
                                                 src="images/icones-mural/Branco/message-square-white.svg"
                                                 alt="Botão de comentar">Responder</button> -->
-                                        <button class="btn-like"><img src="images/icones-mural/Branco/heart-white.svg"
-                                                alt="Botão de like">Curtir</button>
+                                        <button class="btn-like"><img src="images/icones-mural/Branco/lixo.svg"
+                                                alt="Botão de like">Apagar</button>
                                     </div>
                                 </footer>
                             </div>
@@ -122,30 +127,36 @@
 
             <!-- Modal Novo Post -->
             <div id="novo-post" class="modalInterno">
-                <h1>Novo Post</h1>
-                <div class="new-foto-mensagem">
-                    <img src="images/posts-mural/homem-meiaidade-boina.jpg">
-                    <textarea name="mensagem" id="mensagem" rows="10"></textarea>
-                </div>
-                <div class="new-foto-categoria">
-                    <button class="btn-group"><img src="images/icones-mural/Branco/plus.svg"
-                        alt="">Foto</button>
-                    <div class="custom-select" id="select-box-modal" style="width:200px;">
-                        <select>
-                        <option value="0">Categoria</option>
-                        <option value="1">Posts</option>
-                        <option value="2">Avisos</option>
-                        <option value="3">Ocorrências</option>
-                        <option value="4">Anúncios</option>
-                        <option value="5">Eventos</option>
-                        </select>
+                <form action="/novoPost" method="POST">
+                    <h1>Novo Post</h1>
+                    <div class="new-foto-mensagem">
+                        <img src="<%=usuario.foto%>">
+                        <textarea name="mensagem" id="mensagem" rows="10"></textarea>
                     </div>
-                </div>
-                <div class="new-cancel-send">
-                    <button class="cancelar" type="reset">Cancelar</button>
-                    <button class="enviar-modal-novo" type="submit">Enviar</button>
-                </div>
+                    <div class="new-foto-categoria">
+                        <button class="btn-group"><img src="images/icones-mural/Branco/plus.svg"
+                            alt="">Foto</button>
+                        <div class="custom-select" id="select-box-modal" style="width:200px;">
+                            <select name="tipo">
+                            <!-- <option value="0">Categoria</option> -->
+                            <!-- <option value="1">Aviso</option> -->
+                            <option value="2">Post</option>
+                            <!-- <option value="3">Ocorrências</option> -->
+                            <option value="4">Anúncios</option>
+                            <option value="5">Classificados</option>
+                            <option value="6">Serviços</option>
+                            <option value="7">Eventos</option>
+                            <!-- <option value="8">Achados e Perdidos</option> -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="new-cancel-send">
+                        <button class="cancelar" type="reset">Cancelar</button>
+                        <button class="enviar-modal-novo" type="submit">Enviar</button>
+                    </div>                    
+                </form>
             </div>
+
             <!-- Modal Filtros -->
             <div id="filtros" class="modalInterno">
                 <form class="filtro-interno">
@@ -197,7 +208,7 @@
             <div id="nova-ocorrencia" class="modalInterno">
                 <h1>Nova Ocorrência</h1>
                 <div class="new-foto-mensagem">
-                    <img src="images/posts-mural/homem-meiaidade-boina.jpg">
+                    <img src="<%=usuario.foto%>">
                     <textarea name="mensagem" id="mensagem" rows="10"></textarea>
                 </div>
                 <div class="new-foto-categoria">
@@ -214,7 +225,7 @@
             <div id="novo-aviso" class="modalInterno">
                 <h1>Novo Aviso</h1>
                 <div class="new-foto-mensagem">
-                    <img src="images/posts-mural/homem-meiaidade-boina.jpg">
+                    <img src="<%=usuario.foto%>">
                     <textarea name="mensagem" id="mensagem" rows="10"></textarea>
                 </div>
                 <div class="new-foto-categoria marcar-agenda-modal">

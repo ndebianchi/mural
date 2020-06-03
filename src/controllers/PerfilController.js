@@ -23,7 +23,7 @@ const PerfilController = {
         res.render('perfil', {
             pageTitle: 'Perfil',
             usuario: req.session.usuario,
-            feeds
+            feeds: feeds.reverse()
         })
     }
 }

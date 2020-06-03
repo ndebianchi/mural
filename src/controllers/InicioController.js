@@ -34,7 +34,7 @@ const InicioController = {
         res.render('inicio', {
                     pageTitle: 'Mural',
                     usuario: req.session.usuario, 
-                    feeds, 
+                    feeds: feeds.reverse(), 
                     postavisos
                 })
                
@@ -44,15 +44,24 @@ const InicioController = {
 
         let { mensagem, tipo, foto } = req.body
 
-        console.log('mensagem: ' + mensagem)
-        console.log('tipo: ' + tipo)
-        console.log('Usuario ID: ' + req.session.usuario.id)
+        // Cria o post no DB Post: usuario_id, categoria_id, mensagem
+        await Post.create({
+            usuario_id: req.session.usuario.id,
+            categoria_id: tipo,
+            mensagem
+        })
 
-        // Criar o post no DB Post.create()
-        //      usuario_id, categoria_id, mensagem
+       let postCriado = await Post.findOne({where: {
+            usuario_id: req.session.usuario.id,
+            categoria_id: tipo,
+            mensagem
+        }})
         
-        // Criar a relação no DB FeedPost
-        //      post_id, foto
+       // Criar a relação no DB FeedPost: post_id, foto
+       await FeedPost.create({
+            post_id: postCriado.id,
+            foto
+        })
 
         // Redireciona para /inicio
         res.redirect('/inicio')

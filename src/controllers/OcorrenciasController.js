@@ -14,9 +14,11 @@ const OcorrenciasController = {
                         },
                         "usuario_visualizado"
                     ]
-                },
-
-            ]
+                }
+            ],
+            order: [
+                ['status', 'DESC']
+          ]
         })
 
 

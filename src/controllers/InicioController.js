@@ -1,4 +1,4 @@
-const { Apartamento, Usuario, Post, PostPerdido, FeedPost } = require('../models')
+const { Apartamento, Usuario, Post, PostPerdido, FeedPost, OcorrenciaPost} = require('../models')
 
 const InicioController = {
 
@@ -65,7 +65,40 @@ const InicioController = {
 
         // Redireciona para /inicio
         res.redirect('/inicio')
-    }
+    },
+
+    novaOcorrencia: async (req, res) => {
+
+        let { mensagem, foto } = req.body
+
+        // Cria o post no DB Post: usuario_id, categoria_id, mensagem
+        await Post.create({
+            usuario_id: req.session.usuario.id,
+            categoria_id: 3,
+            mensagem
+        })
+
+       let occCriada = await Post.findOne({where: {
+            usuario_id: req.session.usuario.id,
+            categoria_id: 3,
+            mensagem
+        }})
+        
+       // Criar a relação no DB FeedPost: post_id, foto
+       await FeedPost.create({
+            post_id: occCriada.id,
+            foto
+        })
+
+        await OcorrenciaPost.create({
+            post_id: occCriada.id,
+            foto,
+            status: 1
+        })
+
+        // Redireciona para /inicio
+        res.redirect('/inicio')
+    },
 }
 
 module.exports = InicioController;

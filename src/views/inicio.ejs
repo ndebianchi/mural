@@ -229,19 +229,21 @@
 
             <!-- Modal Nova Ocorrência -->
             <div id="nova-ocorrencia" class="modalInterno">
-                <h1>Nova Ocorrência</h1>
-                <div class="new-foto-mensagem">
-                    <img src="<%=usuario.foto%>">
-                    <textarea name="mensagem" id="mensagem" rows="10"></textarea>
-                </div>
-                <div class="new-foto-categoria">
-                    <button class="btn-group"><img src="images/icones-mural/Branco/plus.svg"
-                        alt="">Foto</button>
-                </div>
-                <div class="new-cancel-send">
-                    <button class="cancelar" type="reset">Cancelar</button>
-                    <button class="enviar-modal-novo" type="submit">Enviar</button>
-                </div>
+                <form action="/novaOcorrencia" method="POST">
+                    <h1>Nova Ocorrência</h1>
+                    <div class="new-foto-mensagem">
+                        <img src="<%=usuario.foto%>">
+                        <textarea name="mensagem" id="mensagem" rows="10"></textarea>
+                    </div>
+                    <div class="new-foto-categoria">
+                        <button class="btn-group"><img src="images/icones-mural/Branco/plus.svg"
+                            alt="">Foto</button>
+                    </div>
+                    <div class="new-cancel-send">
+                        <button class="cancelar" type="reset">Cancelar</button>
+                        <button class="enviar-modal-novo" type="submit">Enviar</button>
+                    </div>
+                </form>
             </div>
 
             <!-- Modal Novo Aviso -->

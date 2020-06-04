@@ -5,5 +5,6 @@ const OcorrenciasController = require('../controllers/OcorrenciasController');
 const UsuarioLogado = require('../middlewares/UsuarioLogado');
 
 router.get('/ocorrencias', UsuarioLogado, OcorrenciasController.index);
+router.post('/ocorrencias/concluida', UsuarioLogado, OcorrenciasController.marcarConcluido);
 
 module.exports = router;

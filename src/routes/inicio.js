@@ -8,5 +8,6 @@ router.get('/', UsuarioLogado, InicioController.index);
 router.get('/inicio', UsuarioLogado, InicioController.index);
 router.post('/novoPost', UsuarioLogado, InicioController.novoPost);
 router.post('/novaOcorrencia', UsuarioLogado, InicioController.novaOcorrencia);
+router.post('/inicio/addLike', UsuarioLogado, InicioController.addLike);
 
 module.exports = router;

@@ -1,4 +1,4 @@
-const { Apartamento, Usuario, Post, PostPerdido, FeedPost, OcorrenciaPost} = require('../models')
+const { Apartamento, Usuario, Post, PostPerdido, FeedPost, OcorrenciaPost, Likes_vistos} = require('../models')
 
 const InicioController = {
 
@@ -99,6 +99,17 @@ const InicioController = {
         // Redireciona para /inicio
         res.redirect('/inicio')
     },
+
+    addLike: async (req, res) => {
+        let { id } = req.body;
+        await Likes_vistos.create(
+                {
+                    post_id: id, 
+                    usuario_id: req.session.usuario.id
+                }, {where: {id}})
+
+        res.redirect('/inicio');
+    }
 }
 
 module.exports = InicioController;

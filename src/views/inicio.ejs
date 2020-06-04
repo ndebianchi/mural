@@ -8,6 +8,8 @@
     <script defer src="javascripts/script.js"></script>
     <script defer src="javascripts/carousel.js"></script>
     <script defer src="javascripts/select-box.js"></script>
+    <script defer src="javascripts/feedLike.js"></script>
+    <script defer src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
     <title><%= pageTitle %></title>
 </head>
@@ -134,8 +136,7 @@
                                 <!-- <button class="btn-comment"><img
                                         src="images/icones-mural/Branco/message-square-white.svg"
                                         alt="Botão de comentar">Responder</button> -->
-                                <button class="btn-like"><img src="images/icones-mural/Branco/heart-white.svg"
-                                        alt="Botão de like">Curtir</button>
+                                <button class="btn-like" onclick="like('<%=feed.post.id%>')"><img src="images/icones-mural/Branco/heart-white.svg" alt="Botão de like">Curtir</button>
                             </div>
                         </footer>
                     </div>
@@ -238,6 +239,8 @@
                     <div class="new-foto-categoria">
                         <button class="btn-group"><img src="images/icones-mural/Branco/plus.svg"
                             alt="">Foto</button>
+                        <!-- <input type="file" name="files">
+                        <label for="input" id="label">Choose File</label> -->
                     </div>
                     <div class="new-cancel-send">
                         <button class="cancelar" type="reset">Cancelar</button>

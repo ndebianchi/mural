@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       });
 
       Post.belongsToMany(models.Usuario, {
-        through: 'likes_vistos',
+        through: 'Likes_vistos',
         foreignKey: 'post_id',
         as: 'usuario_visualizado'
     });

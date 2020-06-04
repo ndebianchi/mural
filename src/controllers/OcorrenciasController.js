@@ -24,7 +24,8 @@ const OcorrenciasController = {
             pageTitle: 'Ocorrências',
             pageIcon: 'ocorrencias.svg',
             usuario: req.session.usuario,
-            ocposts
+            ocposts,
+            ocposts: ocposts.reverse()
         })
     }
 }

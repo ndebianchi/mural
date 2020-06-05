@@ -35,7 +35,7 @@ const InicioController = {
                     pageTitle: 'Mural',
                     usuario: req.session.usuario, 
                     feeds: feeds.reverse(), 
-                    postavisos
+                    postavisos: postavisos.reverse()
                 })
                
     },

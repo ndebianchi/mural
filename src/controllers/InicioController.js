@@ -100,6 +100,21 @@ const InicioController = {
         res.redirect('/inicio')
     },
 
+    novoAviso: async (req, res) => {
+
+        let { mensagem } = req.body
+
+        // Cria o post no DB Post: usuario_id, categoria_id, mensagem
+        await Post.create({
+            usuario_id: req.session.usuario.id,
+            categoria_id: 1,
+            mensagem
+        })
+
+        // Redireciona para /inicio
+        res.redirect('/inicio')
+    },
+
     addLike: async (req, res) => {
         let { id } = req.body;
         await Likes_vistos.create(

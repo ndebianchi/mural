@@ -251,31 +251,33 @@
 
             <!-- Modal Novo Aviso -->
             <div id="novo-aviso" class="modalInterno">
-                <h1>Novo Aviso</h1>
-                <div class="new-foto-mensagem">
-                    <img src="<%=usuario.foto%>">
-                    <textarea name="mensagem" id="mensagem" rows="10"></textarea>
-                </div>
-                <div class="new-foto-categoria marcar-agenda-modal">
-                        <div class="dados-enquete">
-                            <input type="radio" name="escolha-enquete1" id="opcao-enquete" value="opcao"><label for="opcao">Marcar na agenda</label>
-                        </div>
-                        <div class="custom-select" id="select-box-modal" style="width:200px;">
-                            <select>
-                            <option value="0">Data:</option>
-                            <option value="1">01/05/20</option>
-                            <option value="2">02/05/20</option>
-                            <option value="3">03/05/20</option>
-                            <option value="4">04/05/20</option>
-                            <option value="5">05/05/20</option>
-                            </select>
-                        </div>
-                    
-                </div>
-                <div class="new-cancel-send">
-                    <button class="cancelar" type="reset">Cancelar</button>
-                    <button class="enviar-modal-novo" type="submit">Enviar</button>
-                </div>
+                <form action="/novoAviso" method="POST">
+                    <h1>Novo Aviso</h1>
+                    <div class="new-foto-mensagem">
+                        <img src="<%=usuario.foto%>">
+                        <textarea name="mensagem" id="mensagem" rows="10"></textarea>
+                    </div>
+                    <div class="new-foto-categoria marcar-agenda-modal">
+                            <div class="dados-enquete">
+                                <input type="radio" name="escolha-enquete1" id="opcao-enquete" value="opcao"><label for="opcao">Marcar na agenda</label>
+                            </div>
+                            <div class="custom-select" id="select-box-modal" style="width:200px;">
+                                <select>
+                                <option value="0">Data:</option>
+                                <option value="1">01/05/20</option>
+                                <option value="2">02/05/20</option>
+                                <option value="3">03/05/20</option>
+                                <option value="4">04/05/20</option>
+                                <option value="5">05/05/20</option>
+                                </select>
+                            </div>
+                        
+                    </div>
+                    <div class="new-cancel-send">
+                        <button class="cancelar" type="reset">Cancelar</button>
+                        <button class="enviar-modal-novo" type="submit">Enviar</button>
+                    </div>
+                </form>
             </div>
 
         </div>

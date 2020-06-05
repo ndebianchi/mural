@@ -20,6 +20,7 @@ const InicioController = {
 
             ]
         })
+
         const postavisos = await Post.findAll({
             include: ["categoria",
             {
@@ -30,7 +31,6 @@ const InicioController = {
             "usuario_visualizado"
         ]
         })
-
         res.render('inicio', {
                     pageTitle: 'Mural',
                     usuario: req.session.usuario, 
@@ -101,6 +101,17 @@ const InicioController = {
     },
 
     addLike: async (req, res) => {
+        let { id } = req.body;
+        await Likes_vistos.create(
+                {
+                    post_id: id, 
+                    usuario_id: req.session.usuario.id
+                })
+
+        res.redirect('/inicio');
+    },
+
+    entendido: async (req, res) => {
         let { id } = req.body;
         await Likes_vistos.create(
                 {

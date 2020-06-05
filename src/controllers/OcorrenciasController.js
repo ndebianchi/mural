@@ -33,7 +33,6 @@ const OcorrenciasController = {
 
     marcarConcluido: async (req, res) => {
         let { id } = req.body;
-        // let concluido = await OcorrenciaPost.findAll({ where: { id }});
         await OcorrenciaPost.update({status: 2}, {
             where: {id}
         });

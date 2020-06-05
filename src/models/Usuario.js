@@ -32,11 +32,11 @@ module.exports = (sequelize, DataTypes) => {
     })
 
     Usuario.belongsToMany(models.Post, {
-    through: 'Likes_vistos',
+    through: 'likes_vistos',
     foreignKey: 'usuario_id',
     as: 'post_likes'
     })
-    
+
   };
 
   return Usuario;

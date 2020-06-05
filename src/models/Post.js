@@ -16,11 +16,11 @@ module.exports = (sequelize, DataTypes) => {
       });
 
       Post.belongsToMany(models.Usuario, {
-        through: 'Likes_vistos',
+        through: 'likes_vistos',
         foreignKey: 'post_id',
         as: 'usuario_visualizado'
     });
-      
+
     Post.hasMany(models.PostPerdido, {
       foreignKey: 'post_id',
       as: 'usuario_likes'

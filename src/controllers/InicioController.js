@@ -117,11 +117,18 @@ const InicioController = {
 
     addLike: async (req, res) => {
         let { id } = req.body;
-        await Likes_vistos.create(
-                {
-                    post_id: id, 
-                    usuario_id: req.session.usuario.id
-                })
+        // await Likes_vistos.create(
+        //         {
+        //             post_id: id, 
+        //             usuario_id: req.session.usuario.id
+        //         })
+
+        const usuarioLike = await Usuario.findByPk(req.session.usuario.id);
+        const postLike = await Post.findOne({
+            where: {id}
+        })
+
+        await usuarioLike.addPosts(postLike)
 
         res.redirect('/inicio');
     },

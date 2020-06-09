@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheets/styles.css">
-    <script defer src="javascripts/script.js"></script>    
+    <script defer src="javascripts/script.js"></script>
+    <script defer src="javascripts/errorHandling.js"></script>
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
     <title><%= pageTitle %></title>
 </head>
@@ -15,7 +16,7 @@
     <div id="mural">
         <!-- Fundo escuro do modal -->
         <div id="background-modal" onclick="toggleBackgroundModal()"></div>
-                
+
         <div class="aside-login">
             <div><img src="images/logos-mural/logo-v-branco.svg" alt=""></div>
         </div>
@@ -28,6 +29,7 @@
             <div class="topo-login">
                 <h2>Login</h2>
             </div>
+            <p class="message message--error message--error__login">Você deve logar antes!</p>
             <form class="login-form" action="/login" method="POST">
                 <div><label for="email">E-mail</label></div>
                 <div><input type="email" name="email" id="email"></div>
@@ -38,9 +40,9 @@
             <div><a href="javascript:void(0)" onclick="openModal('como-cadastrar')">Como criar uma conta?</a></div>
             <div><a href="#">Esqueci minha senha</a></div>
             <div><a href="#">Saiba mais</a></div>
-            
-            
-            
+
+
+
 
         </div>
 
@@ -52,15 +54,16 @@
                 <div>
                     <img src="images/logos-mural/logo-h-rosa.svg" alt="">
                 </div>
-                
+
                 <h2>Como criar sua conta:</h2>
                 <p>Para criar sua conta no Mural é necessário um convite.</p>
-                <p>Peça um para seu Síndico</p> 
-                                                              
+                <p>Peça um para seu Síndico</p>
+
             </div>
 
         </div>
     </div>
 
 </body>
+
 </html>

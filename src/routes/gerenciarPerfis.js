@@ -2,8 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const GerenciarPerfisController = require('../controllers/GerenciarPerfisController');
-const UsuarioLogado = require('../middlewares/UsuarioLogado');
 
-router.get('/gerenciarPerfis', UsuarioLogado, GerenciarPerfisController.index);
-router.post('/excluirUsuario', UsuarioLogado, GerenciarPerfisController.delete);
+router.get('/gerenciarPerfis', GerenciarPerfisController.index);
+router.post('/excluirUsuario', GerenciarPerfisController.delete);
 module.exports = router;

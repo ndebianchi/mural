@@ -6,7 +6,6 @@ module.exports = {
     return res.render('cadastro', {
       pageTitle: 'Novo Cadastro',
       pageIcon: 'user.svg',
-      usuario: req.session.usuario,
     });
   },
   store: async (req, res) => {

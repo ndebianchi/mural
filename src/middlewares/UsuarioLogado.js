@@ -1,10 +1,7 @@
-const UsuarioLogado = (req, res, next) => {
+module.exports = (req, res, next) => {
+  if (!req.session.usuario) {
+    return res.redirect('/login?error=3');
+  }
 
-    if(!req.session.usuario){
-        res.redirect('/login?error=3')
-    }
-    
-    next();
-}
-
-module.exports = UsuarioLogado;
+  return next();
+};

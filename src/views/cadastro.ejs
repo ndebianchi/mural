@@ -1,167 +1,211 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheets/styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheets/styles.css" />
     <script defer src="javascripts/script.js"></script>
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
+    <script
+      defer
+      src="https://cdn.rawgit.com/lagden/vanilla-masker/lagden/build/vanilla-masker.min.js"
+    ></script>
+    <script defer src="javascripts/handleSubmit.js"></script>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico" />
     <title><%= pageTitle %></title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- DIV PAI DE TODAS -->
     <div class="container">
-        <!-- Fundo escuro do modal -->
-        <div id="background-modal" onclick="toggleBackgroundModal()"></div>
-  
-        <!-- Nav Desktop -->
-        <div class="sidebarDesktop-cadastro">
-            <div><img src="images/logos-mural/logo-v-rosa.svg" alt=""></div>
-        </div>
+      <!-- Fundo escuro do modal -->
+      <div id="background-modal" onclick="toggleBackgroundModal()"></div>
 
-        <!-- Main Content -->
+      <!-- Nav Desktop -->
+      <div class="sidebarDesktop-cadastro">
+        <div><img src="images/logos-mural/logo-v-rosa.svg" alt="" /></div>
+      </div>
 
-        <div class="feed-container">
+      <!-- Main Content -->
 
-            <!-- Header com Nav, Hendy e Titulo -->
-            <header>
-                <!-- Icone Logo Mural Mobile -->
-                <div class="icone-cadastro">
-                    <img src="images/logos-mural/logo-icone-rosa.svg" alt="Mural">
+      <div class="feed-container">
+        <!-- Header com Nav, Hendy e Titulo -->
+        <header>
+          <!-- Icone Logo Mural Mobile -->
+          <div class="icone-cadastro">
+            <img src="images/logos-mural/logo-icone-rosa.svg" alt="Mural" />
+          </div>
+
+          <!-- Icone + Titulo da Pagina -->
+          <%- include('./partials/pageTitle') %>
+
+          <!-- Hendy -->
+          <button class="profile-icon">
+            <img src="" alt="" />
+          </button>
+        </header>
+
+        <!-- Conteudo Principal -->
+        <main>
+          <section class="settings">
+            <!-- Divisória (parte do Titulo) -->
+            <div class="page-title-linha"></div>
+
+            <!-- Configurações -->
+            <div class="cadastro-pic">
+              <div>
+                <img src="images/icones-mural/Rosa/profile.svg" alt="" />
+              </div>
+              <div>
+                <a href="#">Adicionar Foto</a>
+              </div>
+            </div>
+
+            <div class="profile-info">
+              <div class="header">
+                <div>
+                  <p>Insira seus dados</p>
                 </div>
-
-                <!-- Icone + Titulo da Pagina -->
-                <%- include('./partials/pageTitle') %>
-
-                <!-- Hendy -->
-                <button class="profile-icon">
-                    <img src="" alt="">
-                </button>
-                
-            </header>
-
-
-            <!-- Conteudo Principal -->
-            <main>                
-            <section class="settings">
-
-                <!-- Divisória (parte do Titulo) -->
-                <div class="page-title-linha"></div>
-
-                <!-- Configurações -->
-                <div class="cadastro-pic">
-                    <div>
-                        <img src="images/icones-mural/Rosa/profile.svg" alt="">
-                    </div>
-                    <div>
-                        <a href="#">Adicionar Foto</a>
-                    </div>
+                <div>
+                  <p>Deixar Público</p>
                 </div>
+              </div>
+              <form action="/cadastro" method="POST" id="form">
+                <% if (typeof sucesso !== 'undefined') { %>
+                <p class="message message--success"><%= sucesso %></p>
+                <% } %> <% if (typeof erro !== 'undefined') { %>
+                <p class="message message--error"><%= erro %></p>
+                <% } %>
 
-                <div class="profile-info">
-                    <div class="header">
-                        <div><p>Insira seus dados</p></div>
-                        <div><p>Deixar Público</p></div>                            
-                    </div>
-                    <form action="/cadastro" method="POST">
-
-                        <!-- Gambiarra do apto -->
-                        <div class="form-group">
-                            <div class="esq">
-                                <label for="apartamento">Apartamento</label><br>
-                                <input type="text" name="apartamento">
-                            </div>
-                            <div class="dir">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="esq">
-                                <label for="bloco">Bloco</label><br>
-                                <input type="text" name="bloco">
-                            </div>
-                            <div class="dir">
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                        <br>                            
-                        <!-- Fim da gambiarra -->
-                        
-                        <div class="form-group">
-                            <div class="esq">
-                                <label for="nome">Nome</label><br>
-                                <input type="text" name="nome">
-                            </div>
-                            <div class="dir">
-                                <label class="switch">
-                                    <input type="checkbox" checked>
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="esq">
-                                <label for="sobrenome">Sobrenome</label><br>
-                                <input type="text" name="sobrenome">
-                            </div>
-                            <div class="dir">
-                                <label class="switch">
-                                    <input type="checkbox" checked>
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="esq">
-                                <label for="email">E-mail</label><br>
-                                <input type="text" name="email">
-                            </div>
-                            <div class="dir">
-                                <label class="switch">
-                                    <input type="checkbox" checked>
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                        </div> 
-                        <div class="form-group">
-                            <div class="esq">
-                                <label for="telefone">Telefone</label><br>
-                                <input type="text" name="telefone">
-                            </div>
-                            <div class="dir">
-                                <label class="switch">
-                                    <input type="checkbox" checked>
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="esq">
-                                <label for="senha">Senha</label><br>
-                                <input type="password" value="exemplo" id="senha" name="senha">
-                            </div>
-                            <div class="dir-senha">
-                                <input type="checkbox" id="versenha" onclick="mostrarSenha()"><label for="versenha">Mostrar</label>
-                            </div>
-                        </div>                          
-                        <div class="form-group-btn">
-                            <button class="cancelar" type="reset">Cancelar</button>
-                            <button class="salvar" type="submit">Salvar</button>
-                        </div>
-                        
-                    </form>
+                <!-- Gambiarra do apto -->
+                <div class="form-group">
+                  <div class="esq">
+                    <label for="apartamento">Apartamento</label><br />
+                    <input
+                      type="text"
+                      name="apartamento"
+                      placeholder="Ex: 87"
+                      id="apartamento"
+                    />
+                  </div>
+                  <div class="dir"></div>
                 </div>
+                <div class="form-group">
+                  <div class="esq">
+                    <label for="bloco">Bloco</label><br />
+                    <input
+                      type="text"
+                      name="bloco"
+                      placeholder="Ex: A"
+                      id="bloco"
+                    />
+                  </div>
+                  <div class="dir"></div>
+                </div>
+                <br />
+                <br />
+                <br />
+                <!-- Fim da gambiarra -->
 
-                       
+                <div class="form-group">
+                  <div class="esq">
+                    <label for="nome">Nome</label><br />
+                    <input
+                      type="text"
+                      name="nome"
+                      id="nome"
+                      placeholder="Ex: Hendy"
+                    />
+                  </div>
+                  <div class="dir">
+                    <label class="switch">
+                      <input type="checkbox" checked />
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="esq">
+                    <label for="sobrenome">Sobrenome</label><br />
+                    <input
+                      type="text"
+                      name="sobrenome"
+                      placeholder="Ex: Almeida"
+                      id="sobrenome"
+                    />
+                  </div>
+                  <div class="dir">
+                    <label class="switch">
+                      <input type="checkbox" checked />
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="esq">
+                    <label for="email">E-mail</label><br />
+                    <input
+                      type="text"
+                      name="email"
+                      placeholder="Ex: hendy.almeida@gmail.com"
+                      id="email"
+                    />
+                  </div>
+                  <div class="dir">
+                    <label class="switch">
+                      <input type="checkbox" checked />
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="esq">
+                    <label for="telefone">
+                      Telefone (Digite apenas números) </label
+                    ><br />
+                    <input
+                      type="text"
+                      name="telefone"
+                      placeholder="Ex: (11)91234-5678"
+                      id="telefone"
+                    />
+                  </div>
+                  <div class="dir">
+                    <label class="switch">
+                      <input type="checkbox" checked />
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="esq">
+                    <label for="senha">Senha</label><br />
+                    <input
+                      type="password"
+                      id="senha"
+                      name="senha"
+                      placeholder="Digite sua senha"
+                    />
+                  </div>
+                  <div class="dir-senha">
+                    <input
+                      type="checkbox"
+                      id="versenha"
+                      onclick="mostrarSenha()"
+                    /><label for="versenha">Mostrar</label>
+                  </div>
+                </div>
+                <div class="form-group-btn">
+                  <button class="cancelar" type="reset">Cancelar</button>
+                  <button class="salvar" type="submit">Salvar</button>
+                </div>
+              </form>
+            </div>
+          </section>
+        </main>
+      </div>
 
-            </section>
-
-            </main>
-        </div>
-
-        <!-- Modais -->
-        <div id="open-modal" class="modal"></div>
+      <!-- Modais -->
+      <div id="open-modal" class="modal"></div>
     </div>
-</body>
+  </body>
 </html>

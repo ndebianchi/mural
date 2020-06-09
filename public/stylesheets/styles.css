@@ -20,6 +20,7 @@
 @import "./partials/gerenciar-perfis.css";
 @import "./partials/calendario.css";
 @import "./partials/contas.css";
+@import "./erros.css";
 
 * {
     box-sizing: border-box;

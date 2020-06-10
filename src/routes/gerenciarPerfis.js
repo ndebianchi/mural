@@ -1,8 +1,7 @@
-var express = require('express');
-var router = express.Router();
-
-const GerenciarPerfisController = require('../controllers/GerenciarPerfisController');
+const router = require('express').Router();
+const { GerenciarPerfisController } = require('../controllers');
 
 router.get('/gerenciarPerfis', GerenciarPerfisController.index);
-router.post('/excluirUsuario', GerenciarPerfisController.delete);
+router.delete('/gerenciarPerfis/:id', GerenciarPerfisController.destroy);
+
 module.exports = router;

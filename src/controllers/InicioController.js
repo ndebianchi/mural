@@ -1,150 +1,159 @@
-const { Apartamento, Usuario, Post, PostPerdido, FeedPost, OcorrenciaPost, Likes_vistos} = require('../models')
+const {
+  Apartamento,
+  Usuario,
+  Post,
+  PostPerdido,
+  FeedPost,
+  OcorrenciaPost,
+  Likes_vistos,
+} = require('../models');
 
 const InicioController = {
-
-    index: async (req, res) => {
-        
-        const feeds = await FeedPost.findAll({
-            include: [{
-                    model: Post,
-                    as: "post",
-                    include: ["categoria",
-                        {
-                            model: Usuario,
-                            as: "usuario",
-                            include: ["apartamentos"]
-                        },
-                        "usuario_visualizado"
-                    ]
-                },
-
-            ]
-        })
-
-        const postavisos = await Post.findAll({
-            include: ["categoria",
+  index: async (req, res) => {
+    const feeds = await FeedPost.findAll({
+      include: [
+        {
+          model: Post,
+          as: 'post',
+          include: [
+            'categoria',
             {
-                model: Usuario,
-                as: "usuario",
-                include: ["apartamentos"]
+              model: Usuario,
+              as: 'usuario',
+              include: ['apartamentos'],
             },
-            "usuario_visualizado"
-        ]
-        })
-        res.render('inicio', {
-                    pageTitle: 'Mural',
-                    usuario: req.session.usuario, 
-                    feeds: feeds.reverse(), 
-                    postavisos: postavisos.reverse()
-                })
-               
-    },
+            'usuario_visualizado',
+          ],
+        },
+      ],
+    });
 
-    novoPost: async (req, res) => {
+    const postavisos = await Post.findAll({
+      include: [
+        'categoria',
+        {
+          model: Usuario,
+          as: 'usuario',
+          include: ['apartamentos'],
+        },
+        'usuario_visualizado',
+      ],
+    });
+    res.render('inicio', {
+      pageTitle: 'Mural',
+      usuario: req.session.usuario,
+      feeds: feeds.reverse(),
+      postavisos: postavisos.reverse(),
+    });
+  },
 
-        let { mensagem, tipo, foto } = req.body
+  novoPost: async (req, res) => {
+    let { mensagem, tipo, foto } = req.body;
 
-        // Cria o post no DB Post: usuario_id, categoria_id, mensagem
-        await Post.create({
-            usuario_id: req.session.usuario.id,
-            categoria_id: tipo,
-            mensagem
-        })
+    // Cria o post no DB Post: usuario_id, categoria_id, mensagem
+    await Post.create({
+      usuario_id: req.session.usuario.id,
+      categoria_id: tipo,
+      mensagem,
+    });
 
-       let postCriado = await Post.findOne({where: {
-            usuario_id: req.session.usuario.id,
-            categoria_id: tipo,
-            mensagem
-        }})
-        
-       // Criar a relação no DB FeedPost: post_id, foto
-       await FeedPost.create({
-            post_id: postCriado.id,
-            foto
-        })
+    let postCriado = await Post.findOne({
+      where: {
+        usuario_id: req.session.usuario.id,
+        categoria_id: tipo,
+        mensagem,
+      },
+    });
 
-        // Redireciona para /inicio
-        res.redirect('/inicio')
-    },
+    // Criar a relação no DB FeedPost: post_id, foto
+    await FeedPost.create({
+      post_id: postCriado.id,
+      foto,
+    });
 
-    novaOcorrencia: async (req, res) => {
+    // Redireciona para /inicio
+    res.redirect('/inicio');
+  },
 
-        let { mensagem, foto } = req.body
+  novaOcorrencia: async (req, res) => {
+    let { mensagem, foto } = req.body;
 
-        // Cria o post no DB Post: usuario_id, categoria_id, mensagem
-        await Post.create({
-            usuario_id: req.session.usuario.id,
-            categoria_id: 3,
-            mensagem
-        })
+    // Cria o post no DB Post: usuario_id, categoria_id, mensagem
+    await Post.create({
+      usuario_id: req.session.usuario.id,
+      categoria_id: 3,
+      mensagem,
+    });
 
-       let occCriada = await Post.findOne({where: {
-            usuario_id: req.session.usuario.id,
-            categoria_id: 3,
-            mensagem
-        }})
-        
-       // Criar a relação no DB FeedPost: post_id, foto
-       await FeedPost.create({
-            post_id: occCriada.id,
-            foto
-        })
+    let occCriada = await Post.findOne({
+      where: {
+        usuario_id: req.session.usuario.id,
+        categoria_id: 3,
+        mensagem,
+      },
+    });
 
-        await OcorrenciaPost.create({
-            post_id: occCriada.id,
-            foto,
-            status: 1
-        })
+    // Criar a relação no DB FeedPost: post_id, foto
+    await FeedPost.create({
+      post_id: occCriada.id,
+      foto,
+    });
 
-        // Redireciona para /inicio
-        res.redirect('/inicio')
-    },
+    await OcorrenciaPost.create({
+      post_id: occCriada.id,
+      foto,
+      status: 1,
+    });
 
-    novoAviso: async (req, res) => {
+    // Redireciona para /inicio
+    res.redirect('/inicio');
+  },
 
-        let { mensagem } = req.body
+  novoAviso: async (req, res) => {
+    let { mensagem } = req.body;
 
-        // Cria o post no DB Post: usuario_id, categoria_id, mensagem
-        await Post.create({
-            usuario_id: req.session.usuario.id,
-            categoria_id: 1,
-            mensagem
-        })
+    // Cria o post no DB Post: usuario_id, categoria_id, mensagem
+    await Post.create({
+      usuario_id: req.session.usuario.id,
+      categoria_id: 1,
+      mensagem,
+    });
 
-        // Redireciona para /inicio
-        res.redirect('/inicio')
-    },
+    // Redireciona para /inicio
+    res.redirect('/inicio');
+  },
 
-    addLike: async (req, res) => {
-        let { id } = req.body;
-        // await Likes_vistos.create(
-        //         {
-        //             post_id: id, 
-        //             usuario_id: req.session.usuario.id
-        //         })
+  addLike: async (req, res) => {
+    let { id } = req.body;
+    // await Likes_vistos.create(
+    //         {
+    //             post_id: id,
+    //             usuario_id: req.session.usuario.id
+    //         })
 
-        const usuarioLike = await Usuario.findByPk(req.session.usuario.id);
-        const postLike = await Post.findOne({where: {id}})
+    const usuarioLike = await Usuario.findByPk(req.session.usuario.id);
+    const postLike = await Post.findOne({ where: { id } });
 
-        // await Likes_vistos.create(
-        //         {postLike, usuarioLike})
+    // await Likes_vistos.create(
+    //         {postLike, usuarioLike})
 
-        await usuarioLike.addPosts(postLike)
-       
-        // res.redirect('/inicio');
-    },
+    await usuarioLike.addPosts(postLike);
 
-    entendido: async (req, res) => {
-        let { id } = req.body;
-        await Likes_vistos.create(
-                {
-                    post_id: id, 
-                    usuario_id: req.session.usuario.id
-                }, {where: {id}})
+    // res.redirect('/inicio');
+  },
 
-        res.redirect('/inicio');
-    }
-}
+  entendido: async (req, res) => {
+    let { id } = req.body;
+    await Likes_vistos.create(
+      {
+        post_id: id,
+        usuario_id: req.session.usuario.id,
+      },
+      { where: { id } }
+    );
+
+    res.redirect('/inicio');
+  },
+};
 
 module.exports = InicioController;
-

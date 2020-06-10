@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
+const methodOverride = require('method-override');
 const autenticador = require('./middlewares/autenticador');
 
 const app = express();
@@ -19,8 +20,10 @@ app.use(session({ secret: 'temos dois Murilos e um é Élon' }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(express.static(path.join(__dirname, '..', 'tmp')));
+app.use(methodOverride('_method'));
 
 // prepare routes
+
 app.use('/', require('./routes/login'));
 app.use('/', require('./routes/cadastro'));
 app.use(autenticador);

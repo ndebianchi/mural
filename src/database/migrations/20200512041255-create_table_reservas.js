@@ -7,44 +7,47 @@ module.exports = {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: false
+        allowNull: false,
       },
       usuario_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'usuarios',
-          key: 'id'
+          key: 'id',
         },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
       },
       local_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'locais',
-          key: 'id'
+          key: 'id',
         },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
       },
       data: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
+      },
+      descricao: {
+        type: Sequelize.STRING(64),
       },
       created_at: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
       },
       updated_at: {
         type: Sequelize.DATE,
-        allowNull: false
-      }
+        allowNull: false,
+      },
     });
   },
 
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('reservas');
-  }
+  },
 };

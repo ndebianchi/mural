@@ -9,7 +9,6 @@ module.exports = {
     });
   },
   store: async (req, res) => {
-    console.log('tonocontroller');
     const {
       apartamento,
       bloco,

@@ -2,6 +2,7 @@
   border-radius: 5px;
   padding: 12px 20px;
   font-size: 16px;
+  display: none;
 }
 
 .message--success {
@@ -19,5 +20,5 @@
 .message--error__login {
   width: 300px;
   margin: 20px auto;
-  display: none;
+
 }

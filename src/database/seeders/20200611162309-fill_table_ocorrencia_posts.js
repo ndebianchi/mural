@@ -1,5 +1,8 @@
 'use strict';
 
+const date = new Date();
+const moment = require('moment');
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert(
@@ -9,11 +12,15 @@ module.exports = {
           post_id: 7,
           foto: 'https://picsum.photos/500/300?random=1',
           status: 1,
+          created_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
+          updated_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
         },
         {
           post_id: 9,
           foto: 'https://picsum.photos/500/300?random=1',
           status: 2,
+          created_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
+          updated_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
         },
       ],
       {}

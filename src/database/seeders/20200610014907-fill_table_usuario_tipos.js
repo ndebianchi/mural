@@ -1,5 +1,9 @@
 'use strict';
 
+const faker = require('faker/locale/pt_BR');
+const moment = require('moment');
+const date = new Date();
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert(
@@ -7,12 +11,18 @@ module.exports = {
       [
         {
           nome: 'Síndico',
+          created_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
+          updated_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
         },
         {
           nome: 'Morador',
+          created_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
+          updated_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
         },
         {
           nome: 'Funcionário',
+          created_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
+          updated_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
         },
       ],
       {}

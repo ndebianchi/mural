@@ -1,7 +1,9 @@
 'use strict';
 
-const faker = require('faker/locale/pt_BR');
 const bcrypt = require('bcrypt');
+const faker = require('faker/locale/pt_BR');
+const moment = require('moment');
+const date = new Date();
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -16,6 +18,8 @@ module.exports = {
           senha: bcrypt.hashSync('12345678', 10),
           telefone: faker.phone.phoneNumber('+55###########'),
           foto: faker.image.avatar(),
+          created_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
+          updated_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
         },
         {
           usuario_tipo_id: faker.random.number({ min: 1, max: 3 }),
@@ -25,6 +29,8 @@ module.exports = {
           senha: bcrypt.hashSync('12345678', 10),
           telefone: faker.phone.phoneNumber('+55###########'),
           foto: faker.image.avatar(),
+          created_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
+          updated_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
         },
         {
           usuario_tipo_id: faker.random.number({ min: 1, max: 3 }),
@@ -34,6 +40,8 @@ module.exports = {
           senha: bcrypt.hashSync('12345678', 10),
           telefone: faker.phone.phoneNumber('+55###########'),
           foto: faker.image.avatar(),
+          created_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
+          updated_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
         },
         {
           usuario_tipo_id: faker.random.number({ min: 1, max: 3 }),
@@ -43,6 +51,8 @@ module.exports = {
           senha: bcrypt.hashSync('12345678', 10),
           telefone: faker.phone.phoneNumber('+55###########'),
           foto: faker.image.avatar(),
+          created_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
+          updated_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
         },
         {
           usuario_tipo_id: faker.random.number({ min: 1, max: 3 }),
@@ -52,6 +62,8 @@ module.exports = {
           senha: bcrypt.hashSync('12345678', 10),
           telefone: faker.phone.phoneNumber('+55###########'),
           foto: faker.image.avatar(),
+          created_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
+          updated_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
         },
         {
           usuario_tipo_id: faker.random.number({ min: 1, max: 3 }),
@@ -61,6 +73,8 @@ module.exports = {
           senha: bcrypt.hashSync('12345678', 10),
           telefone: faker.phone.phoneNumber('+55###########'),
           foto: faker.image.avatar(),
+          created_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
+          updated_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
         },
         {
           usuario_tipo_id: faker.random.number({ min: 1, max: 3 }),
@@ -70,6 +84,8 @@ module.exports = {
           senha: bcrypt.hashSync('12345678', 10),
           telefone: faker.phone.phoneNumber('+55###########'),
           foto: faker.image.avatar(),
+          created_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
+          updated_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
         },
         {
           usuario_tipo_id: faker.random.number({ min: 1, max: 3 }),
@@ -79,6 +95,8 @@ module.exports = {
           senha: bcrypt.hashSync('12345678', 10),
           telefone: faker.phone.phoneNumber('+55###########'),
           foto: faker.image.avatar(),
+          created_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
+          updated_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
         },
         {
           usuario_tipo_id: faker.random.number({ min: 1, max: 3 }),
@@ -88,6 +106,8 @@ module.exports = {
           senha: bcrypt.hashSync('12345678', 10),
           telefone: faker.phone.phoneNumber('+55###########'),
           foto: faker.image.avatar(),
+          created_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
+          updated_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
         },
         {
           usuario_tipo_id: faker.random.number({ min: 1, max: 3 }),
@@ -97,6 +117,8 @@ module.exports = {
           senha: bcrypt.hashSync('12345678', 10),
           telefone: faker.phone.phoneNumber('+55###########'),
           foto: faker.image.avatar(),
+          created_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
+          updated_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
         },
       ],
       {}

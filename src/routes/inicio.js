@@ -1,7 +1,5 @@
-var express = require('express');
-var router = express.Router();
-
-const InicioController = require('../controllers/InicioController');
+const router = require('express').Router();
+const { InicioController } = require('../controllers');
 
 router.get('/', InicioController.index);
 router.get('/inicio', InicioController.index);

@@ -1,7 +1,6 @@
-var express = require('express');
-var router = express.Router();
+const router = require('express').Router();
 
-const PerfilController = require('../controllers/PerfilController');
+const { PerfilController } = require('../controllers');
 
 router.get('/perfil', PerfilController.index);
 

@@ -1,14 +1,12 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
+
 const {
   cadastroValidator,
   erroValidator,
 } = require('../middlewares/validators');
 
-const CadastroController = require('../controllers/CadastroController');
-// const UsuarioLogado = require('../middlewares/UsuarioLogado');
+const { CadastroController } = require('../controllers');
 
-// router.get('/cadastro', UsuarioLogado, CadastroController.index);
 router.get('/cadastro', CadastroController.index);
 router.post(
   '/cadastro',

@@ -4,6 +4,7 @@ const BoletoController = require('./BoletoController');
 const CadastroController = require('./CadastroController');
 const ConfigController = require('./ConfigController');
 const ContasController = require('./ContasController');
+const EnquetesController = require('./EnquetesController');
 const GerenciarPerfisController = require('./GerenciarPerfisController');
 const InicioController = require('./InicioController');
 const LoginController = require('./LoginController');
@@ -19,6 +20,7 @@ module.exports = {
   CadastroController,
   ConfigController,
   ContasController,
+  EnquetesController,
   GerenciarPerfisController,
   InicioController,
   LoginController,

@@ -1,7 +1,6 @@
-var express = require('express');
-var router = express.Router();
+const router = require('express').Router();
 
-const AgendaController = require('../controllers/AgendaController');
+const { AgendaController } = require('../controllers');
 
 router.get('/agenda', AgendaController.index);
 

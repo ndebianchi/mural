@@ -1,7 +1,6 @@
-var express = require('express');
-var router = express.Router();
+const router = require('express').Router();
 
-const BoletoController = require('../controllers/BoletoController');
+const { BoletoController } = require('../controllers');
 
 router.get('/boleto', BoletoController.index);
 

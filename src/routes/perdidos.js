@@ -1,7 +1,6 @@
-var express = require('express');
-var router = express.Router();
+const router = require('express').Router();
 
-const PerdidosController = require('../controllers/PerdidosController');
+const { PerdidosController } = require('../controllers');
 
 router.get('/perdidos', PerdidosController.index);
 

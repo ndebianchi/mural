@@ -1,7 +1,6 @@
-var express = require('express');
-var router = express.Router();
+const router = require('express').Router();
 
-const EnquetesController = require('../controllers/EnquetesController');
+const { EnquetesController } = require('../controllers');
 
 router.get('/enquetes', EnquetesController.index);
 

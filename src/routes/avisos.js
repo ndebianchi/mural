@@ -1,7 +1,6 @@
-var express = require('express');
-var router = express.Router();
+const router = require('express').Router();
 
-const AvisosController = require('../controllers/AvisosController');
+const { AvisosController } = require('../controllers');
 
 router.get('/avisos', AvisosController.index);
 

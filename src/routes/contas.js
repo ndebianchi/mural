@@ -1,7 +1,6 @@
-var express = require('express');
-var router = express.Router();
+const router = require('express').Router();
 
-const ContasController = require('../controllers/ContasController');
+const { ContasController } = require('../controllers');
 
 router.get('/contas', ContasController.index);
 router.get('/editar-gastos', ContasController.editarGastos);

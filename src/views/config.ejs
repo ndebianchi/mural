@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheets/styles.css">
     <script defer src="javascripts/script.js"></script>
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
-    <title><%= pageTitle %></title>
+    <title>Configurações</title>
 </head>
 
 <body>
@@ -29,7 +30,8 @@
                 </button>
 
                 <!-- Icone + Titulo da Pagina -->
-                <%- include('./partials/pageTitle') %>
+                <%- include('./partials/pageTitle', { pageTitle: 'Configurações',
+                pageIcon: 'settings.svg' }) %>
 
                 <!-- Hendy -->
                 <%- include('./partials/hendy') %>
@@ -37,7 +39,7 @@
 
 
             <!-- Conteudo Principal -->
-            <main>                
+            <main>
                 <section class="settings">
 
                     <!-- Divisória (parte do Titulo) -->
@@ -56,15 +58,19 @@
 
                     <div class="profile-info">
                         <div class="header">
-                            <div><p>Configurações de Perfil</p></div>
-                            <div><p>Deixar Público</p></div>                            
+                            <div>
+                                <p>Configurações de Perfil</p>
+                            </div>
+                            <div>
+                                <p>Deixar Público</p>
+                            </div>
                         </div>
-                        <form action="/atualizar-perfil" method="POST">
+                        <form action="/config?_method=PUT" method="POST">
                             <div class="form-group">
                                 <div class="esq">
                                     <label for="nome">Nome</label><br>
                                     <input type="text" name="nome" value="<%= usuario.nome %>">
-                                </div>                                
+                                </div>
                                 <div class="dir">
                                     <label class="switch">
                                         <!-- <input type="checkbox" name="nomePublico" value="1" checked> -->
@@ -77,7 +83,7 @@
                                 <div class="esq">
                                     <label for="nome">Sobrenome</label><br>
                                     <input type="text" name="sobrenome" value="<%= usuario.sobrenome%>">
-                                </div>                                
+                                </div>
                                 <div class="dir">
                                     <label class="switch">
                                         <input type="checkbox" checked>
@@ -96,7 +102,7 @@
                                         <span class="slider"></span>
                                     </label>
                                 </div>
-                            </div> 
+                            </div>
                             <div class="form-group">
                                 <div class="esq">
                                     <label for="telefone">Telefone</label><br>
@@ -111,7 +117,7 @@
                             </div>
 
                             <!-- Método não seguro. Procurar melhor forma para trocar senha -->
-                            
+
                             <!-- <div class="form-group">
                                 <div class="esq">
                                     <label for="senha">Senha</label><br>
@@ -126,13 +132,15 @@
                                 <button class="cancelar" type="reset">Cancelar</button>
                                 <button class="salvar" type="submit">Salvar</button>
                             </div>
-                            
+
                         </form>
                     </div>
 
                     <div class="profile-info">
                         <div class="header">
-                            <div><p>Convidar novo morador</p></div>                                                   
+                            <div>
+                                <p>Convidar novo morador</p>
+                            </div>
                         </div>
                         <form action="">
                             <div class="form-group">
@@ -143,19 +151,21 @@
                                 <div class="dir enviar">
                                     <button class="salvar" type="submit">Enviar</button>
                                 </div>
-                            </div>                        
+                            </div>
                         </form>
                     </div>
 
                     <div class="profile-info">
                         <div class="header">
-                            <div><p>Gerenciar Moradores</p></div>                                                   
+                            <div>
+                                <p>Gerenciar Moradores</p>
+                            </div>
                         </div>
                         <div class="morador">
                             <div>
                                 <img src="images/posts-mural/mulher-meiaidade-lenço.jpg" alt="">
                             </div>
-                            
+
                             <div>
                                 <h3>Maria de Lurdes Silva</h3>
                                 <a href="#">Excluir</a>
@@ -165,7 +175,7 @@
                             <div>
                                 <img src="images/posts-mural/homem-idoso-barba.jpg" alt="">
                             </div>
-                            
+
                             <div>
                                 <h3>Donatelo Silva e Silva</h3>
                                 <a href="#">Excluir</a>
@@ -175,14 +185,14 @@
                             <div>
                                 <img src="images/posts-mural/homem-jovem-chapeu.jpg" alt="">
                             </div>
-                            
+
                             <div>
                                 <h3>Luis Inacio</h3>
                                 <a href="#">Excluir</a>
                             </div>
                         </div>
 
-                    </div>               
+                    </div>
 
                 </section>
 
@@ -193,4 +203,5 @@
         <div id="open-modal" class="modal"></div>
     </div>
 </body>
+
 </html>

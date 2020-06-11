@@ -2,48 +2,32 @@ const { Usuario } = require('../models');
 module.exports = {
   index: (req, res) => {
     return res.render('config', {
-      pageTitle: 'Configurações',
-      pageIcon: 'settings.svg',
+      usuario: req.session.usuario,
     });
   },
 
-  update: (req, res) => {
+  update: async (req, res) => {
     // Desestrurar os dados que chegam
     const { nome, sobrenome, email, telefone } = req.body;
 
-    // Atualiza dados no DB
-    Usuario.update(
-      {
-        nome,
-        sobrenome,
-        email,
-        telefone,
-      },
-      {
-        where: { id: req.session.usuario.id },
-      }
-    );
+    //Procurar o usuário através da PK
+    const user = await Usuario.findByPk(req.session.usuario.id, {
+      include: 'apartamentos',
+    });
 
-    // Atualiza dados da req.session.usuario:
-    if (nome != req.session.nome) {
-      req.session.usuario.nome = nome;
-    }
+    //Atualizando com os dados
+    user.nome = nome;
+    user.sobrenome = sobrenome;
+    user.email = email;
+    user.telefone = telefone;
 
-    if (sobrenome != req.session.sobrenome) {
-      req.session.usuario.sobrenome = sobrenome;
-    }
+    //Salvando os dados
+    await user.save();
 
-    if (email != req.session.email) {
-      req.session.usuario.email = email;
-    }
+    //Colocando os novos dados do usuário na session
+    req.session.usuario = user;
 
-    if (telefone != req.session.telefone) {
-      req.session.usuario.telefone = telefone;
-    }
-
-    // Feedback da Atualização (usar alert?)
-
-    // Finaliza Redirecionando de volta para Config
-    return res.redirect('config');
+    //Redirecionando para mesma página para exibir mensagem de sucesso
+    return res.redirect('/config?success=1');
   },
 };

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,7 @@
     <script defer src="javascripts/carousel.js"></script>
     <script defer src="javascripts/select-box.js"></script>
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
-    <title><%= pageTitle %></title>
+    <title>2ª Via do Condomínio</title>
 </head>
 
 <body>
@@ -30,21 +31,24 @@
                 </button>
 
                 <!-- Icone + Titulo da Pagina -->
-                <%- include('./partials/pageTitle') %>
+                <%- include('./partials/pageTitle', { pageTitle: '2ª Via do Condomínio',
+                pageIcon: '2via.svg' }) %>
 
                 <!-- Hendy -->
                 <%- include('./partials/hendy') %>
             </header>
-            
+
             <!-- Conteudo Principal -->
             <main>
 
                 <!-- Divisória (parte do Titulo) -->
                 <div class="page-title-linha-box"></div>
-                
+
                 <section class="boleto">
                     <h1>Atenção</h1>
-                    <p>Por razões de segurança, o Mural não gera nenhum boleto. Dessa forma apenas redirecionamos você para o respectivo site da empresa. Mais etapas podem ser necessárias para a conclusão do processo, como por exemplo, login e senha.</p>
+                    <p>Por razões de segurança, o Mural não gera nenhum boleto. Dessa forma apenas redirecionamos você
+                        para o respectivo site da empresa. Mais etapas podem ser necessárias para a conclusão do
+                        processo, como por exemplo, login e senha.</p>
                     <a href="#">
                         <button class="enviar-modal-novo">Acessar página da administradora</button>
                     </a>
@@ -57,4 +61,5 @@
         <div id="open-modal" class="modal"></div>
     </div>
 </body>
+
 </html>

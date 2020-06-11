@@ -1,11 +1,7 @@
-const AgendaController = {
-    index: (req, res) => {
-        res.render('agenda', {
-            pageTitle: 'Agenda',
-            pageIcon: 'agenda.svg',
-            usuario: req.session.usuario
-        })
-    }
-}
-
-module.exports = AgendaController;
+module.exports = {
+  index: (req, res) => {
+    return res.render('agenda', {
+      usuario: req.session.usuario,
+    });
+  },
+};

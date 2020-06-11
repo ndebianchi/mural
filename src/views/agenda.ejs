@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,7 @@
     <script defer src="javascripts/carousel.js"></script>
     <script defer src="javascripts/select-box.js"></script>
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
-    <title><%= pageTitle %></title>
+    <title>Agenda</title>
 </head>
 
 <body>
@@ -29,7 +30,8 @@
                 </button>
 
                 <!-- Icone + Titulo da Pagina -->
-                <%- include('./partials/pageTitle') %>
+                <%- include('./partials/pageTitle', { pageTitle: 'Agenda',
+                pageIcon: 'agenda.svg' }) %>
 
                 <!-- Hendy -->
                 <%- include('./partials/hendy') %>
@@ -39,7 +41,7 @@
             <div class="page-title-linha-box"></div>
 
             <!-- Calendário -->
-            <%- include('./partials/calendario') %>
+            <%- include('./partials/calendario', { pageTitle: 'Agenda' }) %>
 
         </div>
 
@@ -52,12 +54,12 @@
                     <img src="images/posts-mural/homem-meiaidade-boina.jpg">
                     <textarea name="mensagem" id="mensagem" rows="2"></textarea>
                 </div>
-                
+
                 <div class="new-cancel-send">
                     <button class="cancelar" type="reset">Cancelar</button>
                     <button class="enviar-modal-novo" type="submit">Adicionar</button>
                 </div>
-            </div> 
+            </div>
 
             <div id="idmodal-agendaMob" class="modalInterno">
                 <h1>Novo evento</h1>
@@ -65,8 +67,8 @@
                     <img src="images/posts-mural/homem-meiaidade-boina.jpg">
                     <textarea name="mensagem" id="mensagem" rows="2"></textarea>
                 </div>
-                
-                
+
+
                 <div class="new-cancel-send">
                     <button class="cancelar" type="reset">Cancelar</button>
                     <button class="enviar-modal-novo" type="submit">Adicionar</button>
@@ -76,4 +78,5 @@
 
     </div>
 </body>
+
 </html>

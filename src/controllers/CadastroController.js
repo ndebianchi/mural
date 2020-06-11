@@ -2,12 +2,7 @@ const { Usuario, Apartamento } = require('../models');
 const bcrypt = require('bcrypt');
 
 module.exports = {
-  index: (req, res) => {
-    return res.render('cadastro', {
-      pageTitle: 'Novo Cadastro',
-      pageIcon: 'user.svg',
-    });
-  },
+  index: (req, res) => res.render('cadastro'),
   store: async (req, res) => {
     const {
       apartamento,
@@ -43,14 +38,10 @@ module.exports = {
       // Redireciona para Login
       return res.render('cadastro', {
         sucesso: 'Usuário criado com sucesso!',
-        pageTitle: 'Novo Cadastro',
-        pageIcon: 'user.svg',
       });
     } catch (erro) {
       return res.render('cadastro', {
         erro: 'Usuário já existe',
-        pageTitle: 'Novo Cadastro',
-        pageIcon: 'user.svg',
       });
     }
   },

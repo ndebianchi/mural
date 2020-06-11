@@ -1,194 +1,135 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <script defer src="javascripts/script.js"></script>
-    <script defer src="javascripts/carousel.js"></script>
-    <script defer src="javascripts/select-box.js"></script>
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
-    <title><%= pageTitle %></title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="stylesheets/styles.css">
+	<script defer src="javascripts/script.js"></script>
+	<script defer src="javascripts/carousel.js"></script>
+	<script defer src="javascripts/select-box.js"></script>
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
+	<title>Avisos</title>
 </head>
 
 <body>
-    <!-- DIV PAI DE TODAS -->
-    <div class="container">
-        <!-- Fundo escuro do modal -->
-        <div id="background-modal" onclick="toggleBackgroundModal()"></div>
+	<!-- DIV PAI DE TODAS -->
+	<div class="container">
+		<!-- Fundo escuro do modal -->
+		<div id="background-modal" onclick="toggleBackgroundModal()"></div>
 
-        <%- include('./partials/navbar') %>
+		<%- include('./partials/navbar') %>
 
-        <!-- Conteudo -->
+		<!-- Conteudo -->
 
-        <div class="feed-container">
+		<div class="feed-container">
 
-            <!-- Header com Nav, Hendy e Titulo -->
-            <header>
-                <button class="menu-btn" onclick="openNav()">
-                    <img src="images/icones-mural/Cinza/menu.svg" alt="Icone do menu">
-                </button>
+			<!-- Header com Nav, Hendy e Titulo -->
+			<header>
+				<button class="menu-btn" onclick="openNav()">
+					<img src="images/icones-mural/Cinza/menu.svg" alt="Icone do menu">
+				</button>
 
-                <!-- Icone + Titulo da Pagina -->
-                <%- include('./partials/pageTitle') %>
+				<!-- Icone + Titulo da Pagina -->
+				<%- include('./partials/pageTitle', { pageTitle: 'Avisos', pageIcon: 'agenda.svg' }) %>
 
-                <!-- Hendy -->
-                <%- include('./partials/hendy') %>
+				<!-- Hendy -->
+				<%- include('./partials/hendy') %>
 
-            </header>
+			</header>
 
-            <!-- Conteudo Principal -->
-            <main>
+			<!-- Conteudo Principal -->
+			<main>
 
-                <!-- Divisória (parte do Titulo) -->
-                <div class="page-title-linha-box"></div>
+				<!-- Divisória (parte do Titulo) -->
+				<div class="page-title-linha-box"></div>
 
-                <!-- Selecionar período -->
-                <div class="cabecalho-periodo">
-                    <div class="escolha-periodo">
-                        <div class="periodo-text">
-                            <span>De</span>
-                        </div>
-                        <div class="custom-select" id="select-tempo" style="width:200px;">
-                            <select>
-                            <option value="0">Início</option>
-                            <option value="1">Jan/2020</option>
-                            <option value="2">Fev/2020</option>
-                            <option value="3">Mar/2020</option>
-                            <option value="4">Abr/2020</option>
-                            <option value="5">Mai/2020</option>
-                            <option value="6">Jun/2020</option>
-                            <option value="7">Jul/2020</option>
-                            <option value="8">Ago/2020</option>
-                            <option value="9">Set/2020</option>
-                            <option value="10">Out/2020</option>
-                            <option value="11">Nov/2020</option>
-                            <option value="12">Dez/2020</option>
-                            </select>
-                        </div>
-                        <div class="periodo-text">
-                            <span>até</span>
-                        </div>
-                        <div class="custom-select" id="select-tempo" style="width:200px;">
-                            <select>
-                                <option value="0">Fim</option>
-                                <option value="1">Jan/2020</option>
-                                <option value="2">Fev/2020</option>
-                                <option value="3">Mar/2020</option>
-                                <option value="4">Abr/2020</option>
-                                <option value="5">Mai/2020</option>
-                                <option value="6">Jun/2020</option>
-                                <option value="7">Jul/2020</option>
-                                <option value="8">Ago/2020</option>
-                                <option value="9">Set/2020</option>
-                                <option value="10">Out/2020</option>
-                                <option value="11">Nov/2020</option>
-                                <option value="12">Dez/2020</option>
-                            </select>
-                        </div> 
-                        <div class="custom-select" style="width:200px;">
-                            <select>
-                            <option value="0">Mostrar</option>
-                            <option value="1">Todas</option>
-                            <option value="2">Respondidas</option>
-                            <option value="3">Em análise</option>
-                            </select>
-                        </div>
-                        <button class="btn-group">Gerar relatório</button>  
-                    </div>
-                </div>
+				<!-- Selecionar período -->
+				<div class="cabecalho-periodo">
+					<div class="escolha-periodo">
+						<div class="periodo-text">
+							<span>De</span>
+						</div>
+						<div class="custom-select" id="select-tempo" style="width:200px;">
+							<select>
+								<option value="0">Início</option>
+								<option value="1">Jan/2020</option>
+								<option value="2">Fev/2020</option>
+								<option value="3">Mar/2020</option>
+								<option value="4">Abr/2020</option>
+								<option value="5">Mai/2020</option>
+								<option value="6">Jun/2020</option>
+								<option value="7">Jul/2020</option>
+								<option value="8">Ago/2020</option>
+								<option value="9">Set/2020</option>
+								<option value="10">Out/2020</option>
+								<option value="11">Nov/2020</option>
+								<option value="12">Dez/2020</option>
+							</select>
+						</div>
+						<div class="periodo-text">
+							<span>até</span>
+						</div>
+						<div class="custom-select" id="select-tempo" style="width:200px;">
+							<select>
+								<option value="0">Fim</option>
+								<option value="1">Jan/2020</option>
+								<option value="2">Fev/2020</option>
+								<option value="3">Mar/2020</option>
+								<option value="4">Abr/2020</option>
+								<option value="5">Mai/2020</option>
+								<option value="6">Jun/2020</option>
+								<option value="7">Jul/2020</option>
+								<option value="8">Ago/2020</option>
+								<option value="9">Set/2020</option>
+								<option value="10">Out/2020</option>
+								<option value="11">Nov/2020</option>
+								<option value="12">Dez/2020</option>
+							</select>
+						</div>
+						<div class="custom-select" style="width:200px;">
+							<select>
+								<option value="0">Mostrar</option>
+								<option value="1">Todas</option>
+								<option value="2">Respondidas</option>
+								<option value="3">Em análise</option>
+							</select>
+						</div>
+						<button class="btn-group">Gerar relatório</button>
+					</div>
+				</div>
 
-                <!-- Feed Principal -->
-                <section class="lista-enquetes">
-                    <div class="card ocorr">
-                        <header>
-                            <div class="user-group">
-                                <img src="images/posts-mural/homem-jovem-cachecol.jpg" alt="Imagem de perfil">
-                                <div class="user-info">
-                                    <p>Pedro Henrique</p>
-                                    <span>Apartamento 2</span>
-                                </div>
-                            </div>
-                            <ol>
-                                <li class="post-type">Aviso</li>
-                                <li class="enquete-date">22/04/2020</li>
-                            </ol>
-                        </header>
-                        <main>
-                            <p class="post-text">
-                                Prezados, informo que a luz do corredor do 2º andar está queimada. No aguardo de providências.
-                            </p>
-                        </main>
-                    </div>
-                    <div class="card ocorr">
-                        <header>
-                            <div class="user-group">
-                                <img src="images/posts-mural/mulher-idosa-floral.jpg" alt="Imagem de perfil">
-                                <div class="user-info">
-                                    <p>Silvana Aparecida</p>
-                                    <span>Apartamento 223</span>
-                                </div>
-                            </div>
-                            <ol>
-                                <li class="post-type">Aviso</li>
-                                <li class="enquete-date">09/04/2020</li>
-                            </ol>
-                        </header>
-                        <main>
-                            <p class="post-text">
-                                Hoje pela manhã, desci até a garagem e o vidro lateral do meu carro estava quebrado. Exijo providências do condomínio!
-                            </p>
-                        </main>
-                    </div>
-                    <div class="card ocorr">
-                        <header>
-                            <div class="user-group">
-                                <img src="images/posts-mural/homem-jovem-chapeu.jpg">
-                                <div class="user-info">
-                                    <p>José Dirceu</p>
-                                    <span>Apartamento 81</span>
-                                </div>
-                            </div>
-                            <ol>
-                                <li class="post-type">Aviso</li>
-                                <li class="enquete-date">22/03/2020</li>
-                            </ol>
-                        </header>
-                        <main>
-                            <p class="post-text">
-                                Na noite de ontem não consegui dormir devido à festa que a vizinha do 207 estava fazendo. Interfonei na portaria para que algo fosse feito. Nada aconteceu. Fui pessoalmente até o apartamento pedir a compreensão do vizinho, especialmente porque era quinta-feira e todo mundo trabalha ou estuda na sexta-feira logo cedo. Novamente, pedido ignorado. 
-                            </p>
-                        </main>
-                    </div>
-                    <div class="card ocorr">
-                        <header>
-                            <div class="user-group">
-                                <img src="images/posts-mural/mulher-idosa-chapeuVermelho.jpg" alt="Imagem de perfil">
-                                <div class="user-info">
-                                    <p>Maria da Silva</p>
-                                    <span>Apartamento 212</span>
-                                </div>
-                            </div>
-                            <ol>
-                                <li class="post-type">Aviso</li>
-                                <li class="enquete-date">17/03/2020</li>
-                            </ol>
-                        </header>
-                        <main>
-                            <p class="post-text">
-                                Hoje pela tarde estava tentando ao máximo concentrar-me nos meus estudos, mas os dois cachorros do vizinho (apto. 222) não paravam de latir e brigar entre si na tentativa de abrir a porta.
-                                Os latidos continuaram durante toda a tarde e noite, de forma que não consegui dormir.
-                            </p>
-                        </main>
-                    </div>
-                    
-                </section>
+				<!-- Feed Principal -->
+				<section class="lista-enquetes">
 
-            </main>
-        </div>
+					<% for (let aviso of avisos) { %>
+					<div class="card ocorr">
+						<header>
+							<div class="user-group">
+								<img src="<%= aviso.usuario.foto%>" alt="Imagem de perfil">
+								<div class="user-info">
+									<p><%= aviso.usuario.nome %> <%= aviso.usuario.sobrenome %></p>
+									<span><%= aviso.usuario.apartamentos[0].numero %>
+										<%= aviso.usuario.apartamentos[0].bloco %></span>
+								</div>
+							</div>
+							<ol>
+								<li class="post-type"><%= aviso.categoria.nome %></li>
+							</ol>
+						</header>
+						<main>
+							<p class="post-text"><%= aviso.mensagem %></p>
+						</main>
+					</div>
+					<% } %>
 
-        <!-- Modais -->
-        <div id="open-modal" class="modal"></div>
-    </div>
+				</section>
+			</main>
+		</div>
+
+		<!-- Modais -->
+		<div id="open-modal" class="modal"></div>
+	</div>
 </body>
+
 </html>

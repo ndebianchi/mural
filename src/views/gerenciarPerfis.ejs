@@ -1,120 +1,122 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheets/styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheets/styles.css" />
     <script defer src="javascripts/script.js"></script>
+    <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script defer src="javascripts/select-box.js"></script>
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico" />
     <title><%= pageTitle %></title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- DIV PAI DE TODAS -->
     <div class="container">
-        <!-- Fundo escuro do modal -->
-        <div id="background-modal" onclick="toggleBackgroundModal()"></div>
+      <!-- Fundo escuro do modal -->
+      <div id="background-modal" onclick="toggleBackgroundModal()"></div>
 
-        <%- include('./partials/navbar') %>
-        <!-- Main Content -->
+      <%- include('./partials/navbar') %>
+      <!-- Main Content -->
 
-        <div class="feed-container">
-            <!-- Header com Nav, Hendy e Titulo -->
-            <header>
-                <!-- Botão Nav-Mobile -->
-                <button class="menu-btn" onclick="openNav()">
-                    <img src="images/icones-mural/Cinza/menu.svg" alt="Icone do menu">
-                </button>
+      <div class="feed-container">
+        <!-- Header com Nav, Hendy e Titulo -->
+        <header>
+          <!-- Botão Nav-Mobile -->
+          <button class="menu-btn" onclick="openNav()">
+            <img src="images/icones-mural/Cinza/menu.svg" alt="Icone do menu" />
+          </button>
 
-                <!-- Icone + Titulo da Pagina -->
-                <%- include('./partials/pageTitle') %>
+          <!-- Icone + Titulo da Pagina -->
+          <%- include('./partials/pageTitle') %>
 
-                <!-- Hendy -->
-                <%- include('./partials/hendy') %>
+          <!-- Hendy -->
+          <%- include('./partials/hendy') %>
+        </header>
 
-            </header>
+        <!-- Conteudo Principal -->
+        <main>
+          <!-- Divisória (parte do Titulo) -->
+          <div class="page-title-linha"></div>
 
-            <!-- Conteudo Principal -->
-            <main>
-                <!-- Divisória (parte do Titulo) -->
-                <div class="page-title-linha"></div>
-                
-                <section class="gerenciar-perfis">                   
+          <p class="message message--success">Usuário excluído com sucesso!</p>
 
-                <div class="gp-section">
-                    <h2>Convidar Novo Morador</h2>
+          <section class="gerenciar-perfis">
+            <div class="gp-section">
+              <h2>Convidar Novo Morador</h2>
+            </div>
+            <form class="gp-convidar" action="">
+              <div class="gp-direita">
+                <label for="email">E-mail</label>
+                <input type="email" />
+              </div>
+              <div class="gp-esquerda">
+                <label for="apartamento">Apartamento</label>
+                <div class="" id="" style="width: 200px;">
+                  <select>
+                    <% for(let apartamento of apartamentos){ %>
+                    <option value="0"
+                      ><%=apartamento.numero%> <%=apartamento.bloco%></option
+                    >
+                    <% } %>
+                  </select>
                 </div>
-                <form class="gp-convidar" action="">
-                    <div class="gp-direita">
-                    <label for="email">E-mail</label>
-                    <input type="email"> 
-                    </div>
-                    <div class="gp-esquerda">
-                    <label for="apartamento">Apartamento</label>
-                    <div class="" id="" style="width:200px;">
-                        <select>
-                        <% for(let apartamento of apartamentos){ %>
-                        <option value="0"><%=apartamento.numero%> <%=apartamento.bloco%></option>
-                        <% } %>                        
-                        </select>
-                    </div>
-                    </div>
-                    <div class="gp-botao">
-                        <button type="submit">Enviar</button>
-                    </div>                                           
-                </form>
+              </div>
+              <div class="gp-botao">
+                <button type="submit">Enviar</button>
+              </div>
+            </form>
 
-                <div class="gp-section">
-                    <h2>Gerenciar Moradores</h2>                    
+            <div class="gp-section">
+              <h2>Gerenciar Moradores</h2>
+            </div>
+
+            <form action="/gerenciarPerfis" class="gp-convidar">
+              <div class="gp-esquerda">
+                <label for="filter">Apartamento</label>
+                <div style="width: 200px;">
+                  <select id="filter" name="filter">
+                    <option selected disabled>Selecione um apartamento</option>
+                    <% for(let apartamento of apartamentos){ %>
+                    <option value="<%= apartamento.id %>"
+                      ><%=apartamento.numero%> <%=apartamento.bloco%>
+                    </option>
+                    <% } %>
+                  </select>
+                </div>
+              </div>
+
+              <div class="gp-botao-2">
+                <button type="submit">Selecionar</button>
+              </div>
+            </form>
+
+            <div class="profile-info">
+              <% for(let morador of moradores){ %>
+              <div class="morador">
+                <div>
+                  <img src="<%= morador.foto %>" alt="" />
                 </div>
 
-                <form action="" class="gp-convidar">
-                    <div class="gp-esquerda">
-                    <label for="">Apartamento</label>
-                    <div class="" id="" style="width:200px;">
-                        <select>
-                            <% for(let apartamento of apartamentos){ %>
-                                <option value="0"><%=apartamento.numero%> <%=apartamento.bloco%></option>
-                            <% } %> 
-                        </select>
-                    </div>
-                    </div>
+                <div>
+                  <h3><%= morador.nome %> <%= morador.sobrenome%></h3>
+                  <form
+                    action="/gerenciarPerfis/<%= morador.id %>?_method=DELETE"
+                    method="POST"
+                  >
+                    <button class="excluirUsuario" name="id">Excluir</button>
+                  </form>
+                </div>
+              </div>
+              <% } %>
+            </div>
+          </section>
+        </main>
+      </div>
 
-                    <div class="gp-botao-2">
-                        <button type="submit">Selecionar</button>
-                    </div>
-                </form>
-
-                <div class="profile-info">                    
-                  
-                    <% for(let morador of moradores){ %>
-                        <div class="morador">
-                            <div>
-                                <img src="<%= morador.foto %>" alt="">
-                            </div>
-                            
-                            <div>
-                                <h3><%= morador.nome %> <%= morador.sobrenome%> </h3>
-                                <form action="/excluirUsuario" method="POST">
-                                    <button class="excluirUsuario" type="submit"
-                                        name="id" value="<%= morador.id %>">Excluir</button>
-                                </form>                                
-                            </div>
-                        </div>
-                    <% } %>                 
-
-                </div> 
-
-
-
-
-                </section>
-            </main>
-        </div>
-
-        <!-- Modais -->
-        <div id="open-modal" class="modal"></div>
+      <!-- Modais -->
+      <div id="open-modal" class="modal"></div>
     </div>
-</body>
+  </body>
 </html>

@@ -3,7 +3,7 @@ const { FeedPost, Post, Usuario } = require('../models');
 module.exports = {
   index: async (req, res) => {
     const posts = await Post.findAll({
-      where: { usuario_id: 1 },
+      where: { usuario_id: req.session.usuario.id },
       include: [
         'categoria',
         'usuario_visualizado',

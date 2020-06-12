@@ -42,8 +42,9 @@ module.exports = {
           usuario.addApartamentos(apto);
 
           // Redireciona para Login
-          return res.render('cadastro', {
-            sucesso: 'Usuário criado com sucesso!',
+          return res.render('login', {
+            pageTitle: 'Mural | Login',
+            sucesso: 'Usuário criado com sucesso!'
           });      
       }      
     } catch (ErroUsuarioExiste) {

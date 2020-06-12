@@ -30,6 +30,9 @@
                 <h2>Login</h2>
             </div>
             <p class="message message--error message--error__login">Você deve logar antes!</p>
+            <% if (typeof sucesso !== 'undefined') { %>
+                <p class="message message--success"><%= sucesso %></p>
+            <% } %>
             <form class="login-form" action="/login" method="POST">
                 <div><label for="email">E-mail</label></div>
                 <div><input type="email" name="email" id="email"></div>
@@ -57,7 +60,7 @@
 
                 <h2>Como criar sua conta:</h2>
                 <p>Para criar sua conta no Mural é necessário um convite.</p>
-                <p>Peça um para seu Síndico</p>
+                <p><a href="/cadastro">Peça um para seu Síndico</a></p>
 
             </div>
 

@@ -11,7 +11,7 @@ const LoginController = require('./LoginController');
 const OcorrenciasController = require('./OcorrenciasController');
 const PerdidosController = require('./PerdidosController');
 const PerfilController = require('./PerfilController');
-const ReservasController = require('./OcorrenciasController');
+const ReservasController = require('./ReservasController');
 
 module.exports = {
   AgendaController,

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,7 @@
     <script defer src="javascripts/carousel.js"></script>
     <script defer src="javascripts/select-box.js"></script>
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
-    <title><%= pageTitle %></title>
+    <title>Reservas</title>
 </head>
 
 <body>
@@ -30,7 +31,9 @@
                 </button>
 
                 <!-- Icone + Titulo da Pagina -->
-                <%- include('./partials/pageTitle') %>
+                <%- include('./partials/pageTitle', {
+                    pageTitle: 'Reservas',
+                    pageIcon: 'reservas.svg' }) %>
 
                 <!-- Hendy -->
                 <%- include('./partials/hendy') %>
@@ -47,13 +50,14 @@
 
                         <!--  Card Novo  -->
                         <%- include('./partials/cardReserva') %>
-                           
+
                     </div>
                 </div>
-             </main>
+            </main>
 
-                    
+
         </div>
     </div>
 </body>
+
 </html>

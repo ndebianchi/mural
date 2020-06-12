@@ -1,19 +1,13 @@
-const ReservasController = {
-    index: (req, res) => {
-        res.render('reservas', {
-            pageTitle: 'Reservas',
-            pageIcon: 'reservas.svg',
-            usuario: req.session.usuario
-        })
-    },
+module.exports = {
+  index: (req, res) => {
+    return res.render('reservas', {
+      usuario: req.session.usuario,
+    });
+  },
 
-    reservasAgenda: (req, res) => {
-        res.render('reservas-agenda', {
-            pageTitle: 'Reservas',
-            pageIcon: 'reservas.svg',
-            usuario: req.session.usuario
-        })
-    }
-}
-
-module.exports = ReservasController;
+  reservasAgenda: (req, res) => {
+    return res.render('reservas-agenda', {
+      usuario: req.session.usuario,
+    });
+  },
+};

@@ -11,7 +11,7 @@ module.exports = [
     .withMessage('Deve ser um e-mail válido!')
     .not()
     .isEmpty()
-    .withMessage('Não pode ser vázio!'),
+    .withMessage('Não pode ser vazio!'),
   check('telefone').not().isEmpty(),
   check('senha')
     .isLength({ min: 8, max: 16 })

@@ -73,7 +73,8 @@
             <form action="/cadastro" method="POST" id="form">
               <% if (typeof sucesso !== 'undefined') { %>
               <p class="message message--success"><%= sucesso %></p>
-              <% } %> <% if (typeof erro !== 'undefined') { %>
+              <% } %>
+              <% if (typeof erro !== 'undefined') { %>
               <p class="message message--error"><%= erro %></p>
               <% } %>
 

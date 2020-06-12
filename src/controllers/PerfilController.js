@@ -1,31 +1,41 @@
 const { FeedPost, Post, Usuario } = require('../models');
 
-const PerfilController = {
-    index: async (req, res) => {       
+module.exports = {
+  index: async (req, res) => {
+    const posts = await Post.findAll({
+      where: { usuario_id: 1 },
+      include: [
+        'categoria',
+        'usuario_visualizado',
+        {
+          model: Usuario,
+          as: 'usuario',
+          include: ['apartamentos'],
+          attributes: {
+            exclude: ['email', 'senha', 'telefone'],
+          },
+        },
+        'post_feed',
+      ],
+      attributes: {
+        exclude: ['categoria_id', 'usuario_id'],
+      },
+    });
 
-        const feeds = await FeedPost.findAll({
-            include: [{
-                    model: Post,
-                    as: "post",
-                    include: [
-                        "categoria",
-                        "usuario_visualizado",
-                        {
-                            model: Usuario,
-                            as: "usuario",
-                            include: ["apartamentos"]
-                        }
-                        
-                    ]
-                }]   
-        })      
+    return res.render('perfil', {
+      usuario: req.session.usuario,
+      posts: posts.reverse(),
+    });
+  },
+  destroy: async (req, res) => {
+    const { id } = req.params;
 
-        res.render('perfil', {
-            pageTitle: 'Perfil',
-            usuario: req.session.usuario,
-            feeds: feeds.reverse()
-        })
+    try {
+      const post = await Post.findByPk(id);
+      await post.destroy();
+      return res.redirect('/perfil?success=1');
+    } catch (erro) {
+      return res.redirect('/perfil?error=1');
     }
-}
-
-module.exports = PerfilController;
+  },
+};

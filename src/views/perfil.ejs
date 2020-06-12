@@ -2,256 +2,252 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <script defer src="javascripts/script.js"></script>
-    <script defer src="javascripts/carousel.js"></script>
-    <script defer src="javascripts/select-box.js"></script>
-    <link rel="stylesheet" href="stylesheets/perfil.css">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
-    <title><%= pageTitle %></title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="stylesheets/styles.css">
+	<script defer src="javascripts/script.js"></script>
+	<script defer src="javascripts/carousel.js"></script>
+	<script defer src="javascripts/select-box.js"></script>
+	<link rel="stylesheet" href="stylesheets/perfil.css">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
+	<title>Perfil</title>
 </head>
 
 <body>
-    <!-- DIV PAI DE TODAS -->
-    <div class="container">
-        <!-- Fundo escuro do modal -->
-        <div id="background-modal" onclick="toggleBackgroundModal()"></div>
+	<!-- DIV PAI DE TODAS -->
+	<div class="container">
+		<!-- Fundo escuro do modal -->
+		<div id="background-modal" onclick="toggleBackgroundModal()"></div>
 
-        <%- include('./partials/navbar') %>
+		<%- include('./partials/navbar') %>
 
-        <!-- Header com os botões de chamada dos modais e demais -->
+		<!-- Header com os botões de chamada dos modais e demais -->
 
-        <div class="feed-container">
-            <header>
+		<div class="feed-container">
+			<header>
 
-                <!-- Botão da Nav Mobile -->
-                <button class="menu-btn" onclick="openNav()">
-                    <img src="images/icones-mural/Cinza/menu.svg" alt="Icone do menu">
-                </button>
+				<!-- Botão da Nav Mobile -->
+				<button class="menu-btn" onclick="openNav()">
+					<img src="images/icones-mural/Cinza/menu.svg" alt="Icone do menu">
+				</button>
 
-                <!-- Botões dos Modais -->
-                <div class="options">
-                    <a href="javascript:void(0)" onclick="openModal('novo-post')">
-                        <img src="images/icones-mural/Branco/post.svg" alt="Novo Post">
-                        <span>Novo Post</span>
-                    </a>
-                    <a href="javascript:void(0)" onclick="openModal('filtros')">
-                        <img src="images/icones-mural/Branco/filtro.svg" alt="Filtros">
-                        <span>Filtros</span>
-                    </a>
-                    <a href="javascript:void(0)" onclick="openModal('nova-ocorrencia')">
-                        <img src="images/icones-mural/Branco/ocorrencias.svg" alt="Nova Ocorrência">
-                        <span>Nova Ocorrência</span>
-                    </a>
-                    <a href="javascript:void(0)" onclick="openModal('novo-aviso')">
-                        <img src="images/icones-mural/Branco/avisos.svg" alt="Novo Aviso">
-                        <span>Novo Aviso</span>
-                    </a>
-                </div>
+				<!-- Botões dos Modais -->
+				<div class="options">
+					<a href="javascript:void(0)" onclick="openModal('novo-post')">
+						<img src="images/icones-mural/Branco/post.svg" alt="Novo Post">
+						<span>Novo Post</span>
+					</a>
+					<a href="javascript:void(0)" onclick="openModal('filtros')">
+						<img src="images/icones-mural/Branco/filtro.svg" alt="Filtros">
+						<span>Filtros</span>
+					</a>
+					<a href="javascript:void(0)" onclick="openModal('nova-ocorrencia')">
+						<img src="images/icones-mural/Branco/ocorrencias.svg" alt="Nova Ocorrência">
+						<span>Nova Ocorrência</span>
+					</a>
+					<a href="javascript:void(0)" onclick="openModal('novo-aviso')">
+						<img src="images/icones-mural/Branco/avisos.svg" alt="Novo Aviso">
+						<span>Novo Aviso</span>
+					</a>
+				</div>
 
-                <!-- Hendy -->
-                <%- include('./partials/hendy') %>
-                
-            </header>
+				<!-- Hendy -->
+				<%- include('./partials/hendy') %>
 
-            <!-- Conteudo Principal -->
-            <main>
+			</header>
 
-              <div class="user-profile">
-                <img class="user-profile__image" src="<%=usuario.foto %>" alt="Foto da Hendy">
+			<!-- Conteudo Principal -->
+			<main>
 
-                <div class="user-profile__info">
-                  <h1 class="user-profile__heading"><%=usuario.nome %> <%=usuario.sobrenome %></h1>
-                  <hr class="user-profile__divider">
-                  <div class="user-profile__personal-info">
-                    <p class="user-profile__text">Apartamento <%=usuario.apartamentos[0].numero %> <%=usuario.apartamentos[0].bloco %></p>
-                    <p class="user-profile__text"><%=usuario.telefone %></p>
-                    <p class="user-profile__text"><%=usuario.email %></p>
-                  </div>
-                </div>
-                <hr class="user-profile__divider user-profile__divider--bottom">
-              </div>
+				<div class="user-profile">
+					<img class="user-profile__image" src="<%=usuario.foto %>" alt="Foto da Hendy">
 
-                <!-- Feed Principal -->
-                <section class="feed">
-                    <% for(let feed of feeds) { %>
-                        <% if(feed.post.usuario.id == usuario.id){ %>
-                            <div class="card">
-                                <header>
-                                    <div class="user-group">
-                                        <img src="<%=feed.post.usuario.foto%>"
-                                            alt="Imagem de perfil">
-                                        <div class="user-info">
-                                            <p><%=feed.post.usuario.nome%> <%=feed.post.usuario.sobrenome%></p>
-                                            <span>Apartamento <%=feed.post.usuario.apartamentos[0].numero%></span>
-                                        </div>
-                                    </div>
-                                    <p class="post-type"><%=feed.post.categoria.nome%></p>
-                                </header>
-                                <main>
-                                    <p class="post-text"><%= feed.post.mensagem%></p>
-                                    </p>
-                                    <% if (feed.foto = null) { %>
+					<div class="user-profile__info">
+						<h1 class="user-profile__heading"><%=usuario.nome %> <%=usuario.sobrenome %></h1>
+						<hr class="user-profile__divider">
+						<div class="user-profile__personal-info">
+							<p class="user-profile__text">Apartamento <%=usuario.apartamentos[0].numero %>
+								<%=usuario.apartamentos[0].bloco %></p>
+							<p class="user-profile__text"><%=usuario.telefone %></p>
+							<p class="user-profile__text"><%=usuario.email %></p>
+						</div>
+					</div>
+					<hr class="user-profile__divider user-profile__divider--bottom">
+				</div>
 
-                                    }
-                                    else {
-                                        <img class="post-img" src="<%=feed.foto%>" alt="Imagem do post">
-                                    }
-                                    <% } %>
-                                </main>
-                                <footer>
-                                    <div class="post-info">
-                                        <span><%= feed.post.usuario_visualizado.length%> likes</span>
-                                        <!-- <span>3 respostas</span> -->
-                                    </div>
-                                    <div class="btn-group">
-                                        <!-- <button class="btn-comment"><img
+				<!-- Feed Principal -->
+				<section class="feed">
+					<% for(let post of posts) { %>
+					<div class="card">
+						<header>
+							<div class="user-group">
+								<img src="<%=post.usuario.foto%>" alt="Imagem de perfil">
+								<div class="user-info">
+									<p><%=post.usuario.nome%> <%=post.usuario.sobrenome%></p>
+									<span>Apartamento <%=post.usuario.apartamentos[0].numero%></span>
+								</div>
+							</div>
+							<p class="post-type"><%=post.categoria.nome%></p>
+						</header>
+						<main>
+							<p class="post-text"><%= post.mensagem%></p>
+							</p>
+							<% if (post.post_feed.foto) { %>
+							<img class="post-img" src="<%=post.foto%>" alt="Imagem do post">
+							<% } %>
+						</main>
+						<footer>
+							<div class="post-info">
+								<span><%= post.usuario_visualizado.length %> likes</span>
+								<!-- <span>3 respostas</span> -->
+							</div>
+							<div class="btn-group">
+								<!-- <button class="btn-comment"><img
                                                 src="images/icones-mural/Branco/message-square-white.svg"
                                                 alt="Botão de comentar">Responder</button> -->
-                                        <button class="btn-like"><img src="images/icones-mural/Branco/lixo.svg"
-                                                alt="Botão de like">Apagar</button>
-                                    </div>
-                                </footer>
-                            </div>
-                        <% } %>
-                    <% } %>
-                </section>
+								<form action="/perfil/<%= post.id %>?_method=DELETE" method="POST">
+									<button class="btn-like">
+										<img src="images/icones-mural/Branco/lixo.svg" alt="Botão de like" />Apagar
+									</button>
+								</form>
+							</div>
+						</footer>
+					</div>
+					<% } %>
+				</section>
 
-            </main>
-        </div>
+			</main>
+		</div>
 
-        <!-- Modais Main Feed -->
-        <div id="open-modal" class="modal">
+		<!-- Modais Main Feed -->
+		<div id="open-modal" class="modal">
 
-            <!-- Modal Novo Post -->
-            <div id="novo-post" class="modalInterno">
-                <form action="/novoPost" method="POST">
-                    <h1>Novo Post</h1>
-                    <div class="new-foto-mensagem">
-                        <img src="<%=usuario.foto%>">
-                        <textarea name="mensagem" id="mensagem" rows="10"></textarea>
-                    </div>
-                    <div class="new-foto-categoria">
-                        <button class="btn-group"><img src="images/icones-mural/Branco/plus.svg"
-                            alt="">Foto</button>
-                        <div class="custom-select" id="select-box-modal" style="width:200px;">
-                            <select name="tipo">
-                            <!-- <option value="0">Categoria</option> -->
-                            <!-- <option value="1">Aviso</option> -->
-                            <option value="2">Post</option>
-                            <!-- <option value="3">Ocorrências</option> -->
-                            <option value="4">Anúncios</option>
-                            <option value="5">Classificados</option>
-                            <option value="6">Serviços</option>
-                            <option value="7">Eventos</option>
-                            <!-- <option value="8">Achados e Perdidos</option> -->
-                            </select>
-                        </div>
-                    </div>
-                    <div class="new-cancel-send">
-                        <button class="cancelar" type="reset">Cancelar</button>
-                        <button class="enviar-modal-novo" type="submit">Enviar</button>
-                    </div>                    
-                </form>
-            </div>
+			<!-- Modal Novo Post -->
+			<div id="novo-post" class="modalInterno">
+				<form action="/novoPost" method="POST">
+					<h1>Novo Post</h1>
+					<div class="new-foto-mensagem">
+						<img src="<%=usuario.foto%>">
+						<textarea name="mensagem" id="mensagem" rows="10"></textarea>
+					</div>
+					<div class="new-foto-categoria">
+						<button class="btn-group"><img src="images/icones-mural/Branco/plus.svg" alt="">Foto</button>
+						<div class="custom-select" id="select-box-modal" style="width:200px;">
+							<select name="tipo">
+								<!-- <option value="0">Categoria</option> -->
+								<!-- <option value="1">Aviso</option> -->
+								<option value="2">Post</option>
+								<!-- <option value="3">Ocorrências</option> -->
+								<option value="4">Anúncios</option>
+								<option value="5">Classificados</option>
+								<option value="6">Serviços</option>
+								<option value="7">Eventos</option>
+								<!-- <option value="8">Achados e Perdidos</option> -->
+							</select>
+						</div>
+					</div>
+					<div class="new-cancel-send">
+						<button class="cancelar" type="reset">Cancelar</button>
+						<button class="enviar-modal-novo" type="submit">Enviar</button>
+					</div>
+				</form>
+			</div>
 
-            <!-- Modal Filtros -->
-            <div id="filtros" class="modalInterno">
-                <form class="filtro-interno">
-                    <h2>Filtrar Posts</h2>
-                    <div class="filtro-group">
-                        <p>Avisos</p>
-                        <label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                    <div class="filtro-group">
-                        <p>Ocorrências</p>
-                        <label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                    <div class="filtro-group">
-                        <p>Serviços</p>
-                        <label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                    <div class="filtro-group">
-                        <p>Eventos</p>
-                        <label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                    <div class="filtro-group">
-                        <p>Classificados</p>
-                        <label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                    <div class="filtro-group">
-                        <button class="redefinir" type="reset">Redefinir</button>                        
-                        <button class="aplicar"type="submit">Aplicar</button>                        
-                    </div>                    
-                </form>
+			<!-- Modal Filtros -->
+			<div id="filtros" class="modalInterno">
+				<form class="filtro-interno">
+					<h2>Filtrar Posts</h2>
+					<div class="filtro-group">
+						<p>Avisos</p>
+						<label class="switch">
+							<input type="checkbox" checked>
+							<span class="slider"></span>
+						</label>
+					</div>
+					<div class="filtro-group">
+						<p>Ocorrências</p>
+						<label class="switch">
+							<input type="checkbox" checked>
+							<span class="slider"></span>
+						</label>
+					</div>
+					<div class="filtro-group">
+						<p>Serviços</p>
+						<label class="switch">
+							<input type="checkbox" checked>
+							<span class="slider"></span>
+						</label>
+					</div>
+					<div class="filtro-group">
+						<p>Eventos</p>
+						<label class="switch">
+							<input type="checkbox" checked>
+							<span class="slider"></span>
+						</label>
+					</div>
+					<div class="filtro-group">
+						<p>Classificados</p>
+						<label class="switch">
+							<input type="checkbox" checked>
+							<span class="slider"></span>
+						</label>
+					</div>
+					<div class="filtro-group">
+						<button class="redefinir" type="reset">Redefinir</button>
+						<button class="aplicar" type="submit">Aplicar</button>
+					</div>
+				</form>
 
-            </div>
+			</div>
 
-            <!-- Modal Nova Ocorrência -->
-            <div id="nova-ocorrencia" class="modalInterno">
-                <h1>Nova Ocorrência</h1>
-                <div class="new-foto-mensagem">
-                    <img src="<%=usuario.foto%>">
-                    <textarea name="mensagem" id="mensagem" rows="10"></textarea>
-                </div>
-                <div class="new-foto-categoria">
-                    <button class="btn-group"><img src="images/icones-mural/Branco/plus.svg"
-                        alt="">Foto</button>
-                </div>
-                <div class="new-cancel-send">
-                    <button class="cancelar" type="reset">Cancelar</button>
-                    <button class="enviar-modal-novo" type="submit">Enviar</button>
-                </div>
-            </div>
+			<!-- Modal Nova Ocorrência -->
+			<div id="nova-ocorrencia" class="modalInterno">
+				<h1>Nova Ocorrência</h1>
+				<div class="new-foto-mensagem">
+					<img src="<%=usuario.foto%>">
+					<textarea name="mensagem" id="mensagem" rows="10"></textarea>
+				</div>
+				<div class="new-foto-categoria">
+					<button class="btn-group"><img src="images/icones-mural/Branco/plus.svg" alt="">Foto</button>
+				</div>
+				<div class="new-cancel-send">
+					<button class="cancelar" type="reset">Cancelar</button>
+					<button class="enviar-modal-novo" type="submit">Enviar</button>
+				</div>
+			</div>
 
-            <!-- Modal Novo Aviso -->
-            <div id="novo-aviso" class="modalInterno">
-                <h1>Novo Aviso</h1>
-                <div class="new-foto-mensagem">
-                    <img src="<%=usuario.foto%>">
-                    <textarea name="mensagem" id="mensagem" rows="10"></textarea>
-                </div>
-                <div class="new-foto-categoria marcar-agenda-modal">
-                        <div class="dados-enquete">
-                            <input type="radio" name="escolha-enquete1" id="opcao-enquete" value="opcao"><label for="opcao">Marcar na agenda</label>
-                        </div>
-                        <div class="custom-select" id="select-box-modal" style="width:200px;">
-                            <select>
-                            <option value="0">Data:</option>
-                            <option value="1">01/05/20</option>
-                            <option value="2">02/05/20</option>
-                            <option value="3">03/05/20</option>
-                            <option value="4">04/05/20</option>
-                            <option value="5">05/05/20</option>
-                            </select>
-                        </div>
-                    
-                </div>
-                <div class="new-cancel-send">
-                    <button class="cancelar" type="reset">Cancelar</button>
-                    <button class="enviar-modal-novo" type="submit">Enviar</button>
-                </div>
-            </div>
+			<!-- Modal Novo Aviso -->
+			<div id="novo-aviso" class="modalInterno">
+				<h1>Novo Aviso</h1>
+				<div class="new-foto-mensagem">
+					<img src="<%=usuario.foto%>">
+					<textarea name="mensagem" id="mensagem" rows="10"></textarea>
+				</div>
+				<div class="new-foto-categoria marcar-agenda-modal">
+					<div class="dados-enquete">
+						<input type="radio" name="escolha-enquete1" id="opcao-enquete" value="opcao"><label for="opcao">Marcar na
+							agenda</label>
+					</div>
+					<div class="custom-select" id="select-box-modal" style="width:200px;">
+						<select>
+							<option value="0">Data:</option>
+							<option value="1">01/05/20</option>
+							<option value="2">02/05/20</option>
+							<option value="3">03/05/20</option>
+							<option value="4">04/05/20</option>
+							<option value="5">05/05/20</option>
+						</select>
+					</div>
 
-        </div>
-    </div>
+				</div>
+				<div class="new-cancel-send">
+					<button class="cancelar" type="reset">Cancelar</button>
+					<button class="enviar-modal-novo" type="submit">Enviar</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
 </body>
 
 </html>

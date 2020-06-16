@@ -70,15 +70,17 @@
 						<% if(aviso.categoria.id == 1) { %>
 						<div class="card">
 							<header>
-								<div class="user-group">
-									<img src="<%=aviso.usuario.foto%>" alt="Imagem de perfil">
-									<div class="user-info">
-										<p><%=aviso.usuario.nome%> <%=aviso.usuario.sobrenome%></p>
-										<span>Apartamento
-											<%= aviso.usuario.apartamentos[0].numero %>
-										</span>
+								<a href="/morador?id=<%=aviso.usuario.id%>">
+									<div class="user-group">
+										<img src="<%=aviso.usuario.foto%>" alt="Imagem de perfil">
+										<div class="user-info">
+											<p><%=aviso.usuario.nome%> <%=aviso.usuario.sobrenome%></p>
+											<span>Apartamento
+												<%= aviso.usuario.apartamentos[0].numero %>
+											</span>
+										</div>
 									</div>
-								</div>
+								</a>								
 								<p class="post-type"><%=aviso.categoria.nome%></p>
 							</header>
 							<main>

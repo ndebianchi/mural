@@ -38,4 +38,48 @@ module.exports = {
       return res.redirect('/perfil?error=1');
     }
   },
+  perfilMorador: async (req, res) => {
+    
+    const id = req.query.id;
+
+    if (id == req.session.usuario.id){
+      return res.redirect('/perfil')
+    } else {
+
+      const morador = await Usuario.findOne({
+        where: { id } ,
+        attributes: {
+          exclude: ['senha'],
+        },
+        include: 'apartamentos'
+      });
+  
+      const posts = await Post.findAll({
+        where: { usuario_id: id },
+        include: [
+          'categoria',
+          'usuario_visualizado',
+          {
+            model: Usuario,
+            as: 'usuario',
+            include: ['apartamentos'],
+            attributes: {
+              exclude: ['email', 'senha', 'telefone'],
+            },
+          },
+          'post_feed',
+        ],
+        attributes: {
+          exclude: ['categoria_id', 'usuario_id'],
+        },
+      });
+  
+      return res.render('morador', {
+        usuario: req.session.usuario,
+        morador,
+        posts: posts.reverse()
+      })
+
+    } 
+  }
 };

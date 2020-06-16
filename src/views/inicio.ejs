@@ -110,15 +110,18 @@
 					<% for(let post of posts) { %>
 					<div class="card">
 						<header>
-							<div class="user-group">
-								<img src="<%=post.post.usuario.foto%>" alt="Imagem de perfil">
-								<div class="user-info">
-									<p><%=post.post.usuario.nome%> <%=post.post.usuario.sobrenome%></p>
-									<span>Apartamento
-										<%= post.post.usuario.apartamentos[0].numero %>
-									</span>
+							<a href="/morador/<%=post.post.usuario.id%>">
+								<div class="user-group">
+									<img src="<%=post.post.usuario.foto%>" alt="Imagem de perfil">
+									<div class="user-info">
+										<p><%=post.post.usuario.nome%> <%=post.post.usuario.sobrenome%></p>
+										<span>Apartamento
+											<%= post.post.usuario.apartamentos[0].numero %>
+										</span>
+									</div>
 								</div>
-							</div>
+							</a>
+							
 							<p class="post-type"><%=post.post.categoria.nome%></p>
 						</header>
 						<main>

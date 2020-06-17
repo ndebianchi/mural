@@ -106,13 +106,15 @@
                     <% for(let ocpost of ocposts) { %>
                     <div class="card ocorr">
                         <header>
-                            <div class="user-group">
-                                <img src="<%=ocpost.post.usuario.foto%>" alt="Imagem de perfil">
-                                <div class="user-info">
-                                    <p><%=ocpost.post.usuario.nome%> <%=ocpost.post.usuario.sobrenome%></p>
-                                    <span>Apartamento <%=ocpost.post.usuario.apartamentos[0].numero%></span>
+                            <a href="/morador?id=<%=ocpost.post.usuario.id%>">
+                                <div class="user-group">
+                                    <img src="<%=ocpost.post.usuario.foto%>" alt="Imagem de perfil">
+                                    <div class="user-info">
+                                        <p><%=ocpost.post.usuario.nome%> <%=ocpost.post.usuario.sobrenome%></p>
+                                        <span>Apartamento <%=ocpost.post.usuario.apartamentos[0].numero%></span>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                             <ol>
                                 <li class="post-type"><%=ocpost.post.categoria.nome%></li>
                                 <!-- <li class="enquete-date">20/04/2020</li> -->

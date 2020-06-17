@@ -105,14 +105,16 @@
 					<% for (let aviso of avisos) { %>
 					<div class="card ocorr">
 						<header>
-							<div class="user-group">
-								<img src="<%= aviso.usuario.foto%>" alt="Imagem de perfil">
-								<div class="user-info">
-									<p><%= aviso.usuario.nome %> <%= aviso.usuario.sobrenome %></p>
-									<span><%= aviso.usuario.apartamentos[0].numero %>
-										<%= aviso.usuario.apartamentos[0].bloco %></span>
+							<a href="/morador?id=<%=aviso.usuario.id%>">
+								<div class="user-group">
+									<img src="<%= aviso.usuario.foto%>" alt="Imagem de perfil">
+									<div class="user-info">
+										<p><%= aviso.usuario.nome %> <%= aviso.usuario.sobrenome %></p>
+										<span><%= aviso.usuario.apartamentos[0].numero %>
+											<%= aviso.usuario.apartamentos[0].bloco %></span>
+									</div>
 								</div>
-							</div>
+							</a>
 							<ol>
 								<li class="post-type"><%= aviso.categoria.nome %></li>
 							</ol>

@@ -1,8 +1,22 @@
-const { Usuario } = require('../models');
+const { Usuario, Apartamento } = require('../models');
 module.exports = {
-  index: (req, res) => {
-    return res.render('config', {
+  index: async (req, res) => {
+
+      let id = req.session.usuario.apartamentos[0].id
+
+      let moradores = await Apartamento.findByPk(id,{
+        include: {
+          model: Usuario,
+          as: 'usuarios',
+          attributes: ['id', 'nome', 'sobrenome', 'foto']
+         }
+      }); 
+
+      moradores = moradores.usuarios;
+
+      return res.render('config', {
       usuario: req.session.usuario,
+      moradores
     });
   },
 

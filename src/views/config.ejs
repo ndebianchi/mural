@@ -160,37 +160,23 @@
                             <div>
                                 <p>Gerenciar Moradores</p>
                             </div>
-                        </div>
+                        </div>                       
+                        
+                        <% for (let morador of moradores) { %>
                         <div class="morador">
                             <div>
-                                <img src="images/posts-mural/mulher-meiaidade-lenço.jpg" alt="">
-                            </div>
-
+                            <a href="/morador?id=<%=morador.id%>">                                
+                                <img src="<%=morador.foto %>" alt="">                                
+                            </a>
+                        </div>
                             <div>
-                                <h3>Maria de Lurdes Silva</h3>
+                                <a href="/morador?id=<%=morador.id%>">
+                                    <h3><%=morador.nome%> <%=morador.sobrenome%></h3>
+                                </a>                                
                                 <a href="#">Excluir</a>
                             </div>
                         </div>
-                        <div class="morador">
-                            <div>
-                                <img src="images/posts-mural/homem-idoso-barba.jpg" alt="">
-                            </div>
-
-                            <div>
-                                <h3>Donatelo Silva e Silva</h3>
-                                <a href="#">Excluir</a>
-                            </div>
-                        </div>
-                        <div class="morador">
-                            <div>
-                                <img src="images/posts-mural/homem-jovem-chapeu.jpg" alt="">
-                            </div>
-
-                            <div>
-                                <h3>Luis Inacio</h3>
-                                <a href="#">Excluir</a>
-                            </div>
-                        </div>
+                        <% } %>                        
 
                     </div>
 

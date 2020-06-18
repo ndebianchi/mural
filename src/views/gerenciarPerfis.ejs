@@ -96,11 +96,15 @@
               <% for(let morador of moradores){ %>
               <div class="morador">
                 <div>
-                  <img src="<%= morador.foto %>" alt="" />
+                  <a href="/morador?id=<%=morador.id%>">
+                    <img src="<%= morador.foto %>" alt="" />
+                  </a>
                 </div>
 
                 <div>
-                  <h3><%= morador.nome %> <%= morador.sobrenome%></h3>
+                  <a href="/morador?id=<%=morador.id%>">
+                    <h3><%= morador.nome %> <%= morador.sobrenome%></h3>
+                  </a>                  
                   <form
                     action="/gerenciarPerfis/<%= morador.id %>?_method=DELETE"
                     method="POST"

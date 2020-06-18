@@ -1,4 +1,7 @@
 const { Usuario, Apartamento } = require('../models');
+
+
+
 module.exports = {
   index: async (req, res) => {
 
@@ -22,7 +25,7 @@ module.exports = {
 
   update: async (req, res) => {
     // Desestrurar os dados que chegam
-    const { nome, sobrenome, email, telefone } = req.body;
+    const { nome, sobrenome, email, telefone } = req.body;  
 
     //Procurar o usuário através da PK
     const user = await Usuario.findByPk(req.session.usuario.id, {
@@ -44,4 +47,26 @@ module.exports = {
     //Redirecionando para mesma página para exibir mensagem de sucesso
     return res.redirect('/config?success=1');
   },
+
+  fotoUpdate: async (req,res) => {
+
+    let fotoNova = req.file;
+
+    const user = await Usuario.findByPk(req.session.usuario.id, {
+      include: 'apartamentos',
+    });
+
+    //Atualizando com os dados
+    user.foto = fotoNova.filename;      
+
+    //Salvando os dados
+    await user.save();
+
+    //Colocando os novos dados do usuário na session
+    req.session.usuario = user;
+
+    //Redirecionando para mesma página para exibir mensagem de sucesso
+    return res.redirect('/config?success=1'); 
+    
+  }
 };

@@ -71,7 +71,7 @@
                 <p>Deixar Público</p>
               </div>
             </div>
-            <form action="/cadastro" method="POST" id="form">
+            <form action="/cadastro" method="POST" id="form" enctype="multipart/form-data">
               <% if (typeof sucesso !== 'undefined') { %>
               <p class="message message--success"><%= sucesso %></p>
               <% } %>

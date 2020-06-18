@@ -46,17 +46,21 @@
                     <div class="page-title-linha"></div>
 
                     <!-- Configurações -->
-                    <div class="profile-pic">
+                        <div class="profile-pic">
                         <div>
                             <img src="<%=usuario.foto %>" alt="">
                         </div>
-                        <div>
+                        <div class="atualizarFoto">
                             <p><%= usuario.nome %> <%= usuario.sobrenome%></p>
-                            <a href="#">Editar Foto</a>
+                            <form action="/configFotoUpdate" method="POST" enctype="multipart/form-data">
+                                <label for="foto">Mudar a foto</label>
+                                <input id="foto" name="foto" type="file">
+                                <button type="submit">Enviar</button>
+                            </form>                    
                         </div>
-                    </div>
+                        </div>
 
-                    <div class="profile-info">
+                     <div class="profile-info">
                         <div class="header">
                             <div>
                                 <p>Configurações de Perfil</p>

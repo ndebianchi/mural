@@ -13,6 +13,12 @@ Começo do selecionar período
     /* margin: 0px 10px; */
 }
 
+.escolha-periodo form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .cabecalho-periodo {
     margin: 0px 10% 20px;
 }
@@ -63,6 +69,11 @@ Aqui começa o select-box (texto importado)
     font-size: 17px;
     max-width: 180px;
     margin: 0px 10px;
+}
+
+.custom-select input {
+    border-radius: 25px;
+    padding: 0 5px;    
 }
 
 .custom-select select {

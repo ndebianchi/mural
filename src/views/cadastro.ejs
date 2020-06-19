@@ -9,6 +9,7 @@
   <script defer src="https://cdn.rawgit.com/lagden/vanilla-masker/lagden/build/vanilla-masker.min.js"></script>
   <script defer src="javascripts/handleSubmit.js"></script>
   <script defer src="javascripts/cadastro.js"></script>
+  <script defer src="javascripts/cadastroFoto.js"></script>
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico" />
   <title>Novo Cadastro</title>
 </head>
@@ -53,25 +54,28 @@
           <div class="page-title-linha"></div>
 
           <!-- Configurações -->
-          <div class="cadastro-pic">
-            <div>
-              <img src="images/icones-mural/Rosa/profile.svg" alt="" />
+          <form action="/cadastro" method="POST" id="form" enctype="multipart/form-data">           
+            <div class="cadastro-pic">
+              <div>
+                <img src="images/icones-mural/Rosa/profile.svg" alt="" />
+              </div>
+              <div class="atualizarFoto">              
+                  <label for="foto">Adicionar Foto</label>
+                  <input id="foto" name="foto" type="file">                                
+                  <span> Foto adicionada! </span>            
+              </div>
             </div>
-            <div>
-              <a href="#">Adicionar Foto</a>
-            </div>
-          </div>
 
-          <div class="profile-info">
-            <div class="header">
-              <div>
-                <p>Insira seus dados</p>
+            <div class="profile-info">
+              <div class="header">
+                <div>
+                  <p>Insira seus dados</p>
+                </div>
+                <div>
+                  <p>Deixar Público</p>
+                </div>
               </div>
-              <div>
-                <p>Deixar Público</p>
-              </div>
-            </div>
-            <form action="/cadastro" method="POST" id="form" enctype="multipart/form-data">
+            
               <% if (typeof sucesso !== 'undefined') { %>
               <p class="message message--success"><%= sucesso %></p>
               <% } %>
@@ -160,9 +164,9 @@
               <div class="form-group-btn">
                 <button class="cancelar" type="reset">Cancelar</button>
                 <button class="salvar" type="submit">Salvar</button>
-              </div>
-            </form>
-          </div>
+              </div>            
+            </div>
+          </form>
         </section>
       </main>
     </div>

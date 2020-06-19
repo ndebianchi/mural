@@ -11,9 +11,14 @@ module.exports = {
       sobrenome,
       email,
       telefone,
-      senha,
-      foto = 'default.svg',
+      senha      
     } = req.body;
+    
+    let foto = 'default.svg';
+
+    if(req.file){
+      foto = req.file.filename;
+    } 
 
     let emailCheck = await Usuario.findOne({ where: { email }})    
 
@@ -52,5 +57,5 @@ module.exports = {
         erro: 'Usuário já existe',
       });
     }
-  },
+  }  
 };

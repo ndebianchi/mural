@@ -41,10 +41,22 @@
     margin: 5px auto;
 }
 
-.cadastro-pic div a {
+.cadastro-pic div label {
     font-family: 'Roboto' sans-serif;
     text-decoration: none;
     color: #707070;
+    font-size: 17px;
+    font-style: italic;
+}
+
+.cadastro-pic div input {
+    display: none;
+}
+
+.atualizarFoto span {
+    display: none;
+    color: #57BC90;
+    font-family: 'Roboto' sans-serif;
     font-size: 17px;
     font-style: italic;
 }

@@ -2,7 +2,7 @@ const { check } = require('express-validator');
 console.log('to no cadastro');
 
 module.exports = [
-  check('apartamento').not().isEmpty().withMessage('Não pode ser vazio!'),
+  check('apartamento').not().isEmpty().withMessage('Apartamento não pode ser vazio!'),
   check('bloco').not().isEmpty(),
   check('nome').not().isEmpty(),
   check('sobrenome').not().isEmpty(),
@@ -11,7 +11,7 @@ module.exports = [
     .withMessage('Deve ser um e-mail válido!')
     .not()
     .isEmpty()
-    .withMessage('Não pode ser vazio!'),
+    .withMessage('Email não pode ser vazio!'),
   check('telefone').not().isEmpty(),
   check('senha')
     .isLength({ min: 8, max: 16 })

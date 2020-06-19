@@ -49,55 +49,30 @@
                 <!-- Selecionar período -->
                 <div class="cabecalho-periodo">
                     <div class="escolha-periodo">
-                        <div class="periodo-text">
-                            <span>De</span>
-                        </div>
-                        <div class="custom-select" id="select-tempo" style="width:200px;">
-                            <select>
-                                <option value="0">Início</option>
-                                <option value="1">Jan/2020</option>
-                                <option value="2">Fev/2020</option>
-                                <option value="3">Mar/2020</option>
-                                <option value="4">Abr/2020</option>
-                                <option value="5">Mai/2020</option>
-                                <option value="6">Jun/2020</option>
-                                <option value="7">Jul/2020</option>
-                                <option value="8">Ago/2020</option>
-                                <option value="9">Set/2020</option>
-                                <option value="10">Out/2020</option>
-                                <option value="11">Nov/2020</option>
-                                <option value="12">Dez/2020</option>
-                            </select>
-                        </div>
-                        <div class="periodo-text">
-                            <span>até</span>
-                        </div>
-                        <div class="custom-select" id="select-tempo" style="width:200px;">
-                            <select>
-                                <option value="0">Fim</option>
-                                <option value="1">Jan/2020</option>
-                                <option value="2">Fev/2020</option>
-                                <option value="3">Mar/2020</option>
-                                <option value="4">Abr/2020</option>
-                                <option value="5">Mai/2020</option>
-                                <option value="6">Jun/2020</option>
-                                <option value="7">Jul/2020</option>
-                                <option value="8">Ago/2020</option>
-                                <option value="9">Set/2020</option>
-                                <option value="10">Out/2020</option>
-                                <option value="11">Nov/2020</option>
-                                <option value="12">Dez/2020</option>
-                            </select>
-                        </div>
-                        <div class="custom-select" style="width:200px;">
-                            <select>
-                                <option value="0">Mostrar</option>
-                                <option value="1">Todas</option>
-                                <option value="2">Respondidas</option>
-                                <option value="3">Em análise</option>
-                            </select>
-                        </div>
-                        <button class="btn-group">Gerar relatório</button>
+                        <form action="/ocorrenciasfiltro" method="POST">
+                            <div class="periodo-text">                            
+                                <label for="dataInicio">De</label>
+                            </div>
+                            <div class="custom-select" id="select-tempo" style="width:200px;">
+                                <input class="custom-select" type="date" name="dataInicio" id="dataInicio">
+                            </div>
+                            <div class="periodo-text">
+                                <label for="dataFinal">até</label>
+                            </div>
+                            <div class="custom-select" id="select-tempo" style="width:200px;">
+                                <input class="custom-select" type="date" name="dataFinal" id="dataFinal">
+                            </div>
+                            <div class="custom-select" style="width:200px;">
+                                <select name="status" id="status">
+                                    <option value="0">Todas</option>
+                                    <option value="1">Em análise</option>
+                                    <option value="2">Respondidas</option>
+                                </select>
+                            </div>
+                            <button class="btn-group" type="submit">Buscar</button>
+                        </form>
+                        <a href="/ocorrencias"><button class="btn-group"> Resetar</button></a>
+                        <!-- <button class="btn-group">Gerar relatório</button> -->
                     </div>
                 </div>
 

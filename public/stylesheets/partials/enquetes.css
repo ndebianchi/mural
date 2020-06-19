@@ -73,12 +73,17 @@ Aqui começa o select-box (texto importado)
 
 .custom-select input {
     border-radius: 25px;
-    padding: 0 5px;    
+    padding: 0 5px; 
+    border-width: 1px;     
 }
 
 .custom-select select {
-    display: none;
+    /* display: none; */
     /*hide original SELECT element: */
+    font-family: 'Roboto Condensed';
+    font-size: 17px;
+    border-radius: 25px;
+    padding: 0 5px;     
 }
 
 .select-selected {

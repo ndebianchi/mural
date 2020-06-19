@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheets/styles.css">
     <script defer src="javascripts/script.js"></script>
+    <script defer src="javascripts/carregarFoto.js"></script>
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
     <title>Configurações</title>
 </head>
@@ -54,8 +55,8 @@
                             <p><%= usuario.nome %> <%= usuario.sobrenome%></p>
                             <form action="/configFotoUpdate" method="POST" enctype="multipart/form-data">
                                 <label for="foto">Mudar a foto</label>
-                                <input id="foto" name="foto" type="file">
-                                <button type="submit">Enviar</button>
+                                <input id="foto" name="foto" type="file">                                
+                                <button class="btn-enviar-foto" type="submit">Enviar</button> 
                             </form>                    
                         </div>
                         </div>

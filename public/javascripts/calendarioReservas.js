@@ -66,7 +66,7 @@ function showCalendar(month, year) {
                 cell = document.createElement("td");
                 cellText = document.createTextNode(date);
                 att = document.createAttribute("onClick");
-				att.value = "openModal('idmodal-agendaMob modal--reserva')";
+				att.value = "openModal('idmodal-agenda modal--reserva')";
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("bg-info");
                 } // color today's date                

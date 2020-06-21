@@ -8,6 +8,7 @@
     <script defer src="javascripts/script.js"></script>
     <script defer src="javascripts/carousel.js"></script>
     <script defer src="javascripts/select-box.js"></script>
+    <script defer src="javascripts/scriptCalendario.js"></script>
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
     <title>Agenda</title>
 </head>
@@ -41,13 +42,96 @@
             <div class="page-title-linha-box"></div>
 
             <!-- Calendário -->
-            <%- include('./partials/calendario', { pageTitle: 'Agenda' }) %>
+            <!-- Adicionar <%- %> -->
+            <!-- include('./partials/calendario', { pageTitle: 'Agenda' }) -->
+            <div class="container-calendario">
+                <div>
+                    
+                    <h3 id="monthAndYear"></h3>
+                    <hr class="hrCalendario">
+                    <div>
+                        <table id="calendar">
+                            <thead>
+                            <tr>
+                                <th>Dom</th>
+                                <th>Seg</th>
+                                <th>Ter</th>
+                                <th>Qua</th>
+                                <th>Qui</th>
+                                <th>Sex</th>
+                                <th>Sáb</th>
+                            </tr>
+                            </thead>
+                
+                            <tbody id="calendar-body">
+                
+                            </tbody>
+                        </table>
+                    </div>
+                    
+            
+                    <hr class="hrCalendario">
+                    <br/>
+                    <div class="form-select-calendario">
+                        <form class="form-inline">
+                            <label for="month">Ir Para: </label>
+                            <select name="month" id="month" onchange="jump()">
+                                <option value=0>Janeiro</option>
+                                <option value=1>Fevereiro</option>
+                                <option value=2>Março</option>
+                                <option value=3>Abril</option>
+                                <option value=4>Maio</option>
+                                <option value=5>Junho</option>
+                                <option value=6>Julho</option>
+                                <option value=7>Agosto</option>
+                                <option value=8>Setembro</option>
+                                <option value=9>Outubro</option>
+                                <option value=10>Novembro</option>
+                                <option value=11>Dezembro</option>
+                            </select>
+                
+                
+                            <label for="ano"></label><select name="year" id="year" onchange="jump()">            
+                            <option value=2010>2010</option>
+                            <option value=2011>2011</option>
+                            <option value=2012>2012</option>
+                            <option value=2013>2013</option>
+                            <option value=2014>2014</option>
+                            <option value=2015>2015</option>
+                            <option value=2016>2016</option>
+                            <option value=2017>2017</option>
+                            <option value=2018>2018</option>
+                            <option value=2019>2019</option>
+                            <option value=2020>2020</option>
+                            <option value=2021>2021</option>
+                            <option value=2022>2022</option>
+                            <option value=2023>2023</option>
+                            <option value=2024>2024</option>
+                            <option value=2025>2025</option>
+                            <option value=2026>2026</option>
+                            <option value=2027>2027</option>
+                            <option value=2028>2028</option>
+                            <option value=2029>2029</option>
+                            <option value=2030>2030</option>
+                            </select>
+                        </form>
+            
+            
+                    </div>        
+                    <div class="previousNext">
+                        <button id="previous" onclick="previous()">< Anterior</button>
+                        <button id="next" onclick="next()">Próximo ></button>
+                    </div>
+                </div>
+            </div>
+            
+            
 
         </div>
 
         <!-- Modais -->
         <div id="open-modal" class="modal">
-            <!-- Modal Novo Post -->
+            
             <div id="idmodal-agenda" class="modalInterno">
                 <h1>Novo evento</h1>
                 <div class="new-foto-mensagem nome-evento">

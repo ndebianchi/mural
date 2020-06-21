@@ -21,6 +21,7 @@
 @import "./partials/calendario.css";
 @import "./partials/contas.css";
 @import "./erros.css";
+@import "./calendarioNovo.css";
 
 * {
     box-sizing: border-box;

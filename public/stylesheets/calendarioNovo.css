@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.container-calendario {
+    font-family: 'Roboto', sans-serif; 
+    color: #707070;
+    text-align: center;
+    display: flex;
+    justify-content: center;     
+}
+
+#monthAndYear {
+    margin: 20px 0;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.hrCalendario {
+    border-top: 2px solid #F70065;
+}
+
+.previousNext {
+    margin: 20px 0;
+}
+
+.previousNext button {
+    border: none;
+    border-radius: 25px;
+    color: white;
+    background-color: #F70065;
+    padding: 10px 20px;
+    margin: 0 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;    
+}
+
+table {
+    border-spacing: 10px;
+    border-collapse: separate;
+}
+
+#calendar thead tr th {
+    font-size: 18px;
+    font-weight: 500;   
+}
+
+#calendar-body tr td {
+    font-size: 25px;
+    font-weight: 100; 
+}
+
+
+.form-select-calendario {
+    font-size: 20px;
+}
+
+.form-select-calendario select{
+    border-radius: 25px;
+    font-size: 20px;
+    color: #707070;
+    padding: 3px;
+}
+
+@media (min-width: 620px) {
+
+    #monthAndYear {
+        font-size: 40px;
+    }
+
+    .hrCalendario {
+        border-top: 3px solid #F70065;
+    }
+
+    .previousNext button {
+        border-radius: 35px;
+        padding: 20px 30px;
+        margin: 0 30px;        
+        font-size: 20px;    
+    }
+
+    table {
+        border-spacing: 25px;
+    }
+
+    #calendar thead tr th {
+        font-size: 25px;   
+    }
+    
+    #calendar-body tr td {
+        font-size: 32px;
+        font-weight: 100; 
+    }
+
+    .form-select-calendario {
+        font-size: 25px;
+    }
+    
+    .form-select-calendario select{
+        border-radius: 25px;
+        font-size: 25px;
+        color: #707070;
+        padding: 5px;
+    }
+
+    
+
+}
+

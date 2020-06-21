@@ -8,6 +8,8 @@ module.exports = {
   reservasAgenda: (req, res) => {
     return res.render('reservas-agenda', {
       usuario: req.session.usuario,
+      pageTitle: 'Reservas Agenda',
+      pageIcon: 'reservas.svg'     
     });
   },
 };

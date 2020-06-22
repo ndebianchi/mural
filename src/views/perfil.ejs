@@ -92,7 +92,7 @@
 						<main>
 							<p class="post-text"><%= post.mensagem%></p>
 							</p>							
-							<% if (post.post_feed[0].foto) { %>
+							<% if (post.post_feed.length && post.post_feed[0].foto) { %>
 							<img class="post-img" src="<%=post.post_feed[0].foto%>" alt="Imagem do post">
 							<% } %>
 						</main>

@@ -39,21 +39,19 @@ module.exports = {
     }
   },
   perfilMorador: async (req, res) => {
-    
-    const id = req.query.id;
+    const { id } = req.query;
 
-    if (id == req.session.usuario.id){
-      return res.redirect('/perfil')
+    if (id == req.session.usuario.id) {
+      return res.redirect('/perfil');
     } else {
-
       const morador = await Usuario.findOne({
-        where: { id } ,
+        where: { id },
         attributes: {
           exclude: ['senha'],
         },
-        include: 'apartamentos'
+        include: 'apartamentos',
       });
-  
+
       const posts = await Post.findAll({
         where: { usuario_id: id },
         include: [
@@ -73,13 +71,12 @@ module.exports = {
           exclude: ['categoria_id', 'usuario_id'],
         },
       });
-  
+
       return res.render('morador', {
         usuario: req.session.usuario,
         morador,
-        posts: posts.reverse()
-      })
-
-    } 
-  }
+        posts: posts.reverse(),
+      });
+    }
+  },
 };

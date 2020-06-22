@@ -49,7 +49,8 @@ module.exports = {
   },
 
   novoPost: async (req, res) => {
-    const { mensagem, tipo, foto } = req.body;
+    const { mensagem, tipo } = req.body;
+    const { location: foto = '' } = req.file;
 
     // Cria o post no DB Post: usuario_id, categoria_id, mensagem
     await Post.create({

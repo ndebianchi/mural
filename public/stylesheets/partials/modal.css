@@ -96,11 +96,11 @@ MODAIS NOVO POST / NOVO AVISO / NOVA OCORRÊNCIA / NOVO OBJETO
   margin-top: 20px;
 }
 
-.new-foto-categoria button {
+.new-foto-categoria label {
   display: flex;
 }
 
-.new-foto-categoria button img {
+.new-foto-categoria label img {
   width: 16px;
   height: 16px;
   padding-right: 6px;
@@ -135,7 +135,7 @@ MODAIS NOVO POST / NOVO AVISO / NOVA OCORRÊNCIA / NOVO OBJETO
   margin-top: 20px;
 }
 
-.new-foto-categoria button.btn-group,
+.new-foto-categoria label.btn-group,
 .new-cancel-send button.btn-group {
   align-items: center;
   border: none;
@@ -151,6 +151,15 @@ MODAIS NOVO POST / NOVO AVISO / NOVA OCORRÊNCIA / NOVO OBJETO
   margin-left: 10px;
   padding: 5px 10px;
 }
+
+.foto-post {
+  display: none;
+}
+
+/* .new-foto-categoria label.btn-group img {
+  margin-right: 5px;
+  width: 15px;
+} */
 
 .new-cancel-send button.cancelar {
   border: none;
@@ -171,7 +180,8 @@ MODAIS NOVO POST / NOVO AVISO / NOVA OCORRÊNCIA / NOVO OBJETO
   font-size: 18px;
 }
 
-.modal-idmodal-agendaMob, .modal-idmodal-agenda{
+.modal-idmodal-agendaMob,
+.modal-idmodal-agenda {
   width: 80vw !important;
 }
 
@@ -208,7 +218,7 @@ MODAIS NOVO POST / NOVO AVISO / NOVA OCORRÊNCIA / NOVO OBJETO
     justify-content: center;
   }
 
-  
+
 
   .new-foto-mensagem img {
     width: 70px;
@@ -237,11 +247,11 @@ MODAIS NOVO POST / NOVO AVISO / NOVA OCORRÊNCIA / NOVO OBJETO
     height: 55vw;
   }
 
-  .nome-evento textarea{
+  .nome-evento textarea {
     width: 95vh;
     height: 15vw;
   }
-  
+
   .new-cancel-send {
     margin-top: 15px;
   }

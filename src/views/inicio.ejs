@@ -132,10 +132,10 @@
 						<main>
 							<p class="post-text"><%= post.post.mensagem%></p>
 							</p>
-							<% if (post.foto == null) { %>
+							<% if (post.foto) { %>
 
+								<img class="post-img" src="<%=post.foto%>" alt="Imagem do post">
 							<% } else { %>
-							<img class="post-img" src="<%=post.foto%>" alt="Imagem do post">
 							<% } %>
 						</main>
 						<footer>

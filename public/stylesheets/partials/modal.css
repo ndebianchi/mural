@@ -106,6 +106,24 @@ MODAIS NOVO POST / NOVO AVISO / NOVA OCORRÊNCIA / NOVO OBJETO
   padding-right: 6px;
 }
 
+.new-foto-ocorrencia {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1%;
+  margin-top: 20px;
+}
+
+.new-foto-ocorrencia label {
+  display: flex;
+}
+
+.new-foto-ocorrencia label img {
+  width: 16px;
+  height: 16px;
+  padding-right: 6px;
+}
+
 /* Marcar na agenda com radio button */
 
 .marcar-agenda-modal {
@@ -136,6 +154,7 @@ MODAIS NOVO POST / NOVO AVISO / NOVA OCORRÊNCIA / NOVO OBJETO
 }
 
 .new-foto-categoria label.btn-group,
+.new-foto-ocorrencia label.btn-group,
 .new-cancel-send button.btn-group {
   align-items: center;
   border: none;
@@ -238,7 +257,8 @@ MODAIS NOVO POST / NOVO AVISO / NOVA OCORRÊNCIA / NOVO OBJETO
     width: 90vw !important;
   }
 
-  .new-foto-categoria {
+  .new-foto-categoria,
+  .new-foto-ocorrencia {
     margin-top: 15px;
   }
 

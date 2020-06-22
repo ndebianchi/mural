@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheets/styles.css">
     <script defer src="javascripts/script.js"></script>
-    <script defer src="javascripts/carousel.js"></script>    
+    <script defer src="javascripts/carousel.js"></script>
     <script defer src="javascripts/calendarioReservas.js"></script>
     <!-- Scripts do Calendario Velho -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script> -->
@@ -51,88 +51,89 @@
                 <!-- EJS Partials: Adicionar <%- %> -->
                 <!-- include('./partials/calendario') -->
 
-                 <!-- Calendário Novo -->
-            <div class="container-calendario">
-                <div>
-                    
-                    <h3 id="monthAndYear"></h3>
-                    <hr class="hrCalendario">
+                <!-- Calendário Novo -->
+                <div class="container-calendario">
                     <div>
-                        <table id="calendar">
-                            <thead>
-                            <tr>
-                                <th>Dom</th>
-                                <th>Seg</th>
-                                <th>Ter</th>
-                                <th>Qua</th>
-                                <th>Qui</th>
-                                <th>Sex</th>
-                                <th>Sáb</th>
-                            </tr>
-                            </thead>
-                
-                            <tbody id="calendar-body">
-                
-                            </tbody>
-                        </table>
-                    </div>
-                    
-            
-                    <hr class="hrCalendario">
-                    <br/>
-                    <div class="form-select-calendario">
-                        <form class="form-inline">
-                            <label for="month">Ir Para: </label>
-                            <select name="month" id="month" onchange="jump()">
-                                <option value=0>Janeiro</option>
-                                <option value=1>Fevereiro</option>
-                                <option value=2>Março</option>
-                                <option value=3>Abril</option>
-                                <option value=4>Maio</option>
-                                <option value=5>Junho</option>
-                                <option value=6>Julho</option>
-                                <option value=7>Agosto</option>
-                                <option value=8>Setembro</option>
-                                <option value=9>Outubro</option>
-                                <option value=10>Novembro</option>
-                                <option value=11>Dezembro</option>
-                            </select>
-                
-                
-                            <label for="ano"></label><select name="year" id="year" onchange="jump()">            
-                            <option value=2010>2010</option>
-                            <option value=2011>2011</option>
-                            <option value=2012>2012</option>
-                            <option value=2013>2013</option>
-                            <option value=2014>2014</option>
-                            <option value=2015>2015</option>
-                            <option value=2016>2016</option>
-                            <option value=2017>2017</option>
-                            <option value=2018>2018</option>
-                            <option value=2019>2019</option>
-                            <option value=2020>2020</option>
-                            <option value=2021>2021</option>
-                            <option value=2022>2022</option>
-                            <option value=2023>2023</option>
-                            <option value=2024>2024</option>
-                            <option value=2025>2025</option>
-                            <option value=2026>2026</option>
-                            <option value=2027>2027</option>
-                            <option value=2028>2028</option>
-                            <option value=2029>2029</option>
-                            <option value=2030>2030</option>
-                            </select>
-                        </form>
-            
-            
-                    </div>        
-                    <div class="previousNext">
-                        <button id="previous" onclick="previous()">< Anterior</button>
-                        <button id="next" onclick="next()">Próximo ></button>
+
+                        <h3 id="monthAndYear"></h3>
+                        <hr class="hrCalendario">
+                        <div>
+                            <table id="calendar">
+                                <thead>
+                                    <tr>
+                                        <th>Dom</th>
+                                        <th>Seg</th>
+                                        <th>Ter</th>
+                                        <th>Qua</th>
+                                        <th>Qui</th>
+                                        <th>Sex</th>
+                                        <th>Sáb</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="calendar-body">
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                        <hr class="hrCalendario">
+                        <br />
+                        <div class="form-select-calendario">
+                            <form class="form-inline">
+                                <label for="month">Ir Para: </label>
+                                <select name="month" id="month" onchange="jump()">
+                                    <option value=0>Janeiro</option>
+                                    <option value=1>Fevereiro</option>
+                                    <option value=2>Março</option>
+                                    <option value=3>Abril</option>
+                                    <option value=4>Maio</option>
+                                    <option value=5>Junho</option>
+                                    <option value=6>Julho</option>
+                                    <option value=7>Agosto</option>
+                                    <option value=8>Setembro</option>
+                                    <option value=9>Outubro</option>
+                                    <option value=10>Novembro</option>
+                                    <option value=11>Dezembro</option>
+                                </select>
+
+
+                                <label for="ano"></label><select name="year" id="year" onchange="jump()">
+                                    <option value=2010>2010</option>
+                                    <option value=2011>2011</option>
+                                    <option value=2012>2012</option>
+                                    <option value=2013>2013</option>
+                                    <option value=2014>2014</option>
+                                    <option value=2015>2015</option>
+                                    <option value=2016>2016</option>
+                                    <option value=2017>2017</option>
+                                    <option value=2018>2018</option>
+                                    <option value=2019>2019</option>
+                                    <option value=2020>2020</option>
+                                    <option value=2021>2021</option>
+                                    <option value=2022>2022</option>
+                                    <option value=2023>2023</option>
+                                    <option value=2024>2024</option>
+                                    <option value=2025>2025</option>
+                                    <option value=2026>2026</option>
+                                    <option value=2027>2027</option>
+                                    <option value=2028>2028</option>
+                                    <option value=2029>2029</option>
+                                    <option value=2030>2030</option>
+                                </select>
+                            </form>
+
+
+                        </div>
+                        <div class="previousNext">
+                            <button id="previous" onclick="previous()">
+                                < Anterior</button> <button id="next" onclick="next()">Próximo >
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-                
+
             </main>
         </div>
 
@@ -150,12 +151,10 @@
                     <p class="enquete__option enquete__option--bold enquete__option--reserva">
                         07/09/2020
                     </p>
-
                     <div class="enquete__periodo enquete__periodo--reserva">
                         <div class="periodo-text">
                             <span class="enquete__option enquete__option--reserva">Em nome do</span>
                         </div>
-    
                         <div class="custom-select enquete__select enquete__select--reserva">
                             <select>
                                 <option value="0">Apto. 1</option>
@@ -164,56 +163,15 @@
                             </select>
                         </div>
                     </div>
-
                 </div>
-
-
                 <div class="new-cancel-send">
-
                     <button class="enviar-modal-novo" type="submit">Reservar</button>
                 </div>
-            </div>
-
-           
-                <div class="enquete__header">
-                    <h2 class="enquete__heading">reservar</h2>
-                    <i class="enquete__icon" data-feather="x"></i>
-                </div>
-                <div class="new-foto-mensagem new-foto-mensagem--reserva">
-                    <img class="new-foto-mensagem__img" src="images/posts-mural/hendy-almeida.jpg">
-                    <h2 class="reserva-data">Salão de Festas</h2>
-                    <p class="enquete__option enquete__option--bold enquete__option--reserva">
-                        07/09/2020
-                    </p>
-
-                    <div class="enquete__periodo enquete__periodo--reserva">
-                        <div class="periodo-text">
-                            <span class="enquete__option enquete__option--reserva">Em nome do</span>
-                        </div>
-    
-                        <div class="custom-select enquete__select enquete__select--reserva">
-                            <select>
-                                <option value="0">Apto. 1</option>
-                                <option value="1">Apto. 2</option>
-                                <option value="2">Apto. 3</option>
-                            </select>
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <div class="new-cancel-send">
-
-                    <button class="enviar-modal-novo" type="submit">Reservar</button>
-                </div>
-            </div> -->
-
+            </div>           
         </div>
+
     </div>
-    <script>
-        feather.replace()
-    </script>
+    </div>
 </body>
 
 </html>

@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       
       PostPerdido.belongsTo(models.Post, {
         foreignKey: 'post_id',
-        as: 'perdido'
+        as: 'post'
       });      
     };
   

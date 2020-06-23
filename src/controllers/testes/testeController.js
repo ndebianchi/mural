@@ -56,16 +56,23 @@ const testeController = {
 
     perdido: async (req, res) => {
 
-        const resultado = await Post.findAll({
-            include: ["categoria",
-            {
-                model: Usuario,
-                as: "usuario",
-                include: ["apartamentos"]
-            },
-            "usuario_visualizado"
-        ]
-        })
+        const resultado = await PostPerdido.findAll({
+            include: [
+              {
+                model: Post,
+                as: 'perdidos',
+                include: [
+                  'categoria',
+                  {
+                    model: Usuario,
+                    as: 'usuario',
+                    include: ['apartamentos'],
+                  },
+                  'usuario_visualizado',
+                ],
+              },
+            ],
+          });
 
         res.json(resultado)
 

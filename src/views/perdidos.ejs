@@ -94,6 +94,7 @@
                 
                 <!-- Feed Principal -->
                 <section class="lista-enquetes">
+                    <% for (let perdido of perdidos) { %>
                     <div class="card ocorr">
                         <header>
                             <div class="user-group">
@@ -103,100 +104,40 @@
                             </div>
                             <ol>
                                 <li class="post-type">Ocorrência</li>
-                                <li class="enquete-date">20/04/2020</li>
+                                <!-- <li class="enquete-date">20/04/2020</li> -->
                             </ol>
                         </header>
                         <main>
                             <p class="post-text">
-                                Prezados, informo que estas chaves foram encontradas no estacionamento ontem pela manhã.
+                                <%= perdido.post.mensagem%>
                             </p>
-                            <img class="post-img" src="images/posts-mural/chaves.jpg" alt="">
+                            <% if (perdido.foto) { %>
+
+								<img class="post-img" src="<%=perdido.foto%>" alt="Imagem do post">
+							<% } else { %>
+							<% } %>
                         </main>
                         <footer>
-                            <ul class="post-info-ocorr">
-                                <li><img src="images/icones-mural/Azul/circle.svg" alt=""></li>
-                                <li id="ocurr-análise">Perdido</lin>
-                            </ul>
-                            <div class="btn-group">
-                                <button class="btn-comment">Marcar devolvido</button>
-                            </div>
-                        </footer>
-                    </div>
-                    <div class="card ocorr">
-                        <header>
-                            <div class="user-group">
-                                <div class="user-info">
-                                    <p>Achados e Perdidos</p>
+                            <% if (perdido.status == 1) { %>
+                                <ul class="post-info-ocorr">
+                                    <img class="oc-status" src="images/icones-mural/Azul/circle.svg" alt="">
+                                    <li id="ocurr-análise">Perdido</li>
+                                </ul>
+                                <div class="btn-group">
+                                    <button class="btn-comment" onclick="ocConcluir('<%=perdido.id%>')">Marcar como devolvido</button>
                                 </div>
-                            </div>
-                            <ol>
-                                <li class="post-type">Ocorrência</li>
-                                <li class="enquete-date">08/03/2020</li>
-                            </ol>
-                        </header>
-                        <main>
-                            <p class="post-text">
-                                Esta bolsa foi localizada ontem, por volta das 15h, em região próxima à academia.
-                            </p>
-                            <img class="post-img" src="images/posts-mural/bolsa.jpg" alt="">
-                        </main>
-                        <footer>
-                            <ul class="post-info-ocorr">
-                                <li><img src="images/icones-mural/Verde/check.svg" alt=""></li>
-                                <li>Devolvido</lin>
-                            </ul>
+                            <% } else { %>
+                                <ul class="post-info-ocorr">
+                                    <li><img src="images/icones-mural/Verde/check.svg" alt=""></li>
+                                    <li>Devolvido</lin>
+                                </ul>
+                                <!-- <div class="btn-group">
+                                    <button class="btn-comment">Ver resposta</button>
+                                </div> -->
+                            <% } %>
                         </footer>
                     </div>
-                    <div class="card ocorr">
-                        <header>
-                            <div class="user-group">
-                                <div class="user-info">
-                                    <p>Achados e Perdidos</p>
-                                </div>
-                            </div>
-                            <ol>
-                                <li class="post-type">Ocorrência</li>
-                                <li class="enquete-date">08/03/2020</li>
-                            </ol>
-                        </header>
-                        <main>
-                            <p class="post-text">
-                                Esta carteira foi encontrada no Hall hoje de manhã. Ela contém documento de identificação. 
-                            </p>
-                            <img class="post-img" src="images/posts-mural/carteira.jpg" alt="">
-                        </main>
-                        <footer>
-                            <ul class="post-info-ocorr">
-                                <li><img src="images/icones-mural/Verde/check.svg" alt=""></li>
-                                <li>Devolvido</lin>
-                            </ul>
-                        </footer>
-                    </div>
-                    <div class="card ocorr">
-                        <header>
-                            <div class="user-group">
-                                <div class="user-info">
-                                    <p>Achados e Perdidos</p>
-                                </div>
-                            </div>
-                            <ol>
-                                <li class="post-type">Ocorrência</li>
-                                <li class="enquete-date">08/03/2020</li>
-                            </ol>
-                        </header>
-                        <main>
-                            <p class="post-text">
-                                A camêra abaixo foi vista em região próxima ao jardim. Notamos ausência de bateria no momento em que foi encontrada.
-                            </p>
-                            <img class="post-img" src="images/posts-mural/camera.jpg" alt="">
-                        </main>
-                        <footer>
-                            <ul class="post-info-ocorr">
-                                <li><img src="images/icones-mural/Verde/check.svg" alt=""></li>
-                                <li>Devolvido</lin>
-                            </ul>
-                        </footer>
-                    </div>
+                    <% } %>
                     
                 </section>
 

@@ -29,7 +29,7 @@ const {
             order: [['status', 'DESC']],
           });
 
-        res.render('perdidos', {
+        return res.render('perdidos', {
             pageTitle: 'Achados e Perdidos',
             pageIcon: 'achados3.svg',
             usuario: req.session.usuario, 
@@ -48,8 +48,11 @@ const {
       return res.redirect('/perdidos');
     },
     novoObjeto: async (req, res) => {
-      const { mensagem, foto } = req.body;
-  
+      const { mensagem } = req.body;
+
+      let foto = '';
+      if (req.file) foto = req.file.location;
+
       // Cria o post no DB Post: usuario_id, categoria_id, mensagem
       await Post.create({
         usuario_id: req.session.usuario.id,
@@ -69,9 +72,11 @@ const {
       await PostPerdido.create({
         post_id: perCriado.id,
         foto,
+        status: 1,
       });
   
       // Redireciona para /inicio
-      res.redirect('/perdidos');
+      return res.redirect('/perdidos');
+      
     }
 };

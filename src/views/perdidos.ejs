@@ -9,7 +9,7 @@
     <script defer src="javascripts/carousel.js"></script>
     <script defer src="javascripts/perdidoDevolvido.js"></script>
     <script defer src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script defer src="javascripts/novoPostFoto.js"></script>
+    <script defer src="javascripts/novoObjetoFoto.js"></script>
     <!-- <script defer src="javascripts/select-box.js"></script> -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
     <title><%= pageTitle %></title>
@@ -152,25 +152,25 @@
 
         <!-- Modal Novo Achado e Perdido -->
         <div id="novo-achado-perdido" class="modalInterno">
-        <form action="/novoObjeto" method="POST" enctype="multipart/form-data"></form>
+        <form action="/novoObjeto" method="POST" enctype="multipart/form-data">
             <h1>Novo Objeto</h1>
             <div class="new-foto-mensagem">
                 <img src="<%=usuario.foto%>">
                 <textarea name="mensagem" id="mensagem" rows="10"></textarea>
             </div>
             <div class="new-foto-categoria">
-                    <label for="foto-post" class="btn-group">
+                    <label for="foto-perdido" class="btn-group" id="foto-perdido-label">
                         <img src="images/icones-mural/Branco/plus.svg" alt="">
                         Foto
                     </label>
-                    <input class="foto-post" type="file" name="foto" id="foto-post">
+                    <input class="foto-post" type="file" name="foto" id="foto-perdido">
             </div>
             <div class="new-cancel-send">
                 <button class="cancelar" type="reset">Cancelar</button>
                 <button class="enviar-modal-novo" type="submit">Enviar</button>
             </div>
         </form>
-        </div>
+    </div>
     
     </div>
     </div>

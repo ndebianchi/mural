@@ -35,7 +35,18 @@ const PerdidosController = {
             usuario: req.session.usuario, 
             perdidos: perdidos.reverse()
         })
-    }
+    },
+    marcarConcluido: async (req, res) => {
+      const { id } = req.body;
+      await PostPerdido.update(
+        { status: 2 },
+        {
+          where: { id },
+        }
+      );
+  
+      return res.redirect('/perdidos');
+    },
 }
 
 module.exports = PerdidosController;

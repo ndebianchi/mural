@@ -1,8 +1,17 @@
+const { Local } = require('../models')
 module.exports = {
-  index: (req, res) => {
+  index: async (req, res) => {
+
+    let locais = await Local.findAll();
+
+    console.log()
+    console.log('-----------------')
+    console.log(locais)
+
     return res.render('reservas', {
       usuario: req.session.usuario,
-    });
+      locais
+    });    
   },
 
   reservasAgenda: (req, res) => {

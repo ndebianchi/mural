@@ -48,8 +48,16 @@
                 <div class="containerReservas">
                     <div class="wrapReservas">
 
-                        <!--  Card Novo  -->
-                        <%- include('./partials/cardReserva') %>
+                        <% for(let local of locais) { %>
+                        <a href="/reservas-agenda"  class="cardReservas" >
+                            <div class = "espacoFoto">
+                                <img src="<%=local.foto%>" alt="">                       
+                            </div>
+                            <div class = "espacoNome">
+                                <h2><%=local.nome%></h2>                                
+                            </div>
+                        </a>
+                        <% } %>
 
                     </div>
                 </div>

@@ -58,7 +58,7 @@ module.exports = {
     await Post.create({
       usuario_id: req.session.usuario.id,
       categoria_id: tipo,
-      mensagem,
+      mensagem,      
     });
 
     let postCriado = await Post.findOne({

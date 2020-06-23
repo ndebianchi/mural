@@ -23,3 +23,9 @@
 #ocurr-análise{
     color: #77C9D4;
 }
+
+#btn-filtro-select {    
+    border-radius: 25px;
+    padding: 5px 30px;
+    margin: 5px 0;    
+}

@@ -8,7 +8,7 @@ const {
     Likes_vistos,
   } = require('../models');
 
-const PerdidosController = {
+  module.exports = {
     index: async (req, res) => {
         const perdidos = await PostPerdido.findAll({
             include: [
@@ -47,6 +47,31 @@ const PerdidosController = {
   
       return res.redirect('/perdidos');
     },
-}
-
-module.exports = PerdidosController;
+    novoObjeto: async (req, res) => {
+      const { mensagem, foto } = req.body;
+  
+      // Cria o post no DB Post: usuario_id, categoria_id, mensagem
+      await Post.create({
+        usuario_id: req.session.usuario.id,
+        categoria_id: 8,
+        mensagem,
+      });
+  
+      let perCriado = await Post.findOne({
+        where: {
+          usuario_id: req.session.usuario.id,
+          categoria_id: 8,
+          mensagem,
+        },
+      });
+  
+      // Criar a relação no DB FeedPost: post_id, foto
+      await PostPerdido.create({
+        post_id: perCriado.id,
+        foto,
+      });
+  
+      // Redireciona para /inicio
+      res.redirect('/perdidos');
+    }
+};

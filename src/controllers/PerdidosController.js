@@ -8,7 +8,7 @@ const {
     Likes_vistos,
   } = require('../models');
 
-  module.exports = {
+const PerdidosController = {
     index: async (req, res) => {
         const perdidos = await PostPerdido.findAll({
             include: [
@@ -47,6 +47,7 @@ const {
   
       return res.redirect('/perdidos');
     },
+    
     novoObjeto: async (req, res) => {
       const { mensagem } = req.body;
 
@@ -78,5 +79,51 @@ const {
       // Redireciona para /inicio
       return res.redirect('/perdidos');
       
+    },
+
+    filtrar: async (req, res) => {
+      let { dataInicio, dataFinal, status } = req.body;  
+     
+      const perdidos = await PostPerdido.findAll({
+        include: [
+          {
+            model: Post,
+            as: 'post',
+            include: [
+              'categoria',
+              {
+                model: Usuario,
+                as: 'usuario',
+                include: ['apartamentos'],
+              },
+              'usuario_visualizado',
+            ],
+            attributes: {
+              include: ['created_at']
+            },
+          },
+        ],
+        order: [['status', 'DESC']],
+      }); 
+  
+      let perFiltro = perdidos.filter(a => {
+        if(status == 0){
+          return Date.parse(a.dataValues.post.dataValues.created_at) >= Date.parse(dataInicio) &&
+                 Date.parse(a.dataValues.post.dataValues.created_at) <= Date.parse(dataFinal)
+        } else {
+          return Date.parse(a.dataValues.post.dataValues.created_at) >= Date.parse(dataInicio) &&
+                 Date.parse(a.dataValues.post.dataValues.created_at) <= Date.parse(dataFinal) &&
+                 a.dataValues.status == status
+        }     
+      })
+  
+      return res.render('perdidos', {
+        pageTitle: 'Achados e Perdidos',
+        pageIcon: 'achados3.svg',
+        usuario: req.session.usuario,
+        perdidos: perFiltro.reverse(),
+      });
     }
 };
+
+module.exports = PerdidosController;

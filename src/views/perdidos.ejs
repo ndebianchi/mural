@@ -151,19 +151,24 @@
 
         <!-- Modal Novo Achado e Perdido -->
         <div id="novo-achado-perdido" class="modalInterno">
+        <form action="/novoObjeto" method="POST" enctype="multipart/form-data"></form>
             <h1>Novo Objeto</h1>
             <div class="new-foto-mensagem">
-                <img src="images/posts-mural/homem-meiaidade-boina.jpg">
+                <img src="<%=usuario.foto%>">
                 <textarea name="mensagem" id="mensagem" rows="10"></textarea>
             </div>
             <div class="new-foto-categoria">
-                <button class="btn-group"><img src="images/icones-mural/Branco/plus.svg"
-                    alt="">Foto</button>
+                    <label for="foto-post" class="btn-group">
+                        <img src="images/icones-mural/Branco/plus.svg" alt="">
+                        Foto
+                    </label>
+                    <input class="foto-post" type="file" name="foto" id="foto-post">
             </div>
             <div class="new-cancel-send">
                 <button class="cancelar" type="reset">Cancelar</button>
                 <button class="enviar-modal-novo" type="submit">Enviar</button>
             </div>
+        </form>
         </div>
     
     </div>

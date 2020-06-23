@@ -13,6 +13,9 @@ main .feed {
     background-color: #FBF1F5;
     margin: 15px 10px;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card header {

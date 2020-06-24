@@ -117,39 +117,39 @@
 					<% for(let post of posts) { %>
 					<div class="card">
 						<header>
-							<a href="/morador?id=<%=post.post.usuario.id%>">
+							<a href="/morador?id=<%=post.usuario.id%>">
 								<div class="user-group">
-									<img src="<%=post.post.usuario.foto%>" alt="Imagem de perfil">
+									<img src="<%=post.usuario.foto%>" alt="Imagem de perfil">
 									<div class="user-info">
-										<p><%=post.post.usuario.nome%> <%=post.post.usuario.sobrenome%></p>
+										<p><%=post.usuario.nome%> <%=post.usuario.sobrenome%></p>
 										<span>Apartamento
-											<%= post.post.usuario.apartamentos[0].numero %>
+											<%= post.usuario.apartamentos[0].numero %>
 										</span>
 									</div>
 								</div>
 							</a>
 
-							<p class="post-type"><%=post.post.categoria.nome%></p>
+							<p class="post-type"><%=post.categoria.nome%></p>
 						</header>
 						<main>
-							<p class="post-text"><%= post.post.mensagem%></p>
+							<p class="post-text"><%= post.mensagem%></p>
 							</p>
-							<% if (post.foto) { %>
+							<% if (post.post_feed[0] && post.post_feed[0].foto) { %>
 
-							<img class="post-img" src="<%=post.foto%>" alt="Imagem do post">
+							<img class="post-img" src="<%=post.post_feed[0].foto%>" alt="Imagem do post">
 							<% } else { %>
 							<% } %>
 						</main>
 						<footer>
 							<div class="post-info">
-								<span><%= post.post.usuario_visualizado.length%> likes</span>
+								<span><%= post.usuario_visualizado.length%> likes</span>
 								<!-- <span>3 respostas</span> -->
 							</div>
 							<div class="btn-group">
 								<!-- <button class="btn-comment"><img
                                         src="images/icones-mural/Branco/message-square-white.svg"
 																				alt="Botão de comentar">Responder</button> -->
-								<form action="/addLike/<%= post.post.id  %>" method="POST">
+								<form action="/addLike/<%= post.id  %>" method="POST">
 
 									<button class="btn-like" type="submit">
 										<img src="images/icones-mural/Branco/heart-white.svg" alt="Botão de like" />Curtir
@@ -207,9 +207,9 @@
 				<form action="/inicio" method="POST" class="filtro-interno">
 					<h2>Filtrar Posts</h2>
 					<div class="filtro-group">
-						<p>Avisos</p>
+						<p>Post</p>
 						<label class="switch">
-							<input type="checkbox" name="post_tipo" value="1" checked>
+							<input type="checkbox" name="post_tipo" value="2" checked>
 							<span class="slider"></span>
 						</label>
 					</div>
@@ -227,7 +227,7 @@
 							<span class="slider"></span>
 						</label>
 					</div>
-					<div class="filtro-group" >
+					<div class="filtro-group">
 						<p>Eventos</p>
 						<label class="switch">
 							<input type="checkbox" name="post_tipo" value="7" checked>

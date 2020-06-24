@@ -161,43 +161,50 @@
 
 			<!-- Modal Filtros -->
 			<div id="filtros" class="modalInterno">
-				<form class="filtro-interno">
+				<form action="/inicio" method="POST" class="filtro-interno">
 					<h2>Filtrar Posts</h2>
 					<div class="filtro-group">
-						<p>Avisos</p>
+						<p>Post</p>
 						<label class="switch">
-							<input type="checkbox" checked>
+							<input type="checkbox" name="post_tipo" value="2" checked>
 							<span class="slider"></span>
 						</label>
 					</div>
 					<div class="filtro-group">
 						<p>Ocorrências</p>
 						<label class="switch">
-							<input type="checkbox">
+							<input type="checkbox" name="post_tipo" value="3" checked>
 							<span class="slider"></span>
 						</label>
 					</div>
 					<div class="filtro-group">
-						<p>Serviços</p>
+						<p>Anúncios</p>
 						<label class="switch">
-							<input type="checkbox" checked>
-							<span class="slider"></span>
-						</label>
-					</div>
-					<div class="filtro-group">
-						<p>Eventos</p>
-						<label class="switch">
-							<input type="checkbox" checked>
+							<input type="checkbox" name="post_tipo" value="4" checked>
 							<span class="slider"></span>
 						</label>
 					</div>
 					<div class="filtro-group">
 						<p>Classificados</p>
 						<label class="switch">
-							<input type="checkbox" checked>
+							<input type="checkbox" name="post_tipo" value="5" checked>
 							<span class="slider"></span>
 						</label>
 					</div>
+					<div class="filtro-group">
+						<p>Serviços</p>
+						<label class="switch">
+							<input type="checkbox" name="post_tipo" value="6" checked>
+							<span class="slider"></span>
+						</label>
+					</div>
+					<div class="filtro-group">
+						<p>Eventos</p>
+						<label class="switch">
+							<input type="checkbox" name="post_tipo" value="7" checked>
+							<span class="slider"></span>
+						</label>
+					</div>					
 					<div class="filtro-group">
 						<button class="redefinir" type="reset">Redefinir</button>
 						<button class="aplicar" type="submit">Aplicar</button>

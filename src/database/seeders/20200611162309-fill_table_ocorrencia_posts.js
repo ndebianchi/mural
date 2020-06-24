@@ -10,14 +10,14 @@ module.exports = {
       [
         {
           post_id: 16,
-          foto: 'posts/Ocorrencia-2.jpg',
+          foto: 'posts/Ocorrencia-1.jpg',
           status: 1,
           created_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
           updated_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
         },
         {
           post_id: 9,
-          foto: 'posts/Ocorrencia-2.jpg',
+          foto: 'posts/Ocorrencia-1.jpg',
           status: 2,
           created_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
           updated_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),

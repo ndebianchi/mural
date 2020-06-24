@@ -9,15 +9,15 @@ module.exports = {
       'ocorrencia_posts',
       [
         {
-          post_id: 7,
-          foto: 'https://picsum.photos/500/300?random=1',
+          post_id: 16,
+          foto: '/tmp/posts/Ocorrencia-2.jpg',
           status: 1,
           created_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
           updated_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
         },
         {
           post_id: 9,
-          foto: 'https://picsum.photos/500/300?random=1',
+          foto: '/tmp/posts/Ocorrencia-2.jpg',
           status: 2,
           created_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
           updated_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),

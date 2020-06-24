@@ -9,12 +9,12 @@ module.exports = {
       'agenda',
       [
         {
-          post_id: 15,
+          post_id: 1,
           created_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
           updated_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
         },
         {
-          post_id: 17,
+          post_id: 2,
           created_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
           updated_at: moment(date).format('YYYY-MM-DD hh:mm:ss'),
         },

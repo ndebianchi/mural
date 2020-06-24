@@ -71,6 +71,6 @@ module.exports = {
     // await delApartamento.destroy();
     await delMorador.destroy();
 
-    return res.redirect('/gerenciarPerfis');
+    return res.redirect('/gerenciarPerfis?success=1');
   },
 };

@@ -7,6 +7,7 @@
     <script defer src="javascripts/script.js"></script>
     <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script defer src="javascripts/select-box.js"></script>
+    <script defer src="javascripts/successHandling.js"></script>
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico" />
     <title><%= pageTitle %></title>
   </head>
@@ -40,7 +41,9 @@
           <!-- Divisória (parte do Titulo) -->
           <div class="page-title-linha"></div>
 
-          <p class="message message--success">Usuário excluído com sucesso!</p>
+
+          <p class="message message--success" style="display: none;">Usuário excluído com sucesso!</p>
+          
 
           <section class="gerenciar-perfis">
             <div class="gp-section">

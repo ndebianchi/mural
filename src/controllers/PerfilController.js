@@ -24,7 +24,7 @@ module.exports = {
 
     return res.render('perfil', {
       usuario: req.session.usuario,
-      posts: posts.reverse(),
+      posts: posts.reverse(),            
     });
   },
   destroy: async (req, res) => {

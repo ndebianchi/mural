@@ -66,7 +66,18 @@ module.exports = {
     req.session.usuario = user;
 
     //Redirecionando para mesma página para exibir mensagem de sucesso
-    return res.redirect('/config?success=1'); 
+    return res.redirect('/config?success=2'); 
     
-  }
+  },
+  destroy: async (req, res) => {
+    const { id } = req.params;
+    
+    let delMorador = await Usuario.findOne({ where: { id } });
+
+    await delMorador.destroy();
+
+    return res.redirect('/config?success=1');
+  },
+
+
 };

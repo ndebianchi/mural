@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="stylesheets/styles.css">
     <script defer src="javascripts/script.js"></script>
     <script defer src="javascripts/configFoto.js"></script>
+    <script defer src="javascripts/successHandling.js"></script>
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
     <title>Configurações</title>
 </head>
@@ -44,7 +45,7 @@
                 <section class="settings">
 
                     <!-- Divisória (parte do Titulo) -->
-                    <div class="page-title-linha"></div>
+                    <div class="page-title-linha"></div>                    
 
                     <!-- Configurações -->
                         <div class="profile-pic">
@@ -165,7 +166,9 @@
                             <div>
                                 <p>Gerenciar Moradores</p>
                             </div>
-                        </div>                       
+                        </div>  
+                        
+                        <p class="message message--success" style="display: none;">Usuário excluído com sucesso!</p>
                         
                         <% for (let morador of moradores) { %>
                         <div class="morador">
@@ -177,8 +180,13 @@
                             <div>
                                 <a href="/morador?id=<%=morador.id%>">
                                     <h3><%=morador.nome%> <%=morador.sobrenome%></h3>
-                                </a>                                
-                                <a href="#">Excluir</a>
+                                </a> 
+
+                                <form
+                                action="/config/<%= morador.id %>?_method=DELETE"
+                                method="POST" >
+                                <button class="excluirUsuario" name="id">Excluir</button>
+                            </form>
                             </div>
                         </div>
                         <% } %>                        

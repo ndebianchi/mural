@@ -18,5 +18,6 @@ let upload = multer({ storage: storage })
 router.get('/config', ConfigController.index);
 router.put('/config', ConfigController.update);
 router.post('/configFotoUpdate', upload.single('foto'), ConfigController.fotoUpdate);
+router.delete('/config/:id', ConfigController.destroy)
 
 module.exports = router;

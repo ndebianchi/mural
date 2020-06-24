@@ -6,7 +6,10 @@ const {
   FeedPost,
   OcorrenciaPost,
   Likes_vistos,
+  PostCategoria,
 } = require('../models');
+
+const { Op } = require('sequelize');
 
 module.exports = {
   index: async (req, res) => {
@@ -30,13 +33,20 @@ module.exports = {
 
     const avisos = await Post.findAll({
       include: [
-        'categoria',
+        {
+          model: PostCategoria,
+          as: 'categoria',
+          where: { id: 1 },
+        },
         {
           model: Usuario,
           as: 'usuario',
           include: ['apartamentos'],
         },
-        'usuario_visualizado',
+        {
+          model: Usuario,
+          as: 'usuario_visualizado',
+        },
       ],
     });
 
@@ -58,7 +68,7 @@ module.exports = {
     await Post.create({
       usuario_id: req.session.usuario.id,
       categoria_id: tipo,
-      mensagem,      
+      mensagem,
     });
 
     let postCriado = await Post.findOne({
@@ -80,18 +90,22 @@ module.exports = {
   },
 
   novaOcorrencia: async (req, res) => {
-    const { mensagem, foto } = req.body;
+    const { mensagem } = req.body;
+    const { id: usuario_id } = req.session.usuario;
+
+    let foto = '';
+    if (req.file) foto = req.file.location;
 
     // Cria o post no DB Post: usuario_id, categoria_id, mensagem
     await Post.create({
-      usuario_id: req.session.usuario.id,
+      usuario_id,
       categoria_id: 3,
       mensagem,
     });
 
     let occCriada = await Post.findOne({
       where: {
-        usuario_id: req.session.usuario.id,
+        usuario_id,
         categoria_id: 3,
         mensagem,
       },
@@ -135,10 +149,14 @@ module.exports = {
     const user = await Usuario.findByPk(req.session.usuario.id);
 
     //Buscando o post que o usuário deu like
-    const post = await Post.findByPk(id);
+    const post = await Post.findByPk(id, {
+      include: 'usuario_visualizado',
+    });
 
     //Verificando se o usuário já deu like antes
     const result = await post.hasUsuario_visualizado(user);
+    console.log(result);
+    console.log(post.usuario_visualizado.length);
 
     //Se sim, ele remove o link, se não ele adiciona
     if (result) {
@@ -162,5 +180,58 @@ module.exports = {
     );
 
     return res.redirect('/inicio');
+  },
+
+  filter: async (req, res) => {
+    // const { post_tipo } = req.body;
+    // const posts = await FeedPost.findAll({
+    //   include: [
+    //     {
+    //       model: Post,
+    //       as: 'post',
+    //       include: [
+    //         {
+    //           model: PostCategoria,
+    //           as: 'categoria',
+    //           where: {
+    //             id: {
+    //               [Op.in]: post_tipo,
+    //             },
+    //           },
+    //         },
+    //         {
+    //           model: Usuario,
+    //           as: 'usuario',
+    //           include: ['apartamentos'],
+    //         },
+    //         'usuario_visualizado',
+    //       ],
+    //     },
+    //   ],
+    // });
+    // const avisos = await Post.findAll({
+    //   include: [
+    //     {
+    //       model: PostCategoria,
+    //       as: 'categoria',
+    //       where: { id: 1 },
+    //     },
+    //     {
+    //       model: Usuario,
+    //       as: 'usuario',
+    //       include: ['apartamentos'],
+    //     },
+    //     {
+    //       model: Usuario,
+    //       as: 'usuario_visualizado',
+    //     },
+    //   ],
+    // });
+    // return res.render('inicio', {
+    //   pageTitle: 'Mural',
+    //   usuario: req.session.usuario,
+    //   posts: posts.reverse(),
+    //   avisos: avisos.reverse(),
+    // });
   },
 };

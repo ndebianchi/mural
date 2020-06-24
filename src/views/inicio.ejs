@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="stylesheets/styles.css">
 	<script defer src="javascripts/script.js"></script>
-	<script defer src="javascripts/carousel.js"></script>	
+	<script defer src="javascripts/carousel.js"></script>
 	<script defer src="javascripts/feedLike.js"></script>
 	<script defer src="javascripts/feedEntendido.js"></script>
 	<script defer src="javascripts/novoPostFoto.js"></script>
@@ -70,7 +70,7 @@
 
 					<div class="carousel">
 						<% for(let aviso of avisos) { %>
-						<% if(aviso.categoria.id == 1) { %>
+						<% if(aviso.usuario_visualizado && !aviso.usuario_visualizado.find(user => user.id === usuario.id)) { %>
 						<div class="card">
 							<header>
 								<a href="/morador?id=<%=aviso.usuario.id%>">
@@ -97,9 +97,11 @@
 									<!-- <span>3 respostas</span> -->
 								</div>
 								<div class="btn-group">
-									<button class="btn-check" onclick="entendido('<%=aviso.id%>')"><img
-											src="images/icones-mural/Branco/check.svg"
-											alt="Botão de confirmar entendimento">Entendido</button>
+									<form action="/addLike/<%= aviso.id  %>" method="POST">
+										<button class="btn-check" onclick="entendido('<%=aviso.id%>')"><img
+												src="images/icones-mural/Branco/check.svg"
+												alt="Botão de confirmar entendimento">Entendido</button>
+									</form>
 								</div>
 							</footer>
 						</div>
@@ -134,7 +136,7 @@
 							</p>
 							<% if (post.foto) { %>
 
-								<img class="post-img" src="<%=post.foto%>" alt="Imagem do post">
+							<img class="post-img" src="<%=post.foto%>" alt="Imagem do post">
 							<% } else { %>
 							<% } %>
 						</main>
@@ -202,40 +204,40 @@
 
 			<!-- Modal Filtros -->
 			<div id="filtros" class="modalInterno">
-				<form class="filtro-interno">
+				<form action="/inicio" method="POST" class="filtro-interno">
 					<h2>Filtrar Posts</h2>
 					<div class="filtro-group">
 						<p>Avisos</p>
 						<label class="switch">
-							<input type="checkbox" checked>
+							<input type="checkbox" name="post_tipo" value="1" checked>
 							<span class="slider"></span>
 						</label>
 					</div>
 					<div class="filtro-group">
 						<p>Ocorrências</p>
 						<label class="switch">
-							<input type="checkbox">
+							<input type="checkbox" name="post_tipo" value="3">
 							<span class="slider"></span>
 						</label>
 					</div>
 					<div class="filtro-group">
 						<p>Serviços</p>
 						<label class="switch">
-							<input type="checkbox" checked>
+							<input type="checkbox" name="post_tipo" value="6" checked>
 							<span class="slider"></span>
 						</label>
 					</div>
-					<div class="filtro-group">
+					<div class="filtro-group" >
 						<p>Eventos</p>
 						<label class="switch">
-							<input type="checkbox" checked>
+							<input type="checkbox" name="post_tipo" value="7" checked>
 							<span class="slider"></span>
 						</label>
 					</div>
 					<div class="filtro-group">
 						<p>Classificados</p>
 						<label class="switch">
-							<input type="checkbox" checked>
+							<input type="checkbox" name="post_tipo" value="5" checked>
 							<span class="slider"></span>
 						</label>
 					</div>
@@ -255,7 +257,7 @@
 						<img src="<%=usuario.foto%>">
 						<textarea name="mensagem" id="mensagem" rows="10"></textarea>
 					</div>
-					<div class="new-foto-ocorrencia">						
+					<div class="new-foto-ocorrencia">
 						<label for="foto-ocorrencia" class="btn-group" id="foto-ocorrencia-label">
 							<img src="images/icones-mural/Branco/plus.svg" alt="">
 							Foto

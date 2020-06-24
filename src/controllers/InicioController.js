@@ -13,22 +13,29 @@ const { Op } = require('sequelize');
 
 module.exports = {
   index: async (req, res) => {
-    const posts = await FeedPost.findAll({
+    const posts = await Post.findAll({
       include: [
         {
-          model: Post,
-          as: 'post',
-          include: [
-            'categoria',
-            {
-              model: Usuario,
-              as: 'usuario',
-              include: ['apartamentos'],
-            },
-            'usuario_visualizado',
-          ],
+          model: FeedPost,
+          as: 'post_feed',
         },
+        {
+          model: PostCategoria,
+          as: 'categoria',
+          where: {
+            id: {
+              [Op.not]: 1,
+            },
+          },
+        },
+        {
+          model: Usuario,
+          as: 'usuario',
+          include: ['apartamentos'],
+        },
+        'usuario_visualizado',
       ],
+      order: [['created_at', 'DESC']],
     });
 
     const avisos = await Post.findAll({
@@ -53,7 +60,7 @@ module.exports = {
     return res.render('inicio', {
       pageTitle: 'Mural',
       usuario: req.session.usuario,
-      posts: posts.reverse(),
+      posts,
       avisos: avisos.reverse(),
     });
   },
@@ -183,55 +190,59 @@ module.exports = {
   },
 
   filter: async (req, res) => {
-    // const { post_tipo } = req.body;
-    // const posts = await FeedPost.findAll({
-    //   include: [
-    //     {
-    //       model: Post,
-    //       as: 'post',
-    //       include: [
-    //         {
-    //           model: PostCategoria,
-    //           as: 'categoria',
-    //           where: {
-    //             id: {
-    //               [Op.in]: post_tipo,
-    //             },
-    //           },
-    //         },
-    //         {
-    //           model: Usuario,
-    //           as: 'usuario',
-    //           include: ['apartamentos'],
-    //         },
-    //         'usuario_visualizado',
-    //       ],
-    //     },
-    //   ],
-    // });
-    // const avisos = await Post.findAll({
-    //   include: [
-    //     {
-    //       model: PostCategoria,
-    //       as: 'categoria',
-    //       where: { id: 1 },
-    //     },
-    //     {
-    //       model: Usuario,
-    //       as: 'usuario',
-    //       include: ['apartamentos'],
-    //     },
-    //     {
-    //       model: Usuario,
-    //       as: 'usuario_visualizado',
-    //     },
-    //   ],
-    // });
-    // return res.render('inicio', {
-    //   pageTitle: 'Mural',
-    //   usuario: req.session.usuario,
-    //   posts: posts.reverse(),
-    //   avisos: avisos.reverse(),
-    // });
+    let { post_tipo } = req.body;
+
+    if (!Array.isArray(post_tipo)) post_tipo = [post_tipo];
+
+    const posts = await Post.findAll({
+      include: [
+        {
+          model: FeedPost,
+          as: 'post_feed',
+        },
+        {
+          model: PostCategoria,
+          as: 'categoria',
+          where: {
+            id: {
+              [Op.in]: post_tipo,
+            },
+          },
+        },
+        {
+          model: Usuario,
+          as: 'usuario',
+          include: ['apartamentos'],
+        },
+        'usuario_visualizado',
+      ],
+      order: [['created_at', 'DESC']],
+    });
+
+    const avisos = await Post.findAll({
+      include: [
+        {
+          model: PostCategoria,
+          as: 'categoria',
+          where: { id: 1 },
+        },
+        {
+          model: Usuario,
+          as: 'usuario',
+          include: ['apartamentos'],
+        },
+        {
+          model: Usuario,
+          as: 'usuario_visualizado',
+        },
+      ],
+    });
+
+    return res.render('inicio', {
+      pageTitle: 'Mural',
+      usuario: req.session.usuario,
+      posts,
+      avisos: avisos.reverse(),
+    });
   },
 };

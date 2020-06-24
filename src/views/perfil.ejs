@@ -94,7 +94,7 @@
 						</header>
 						<main>
 							<p class="post-text"><%= post.mensagem%></p>
-							</p>							
+							</p>
 							<% if (post.post_feed.length && post.post_feed[0].foto) { %>
 							<img class="post-img" src="<%=post.post_feed[0].foto%>" alt="Imagem do post">
 							<% } %>
@@ -162,7 +162,7 @@
 
 			<!-- Modal Filtros -->
 			<div id="filtros" class="modalInterno">
-				<form action="/inicio" method="POST" class="filtro-interno">
+				<form action="/perfil" method="POST" class="filtro-interno">
 					<h2>Filtrar Posts</h2>
 					<div class="filtro-group">
 						<p>Post</p>
@@ -205,7 +205,7 @@
 							<input type="checkbox" name="post_tipo" value="7" checked>
 							<span class="slider"></span>
 						</label>
-					</div>					
+					</div>
 					<div class="filtro-group">
 						<button class="redefinir" type="reset">Redefinir</button>
 						<button class="aplicar" type="submit">Aplicar</button>
@@ -222,7 +222,7 @@
 						<img src="<%=usuario.foto%>">
 						<textarea name="mensagem" id="mensagem" rows="10"></textarea>
 					</div>
-					<div class="new-foto-ocorrencia">						
+					<div class="new-foto-ocorrencia">
 						<label for="foto-ocorrencia" class="btn-group" id="foto-ocorrencia-label">
 							<img src="images/icones-mural/Branco/plus.svg" alt="">
 							Foto
@@ -267,7 +267,7 @@
 					</div>
 				</form>
 			</div>
-				
+
 		</div>
 	</div>
 </body>

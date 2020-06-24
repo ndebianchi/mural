@@ -14,7 +14,9 @@ module.exports = {
       senha,
     } = req.body;
 
-    const { location: foto = 'default.svg' } = req.file;
+    let foto = 'default.svg';
+
+    if (req.file) foto = req.file.location;
 
     let emailCheck = await Usuario.findOne({ where: { email } });
 

@@ -1,4 +1,5 @@
-const { FeedPost, Post, Usuario } = require('../models');
+const { FeedPost, Post, Usuario, PostCategoria } = require('../models');
+const { Op } = require('sequelize');
 
 module.exports = {
   index: async (req, res) => {
@@ -78,5 +79,47 @@ module.exports = {
         posts: posts.reverse(),
       });
     }
+  },
+  filter: async (req, res) => {
+    let { post_tipo } = req.body;
+
+    if (!Array.isArray(post_tipo)) post_tipo = [post_tipo];
+
+    const posts = await Post.findAll({
+      where: { usuario_id: req.session.usuario.id },
+      include: [
+        {
+          model: FeedPost,
+          as: 'post_feed',
+        },
+        {
+          model: PostCategoria,
+          as: 'categoria',
+          where: {
+            id: {
+              [Op.in]: post_tipo,
+            },
+          },
+        },
+        {
+          model: Usuario,
+          as: 'usuario',
+          include: ['apartamentos'],
+          attributes: {
+            exclude: ['email', 'senha', 'telefone'],
+          },
+        },
+        'usuario_visualizado',
+      ],
+      attributes: {
+        exclude: ['categoria_id', 'usuario_id'],
+      },
+      order: [['created_at', 'DESC']],
+    });
+
+    return res.render('perfil', {
+      usuario: req.session.usuario,
+      posts,
+    });
   },
 };
